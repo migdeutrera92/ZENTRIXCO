@@ -141,7 +141,7 @@
 }
 </script>
 
-  <link rel="stylesheet" href="css/styles-global.css" />
+  <link rel="stylesheet" href="/css/styles-global.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -150,6 +150,7 @@
 <body>
 
   <!-- Header -->
+
   <header class="header" id="header">
     <div class="container header-inner">
       <a href="index.html" class="logo">
@@ -157,15 +158,15 @@
         <span class="logo-text">Zentrix<span class="logo-highlight">Co</span></span>
       </a>
       <nav class="nav" id="nav">
-        <a href="index.html" class="nav-link">Inicio</a>
-        <a href="servicios.html" class="nav-link">Servicios</a>
-        <a href="soluciones.html" class="nav-link active">Soluciones</a>
-        <a href="casos-de-exito-automatizacion.html" class="nav-link">Casos de Éxito</a>
-        <a href="sobre-nosotros.html" class="nav-link">Nosotros</a>
-        <a href="blog-automatizacion-ia.html" class="nav-link">Blog</a>
-        <a href="contacto.html" class="nav-link">Contacto</a>
+        <a href="/index" class="nav-link active">Inicio</a>
+        <a href="/servicios" class="nav-link">Servicios</a>
+        <a href="/soluciones" class="nav-link">Soluciones</a>
+        <a href="/casos-de-exito-automatizacion" class="nav-link">Casos de Éxito</a>
+        <a href="/sobre-nosotros" class="nav-link">Nosotros</a>
+        <a href="/blog-automatizacion-ia" class="nav-link">Blog</a>
+        <a href="/contacto" class="nav-link">Contacto</a>
       </nav>
-      <a href="contacto.html" class="btn btn-primary btn-sm header-cta">Consulta Gratis</a>
+      <a href="/contacto" class="btn btn-primary btn-sm header-cta">Consulta Gratis</a>
       <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
     </div>
   </header>
@@ -177,7 +178,7 @@
 Soluciones de automatización empresarial en Chile para finanzas, retail, salud y logística con RPA, IA y agentes inteligentes.
 </p>
     <div class="breadcrumb">
-      <a href="index.html">Inicio</a> <span>/</span> <span>Soluciones</span>
+      <a href="/index">Inicio</a> <span>/</span> <span>Soluciones</span>
     </div>
   </section>
 
@@ -325,7 +326,7 @@ Soluciones de automatización empresarial en Chile para finanzas, retail, salud 
       Agenda una consultoría gratuita con ZentrixCo y recibe un diagnóstico real de oportunidades de ahorro, eficiencia y escalabilidad en tu operación.
     </p>
 
-    <a href="contacto.html" class="btn btn-primary btn-lg">
+    <a href="/contacto" class="btn btn-primary btn-lg">
       Solicitar diagnóstico gratuito
     </a>
 
@@ -443,24 +444,54 @@ Soluciones de automatización empresarial en Chile para finanzas, retail, salud 
     <div class="container">
       <h2>Descubre qué procesos puedes automatizar en tu empresa hoy</h2>
 <p>Te entregamos un diagnóstico gratuito con oportunidades reales de ahorro y eficiencia.</p>
-      <a href="contacto.html" class="btn btn-primary btn-lg">Agendar Consultoría</a>
+      <a href="/contacto" class="btn btn-primary btn-lg">Agendar Consultoría</a>
     </div>
   </section>
 
 
 
-  <!-- Footer -->
+ <!-- Footer -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
-        <div class="footer-about"><div class="footer-logo"><img src="https://mgx-backend-cdn.metadl.com/generate/images/1102970/2026-04-15/mvbqgriaafaa/logo-zentrixco-transparent.png" alt="ZentrixCo Logo" class="logo-img" /><span class="logo-text">Zentrix<span class="logo-highlight">Co</span></span></div><p>Expertos en automatización RPA, inteligencia artificial y transformación digital para empresas en Chile y Latinoamérica.</p></div>
-        <div class="footer-col"><h4>Servicios</h4><a href="servicios.html">Automatización RPA</a><a href="servicios.html">Agentes IA</a><a href="servicios.html">Integraciones</a><a href="servicios.html">Hiperautomatización</a></div>
-        <div class="footer-col"><h4>Empresa</h4><a href="sobre-nosotros.html">Sobre Nosotros</a><a href="casos-de-exito-automatizacion.html">Casos de Éxito</a><a href="blog-automatizacion-ia.html">Blog</a><a href="contacto.html">Contacto</a></div>
-        <div class="footer-col"><h4>Soluciones</h4><a href="soluciones.html">Finanzas</a><a href="soluciones.html">Retail</a><a href="soluciones.html">Salud</a><a href="soluciones.html">Logística</a></div>
+        <div class="footer-about">
+          <div class="footer-logo">
+            <img src="https://mgx-backend-cdn.metadl.com/generate/images/1102970/2026-04-15/mvbqgriaafaa/logo-zentrixco-transparent.png"  loading="lazy" alt="ZentrixCo Logo" class="logo-img" />
+            <span class="logo-text">Zentrix<span class="logo-highlight">Co</span></span>
+          </div>
+          <p>Expertos en automatización RPA, inteligencia artificial y transformación digital para empresas en Chile y Latinoamérica.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Servicios</h4>
+         <a href="/servicios#rpa">Automatización RPA</a>
+         <a href="/servicios#ia">Agentes IA</a>
+         <a href="/servicios#integraciones">Integraciones</a>
+         <a href="/servicios">Hiperautomatización</a>
+        </div>
+        <div class="footer-col">
+          <h4>Empresa</h4>
+          <a href="/sobre-nosotros">Sobre Nosotros</a>
+          <a href="/casos-de-exito-automatizacion">Casos de Éxito</a>
+          <a href="/blog-automatizacion-ia">Blog</a>
+          <a href="/contacto">Contacto</a>
+        </div>
+        <div class="footer-col">
+          <h4>Soluciones</h4>
+           <a href="/soluciones#finanzas">Finanzas</a>
+           <a href="/soluciones#retail">Retail</a>
+           <a href="/soluciones#logistica">Logística</a>
+           <a href="/soluciones">Ver todas las soluciones</a>
+        </div>
       </div>
       <div class="footer-bottom">
-        <p class="footer-copy">&copy; 2025 ZentrixCo. Todos los derechos reservados.</p>
-        <div class="footer-socials"><a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a><a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a><a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a></div>
+        <p class="footer-copy">&copy; 2026 ZentrixCo.</p>
+        <p class="footer-copy">Santiago, Chile</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
       </div>
     </div>
   </footer>
@@ -557,7 +588,7 @@ Soluciones de automatización empresarial en Chile para finanzas, retail, salud 
     window.addEventListener('load', initTabs);
   })();
   </script>
-  <script type="module" src="js/scripts-global.js"></script>
-<script src="js/chat-widget.js"></script>
+  <script type="module" src="/js/scripts-global.js"></script>
+<script src="/js/chat-widget.js"></script>
 </body>
 </html>
