@@ -608,11 +608,20 @@
   <!-- Header -->
   <header class="header" id="header">
     <div class="container header-inner">
-      <a href="index.html" class="logo"><img src="https://mgx-backend-cdn.metadl.com/generate/images/1102970/2026-04-15/mvbqgriaafaa/logo-zentrixco-transparent.png" alt="ZentrixCo Logo" class="logo-img" /><span class="logo-text">Zentrix<span class="logo-highlight">Co</span></span></a>
+      <a href="index.html" class="logo">
+        <img src="https://mgx-backend-cdn.metadl.com/generate/images/1102970/2026-04-15/mvbqgriaafaa/logo-zentrixco-transparent.png" alt="ZentrixCo Logo" class="logo-img" />
+        <span class="logo-text">Zentrix<span class="logo-highlight">Co</span></span>
+      </a>
       <nav class="nav" id="nav">
-        <a href="index.html" class="nav-link">Inicio</a><a href="servicios.html" class="nav-link">Servicios</a><a href="soluciones.html" class="nav-link">Soluciones</a><a href="casos-de-exito-automatizacion.html" class="nav-link">Casos de Éxito</a><a href="sobre-nosotros.html" class="nav-link active">Nosotros</a><a href="blog-automatizacion-ia.html" class="nav-link">Blog</a><a href="contacto.html" class="nav-link">Contacto</a>
+        <a href="/index" class="nav-link active">Inicio</a>
+        <a href="/servicios" class="nav-link">Servicios</a>
+        <a href="/soluciones" class="nav-link">Soluciones</a>
+        <a href="/casos-de-exito-automatizacion" class="nav-link">Casos de Éxito</a>
+        <a href="/sobre-nosotros" class="nav-link">Nosotros</a>
+        <a href="/blog-automatizacion-ia" class="nav-link">Blog</a>
+        <a href="/contacto" class="nav-link">Contacto</a>
       </nav>
-      <a href="contacto.html" class="btn btn-primary btn-sm header-cta">Consulta Gratis</a>
+      <a href="/contacto" class="btn btn-primary btn-sm header-cta">Consulta Gratis</a>
       <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
     </div>
   </header>
@@ -622,7 +631,7 @@
   <section class="page-hero page-hero--nosotros" style="background:linear-gradient(135deg, rgba(10,42,74,0.82) 0%, rgba(21,101,168,0.78) 40%, rgba(33,150,200,0.75) 100%), url('https://mgx-backend-cdn.metadl.com/generate/images/1102970/2026-04-17/mzfqazqaae6q/banner-nosotros-office-team.png') center/cover no-repeat;">
     <h1>Sobre ZentrixCo: automatización RPA e IA para empresas que quieren escalar</h1>
     <p>Conoce cómo ayudamos a empresas en Chile y Latinoamérica a reducir costos, eliminar tareas manuales y crecer con automatización inteligente.</p>
-    <div class="breadcrumb"><a href="index.html">Inicio</a> <span>/</span> <span>Sobre Nosotros</span></div>
+    <div class="breadcrumb"><a href="/index">Inicio</a> <span>/</span> <span>Sobre Nosotros</span></div>
   </section>
   
 <section class="pain-section">
@@ -711,11 +720,11 @@
 
        <p class="historia-desc">
   Por eso nace ZentrixCo: para automatizar procesos con 
-  <a href="servicios.html">RPA e inteligencia artificial</a>,
+  <a href="/servicios">RPA e inteligencia artificial</a>,
   permitiendo a las empresas escalar sin aumentar su carga operativa.
 </p>
 
-        <a href="contacto.html" class="btn btn-primary">
+        <a href="/contacto" class="btn btn-primary">
           Quiero automatizar mi empresa
         </a>
 
@@ -797,7 +806,7 @@ Automatización RPA en Chile: cómo optimizar procesos empresariales con intelig
       </h2>
 
    <p class="rpa-intro">
-  La <a href="servicios.html">automatización RPA</a> permite a las empresas ejecutar tareas repetitivas de forma automática, 
+  La <a href="/servicios">automatización RPA</a> permite a las empresas ejecutar tareas repetitivas de forma automática, 
   eliminando errores humanos y aumentando la eficiencia operativa sin necesidad de aumentar el equipo.
 </p>
 
@@ -829,7 +838,7 @@ Automatización RPA en Chile: cómo optimizar procesos empresariales con intelig
       <p class="rpa-highlight">
         Hoy, las empresas que automatizan no trabajan más… <strong>operan mejor y escalan más rápido.</strong>
       </p>
-      <a href="contacto.html" class="btn btn-primary" style="margin-top:20px;">
+      <a href="/contacto" class="btn btn-primary" style="margin-top:20px;">
   Evaluar automatización en mi empresa
 </a>
 
@@ -868,10 +877,10 @@ Automatización RPA en Chile: cómo optimizar procesos empresariales con intelig
     </div>
     <p style="margin-top:20px; color:#667085;">
 Puedes ver ejemplos concretos en nuestros 
-<a href="casos-de-exito-automatizacion.html">casos de automatización empresarial</a>.
+<a href="/casos-de-exito-automatizacion">casos de automatización empresarial</a>.
 </p>
     <div style="margin-top:32px;">
-      <a href="casos-de-exito-automatizacion.html" class="btn btn-secondary">
+      <a href="/casos-de-exito-automatizacion" class="btn btn-secondary">
         Ver casos reales
       </a>
     </div>
@@ -1085,7 +1094,7 @@ Y esto es solo el inicio. Cada proceso automatizado abre nuevas oportunidades de
 Cada mes que operas manualmente estás perdiendo dinero, tiempo y oportunidades de crecimiento que tu competencia sí puede aprovechar.
 </p>
 
-    <a href="contacto.html" class="btn btn-primary fd-cta">
+    <a href="/contacto" class="btn btn-primary fd-cta">
       → Quiero automatizar mi empresa
     </a>
 
@@ -1103,25 +1112,57 @@ Si tu empresa sigue operando manualmente, estás perdiendo dinero todos los día
 Cada proceso manual es tiempo perdido, errores evitables y crecimiento limitado.
 Automatizar no es una opción: es una ventaja competitiva.
 </p>
-    <a href="contacto.html" class="btn btn-primary btn-lg">Ver cuánto puede ahorrar mi empresa</a>
+    <a href="/contacto" class="btn btn-primary btn-lg">Ver cuánto puede ahorrar mi empresa</a>
   </div>
 </section>
  
 
 
-  <!-- Footer -->
+ <!-- Footer -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
-        <div class="footer-about"><div class="footer-logo"><img src="https://mgx-backend-cdn.metadl.com/generate/images/1102970/2026-04-15/mvbqgriaafaa/logo-zentrixco-transparent.png" alt="ZentrixCo Logo" class="logo-img" /><span class="logo-text">Zentrix<span class="logo-highlight">Co</span></span></div><p>Expertos en automatización RPA, inteligencia artificial y transformación digital para empresas en Chile y Latinoamérica.</p></div>
-        <div class="footer-col"><h4>Servicios</h4><a href="servicios.html">Automatización RPA</a><a href="servicios.html">Agentes IA</a><a href="servicios.html">Integraciones</a><a href="servicios.html">Hiperautomatización</a></div>
-        <div class="footer-col"><h4>Empresa</h4><a href="sobre-nosotros.html">Sobre Nosotros</a><a href="casos-de-exito-automatizacion.html">Casos de Éxito</a><a href="blog-automatizacion-ia.html">Blog</a><a href="contacto.html">Contacto</a></div>
-        <div class="footer-col"><h4>Soluciones</h4><a href="soluciones.html">Finanzas</a><a href="soluciones.html">Retail</a><a href="soluciones.html">Salud</a><a href="soluciones.html">Logística</a></div>
+        <div class="footer-about">
+          <div class="footer-logo">
+            <img src="https://mgx-backend-cdn.metadl.com/generate/images/1102970/2026-04-15/mvbqgriaafaa/logo-zentrixco-transparent.png"  loading="lazy" alt="ZentrixCo Logo" class="logo-img" />
+            <span class="logo-text">Zentrix<span class="logo-highlight">Co</span></span>
+          </div>
+          <p>Expertos en automatización RPA, inteligencia artificial y transformación digital para empresas en Chile y Latinoamérica.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Servicios</h4>
+         <a href="/servicios#rpa">Automatización RPA</a>
+         <a href="/servicios#ia">Agentes IA</a>
+         <a href="/servicios#integraciones">Integraciones</a>
+         <a href="/servicios">Hiperautomatización</a>
+        </div>
+        <div class="footer-col">
+          <h4>Empresa</h4>
+          <a href="/sobre-nosotros">Sobre Nosotros</a>
+          <a href="/casos-de-exito-automatizacion">Casos de Éxito</a>
+          <a href="/blog-automatizacion-ia">Blog</a>
+          <a href="/contacto">Contacto</a>
+        </div>
+        <div class="footer-col">
+          <h4>Soluciones</h4>
+           <a href="/soluciones#finanzas">Finanzas</a>
+           <a href="/soluciones#retail">Retail</a>
+           <a href="/soluciones#logistica">Logística</a>
+           <a href="/soluciones">Ver todas las soluciones</a>
+        </div>
       </div>
-      <div class="footer-bottom"><p class="footer-copy">&copy; 2025 ZentrixCo. Todos los derechos reservados.</p><div class="footer-socials"><a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a><a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a><a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a></div></div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2026 ZentrixCo.</p>
+        <p class="footer-copy">Santiago, Chile</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
     </div>
   </footer>
-
   <script>
   /* Counter Animation - Scroll-triggered with IntersectionObserver */
   (function(){
