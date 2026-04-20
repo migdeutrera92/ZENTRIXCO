@@ -12,6 +12,7 @@
 
   "rewrites": [
     { "source": "/", "destination": "/index.html" },
+
     { "source": "/automatizacion-rpa-chile", "destination": "/servicios.html#rpa" },
     { "source": "/agentes-ia-empresas", "destination": "/servicios.html#ia" },
     { "source": "/integracion-sistemas-empresariales", "destination": "/servicios.html#integraciones" },
