@@ -1,0 +1,315 @@
+/* ===== RESET & BASE ===== */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: #333;
+  line-height: 1.6;
+  overflow-x: hidden;
+  background: #fff;
+}
+
+.section p {
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* ===== UTILITIES ===== */
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.section-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #1a3a6b;
+  margin-bottom: 1rem;
+}
+
+.section-title.text-center::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #e8652e, #7b2d8e);
+  margin: 12px auto 0;
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+  display: inline-block;
+  padding: 12px 22px;
+  font-family: 'Poppins';
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.25s ease;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #e8652e, #d4541e);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(232,101,46,0.3);
+}
+
+.btn-outline-orange {
+  border: 2px solid #e8652e;
+  color: #e8652e;
+  background: transparent;
+}
+
+.btn-outline-orange:hover {
+  background: #e8652e;
+  color: #fff;
+}
+
+/* ===== HEADER ===== */
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background: #fff;
+  z-index: 1000;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+}
+
+.nav {
+  display: flex;
+  gap: 30px;
+}
+
+.mobile-toggle {
+  display: none;
+}
+
+/* ===== HERO ===== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 70px;
+}
+
+.hero-content {
+  max-width: 520px;
+}
+
+.hero-title {
+  font-size: 3rem;
+  color: #1a3a6b;
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  margin: 20px 0;
+  color: #555;
+}
+
+/* 🔥 BOTONES EN UNA SOLA LÍNEA */
+.hero-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: nowrap;
+}
+
+.hero-buttons .btn {
+  flex: 1;
+  white-space: nowrap;
+}
+
+.hero-buttons .btn-primary {
+  flex: 1.2;
+}
+
+/* ===== ABOUT ===== */
+.about {
+  padding: 100px 0;
+}
+
+.about-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+}
+
+/* ===== SERVICES ===== */
+.services {
+  padding: 100px 0;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+/* ===== WHY ===== */
+.why-choose {
+  padding: 100px 0;
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+/* ===== CONTACT ===== */
+.contact {
+  padding: 100px 0;
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: auto;
+}
+
+/* ===== SEO BLOCK (PRO VERSION) ===== */
+.seo-block {
+  padding: 100px 0;
+  background: linear-gradient(135deg, #f9f9fb, #ffffff);
+}
+
+.seo-block .container {
+  max-width: 900px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 50px 40px;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.seo-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1a3a6b;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.seo-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #e8652e, #7b2d8e);
+  margin: 12px auto 0;
+}
+
+.seo-text {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.8;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background: #1a1f2e;
+  padding: 30px 0;
+  color: #fff;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .why-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-inner {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav {
+    display: none;
+  }
+
+  .mobile-toggle {
+    display: block;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  /* en mobile sí se apilan (correcto UX) */
+  .hero-buttons {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero-buttons .btn {
+    width: 100%;
+    white-space: normal;
+  }
+
+  .seo-block .container {
+    padding: 30px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.7rem;
+  }
+
+  .why-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+}
