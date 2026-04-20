@@ -1226,7 +1226,19 @@ Automatizar no es una opción: es una ventaja competitiva.
 
   miniItems.forEach(item => observerMini.observe(item));
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const toggle = document.getElementById("mobileToggle");
+  const nav = document.getElementById("nav");
 
+  if (toggle && nav) {
+    toggle.addEventListener("click", function () {
+      nav.classList.toggle("active");
+      toggle.classList.toggle("active");
+    });
+  }
+});
+</script>
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",

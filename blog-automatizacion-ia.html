@@ -450,5 +450,18 @@ Las empresas que automatizan hoy… son las que lideran mañana.
 
   <script type="module" src="js/scripts-global.js"></script>
   <script type="module" src="js/chat-widget.js"></script>
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+  const toggle = document.getElementById("mobileToggle");
+  const nav = document.getElementById("nav");
+
+  if (toggle && nav) {
+    toggle.addEventListener("click", function () {
+      nav.classList.toggle("active");
+      toggle.classList.toggle("active");
+    });
+  }
+});
+</script>
 </body>
 </html>

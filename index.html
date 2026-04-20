@@ -478,5 +478,18 @@ Ahora multiplícalo por todos los procesos de tu empresa.
  ]
 }
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const toggle = document.getElementById("mobileToggle");
+  const nav = document.getElementById("nav");
+
+  if (toggle && nav) {
+    toggle.addEventListener("click", function () {
+      nav.classList.toggle("active");
+      toggle.classList.toggle("active");
+    });
+  }
+});
+</script>
 </body>
 </html>
