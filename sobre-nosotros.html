@@ -605,7 +605,8 @@
 </head>
 <body>
 
-  <!-- Header -->
+ <!-- Header -->
+
   <header class="header" id="header">
     <div class="container header-inner">
       <a href="/" class="logo">
@@ -615,9 +616,9 @@
       <nav class="nav" id="nav">
         <a href="/" class="nav-link">Inicio</a>
         <a href="/servicios" class="nav-link">Servicios</a>
-        <a href="/soluciones" class="nav-link">Soluciones</a>
+        <a href="/soluciones" class="nav-link active">Soluciones</a>
         <a href="/casos-de-exito-automatizacion" class="nav-link">Casos de Éxito</a>
-        <a href="/sobre-nosotros" class="nav-link active">Nosotros</a>
+        <a href="/sobre-nosotros" class="nav-link">Nosotros</a>
         <a href="/blog-automatizacion-ia" class="nav-link">Blog</a>
         <a href="/contacto" class="nav-link">Contacto</a>
       </nav>
@@ -625,7 +626,6 @@
       <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
     </div>
   </header>
-
   <!-- Banner updated: removed woman with turban, now office team image -->
    
   <section class="page-hero page-hero--nosotros" style="background:linear-gradient(135deg, rgba(10,42,74,0.82) 0%, rgba(21,101,168,0.78) 40%, rgba(33,150,200,0.75) 100%), url('https://mgx-backend-cdn.metadl.com/generate/images/1102970/2026-04-17/mzfqazqaae6q/banner-nosotros-office-team.png') center/cover no-repeat;">
@@ -1226,19 +1226,7 @@ Automatizar no es una opción: es una ventaja competitiva.
 
   miniItems.forEach(item => observerMini.observe(item));
 </script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const toggle = document.getElementById("mobileToggle");
-  const nav = document.getElementById("nav");
 
-  if (toggle && nav) {
-    toggle.addEventListener("click", function () {
-      nav.classList.toggle("active");
-      toggle.classList.toggle("active");
-    });
-  }
-});
-</script>
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -1262,6 +1250,19 @@ document.addEventListener("DOMContentLoaded", function () {
  }
  ]
 }
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const toggle = document.getElementById("mobileToggle");
+  const nav = document.getElementById("nav");
+
+  if (toggle && nav) {
+    toggle.addEventListener("click", function () {
+      nav.classList.toggle("active");
+      toggle.classList.toggle("active");
+    });
+  }
+});
 </script>
   <script type="module" src="js/scripts-global.js"></script>
 <script src="js/chat-widget.js"></script>
