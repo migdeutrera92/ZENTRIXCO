@@ -1,4 +1,5 @@
 {
+  "outputDirectory": ".",
   "cleanUrls": true,
   "trailingSlash": false,
 
@@ -12,20 +13,15 @@
 
   "rewrites": [
     { "source": "/", "destination": "/index.html" },
-
     { "source": "/automatizacion-rpa-chile", "destination": "/servicios.html#rpa" },
     { "source": "/agentes-ia-empresas", "destination": "/servicios.html#ia" },
     { "source": "/integracion-sistemas-empresariales", "destination": "/servicios.html#integraciones" },
-
     { "source": "/sobre-nosotros", "destination": "/sobre-nosotros.html" },
     { "source": "/contacto", "destination": "/contacto.html" },
-
     { "source": "/automatizacion-procesos-finanzas", "destination": "/soluciones.html#finanzas" },
     { "source": "/automatizacion-retail", "destination": "/soluciones.html#retail" },
     { "source": "/automatizacion-logistica", "destination": "/soluciones.html#logistica" },
-
     { "source": "/blog-automatizacion-ia", "destination": "/blog-automatizacion-ia.html" },
-
     { "source": "/casos-de-exito-automatizacion", "destination": "/casos-de-exito-automatizacion.html" }
   ]
 }
