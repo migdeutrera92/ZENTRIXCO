@@ -21,15 +21,11 @@
 
     { "source": "/blog-automatizacion-ia", "destination": "/blog-automatizacion-ia.html" },
     { "source": "/casos-de-exito-automatizacion", "destination": "/casos-de-exito-automatizacion.html" },
-
-    // BLOG ARTICLES (CLAVE SEO)
     { "source": "/automatizacion-rpa-empresas", "destination": "/blog/automatizacion-rpa.html" },
     { "source": "/caso-servicenow-n8n-ia", "destination": "/blog/caso-servicenow.html" },
     { "source": "/automatizacion-finanzas", "destination": "/blog/automatizacion-finanzas.html" },
     { "source": "/automatizacion-retail", "destination": "/blog/automatizacion-retail.html" },
     { "source": "/automatizacion-logistica", "destination": "/blog/automatizacion-logistica.html" },
-
-    // LANDINGS SEO
     { "source": "/automatizacion-rpa-latam", "destination": "/servicios.html#rpa" },
     { "source": "/agentes-ia-empresas", "destination": "/servicios.html#ia" },
     { "source": "/integracion-sistemas", "destination": "/servicios.html#integraciones" }
