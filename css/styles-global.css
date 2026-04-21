@@ -4225,3 +4225,177 @@ CTA INLINE (OPTIMIZADO ÚNICO)
   .section-title { font-size: 1.5rem; }
   .stats-row { grid-template-columns: 1fr; }
 }
+/* Overrides solo para Casos de Éxito */
+.page-casos-exito .cases-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+  align-items: stretch;
+}
+
+.page-casos-exito .case-card {
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+  padding: 0;
+  border-radius: 22px;
+  background: #fff;
+  border: 1px solid #e8edf5;
+  box-shadow: 0 16px 38px rgba(16, 24, 40, 0.08);
+  overflow: hidden;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.page-casos-exito .case-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 46px rgba(16, 24, 40, 0.12);
+}
+
+.page-casos-exito .case-card-img {
+  padding: 22px 22px 0;
+}
+
+.page-casos-exito .case-card-img img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 18px;
+}
+
+.page-casos-exito .case-card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 20px 22px 24px;
+}
+
+.page-casos-exito .case-tag {
+  align-self: flex-start;
+  display: inline-flex;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: #fff2eb;
+  color: #e8652e;
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.page-casos-exito .case-card h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.7rem;
+  line-height: 1.25;
+  color: #1a3a6b;
+  margin-bottom: 14px;
+}
+
+.page-casos-exito .case-card-body > p {
+  color: #5b6472;
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 22px;
+}
+
+.page-casos-exito .case-result {
+  max-width: none;
+  width: 100%;
+  margin: auto 0 20px;
+  padding: 18px;
+  background: linear-gradient(180deg, #f9fbff 0%, #f4f7fc 100%);
+  border: 1px solid #e3eaf5;
+  border-radius: 18px;
+  box-shadow: none;
+}
+
+.page-casos-exito .case-result::before {
+  width: 42%;
+}
+
+.page-casos-exito .case-result {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.page-casos-exito .case-result-item {
+  min-width: 0;
+  background: #fff;
+  border: 1px solid #e3eaf5;
+  border-radius: 14px;
+  padding: 14px 10px;
+  text-align: center;
+}
+
+.page-casos-exito .case-result-item .number {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.45rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: #e8652e;
+  margin-bottom: 8px;
+}
+
+.page-casos-exito .case-result-item .label {
+  display: block;
+  font-size: 0.84rem;
+  line-height: 1.4;
+  color: #5b6472;
+}
+
+.page-casos-exito .case-card .btn {
+  align-self: flex-start;
+  margin-top: 0;
+}
+
+.page-casos-exito .cases-disclaimer {
+  max-width: 880px;
+  margin: 16px auto 0;
+  color: #667085;
+}
+
+.page-casos-exito .cases-cta-action {
+  margin-top: 24px;
+}
+
+.page-casos-exito .cta-inline .cta-note {
+  color: #777;
+}
+
+@media (max-width: 1100px) {
+  .page-casos-exito .cases-grid {
+    grid-template-columns: 1fr;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .page-casos-exito .case-card-img img {
+    height: 260px;
+  }
+}
+
+@media (max-width: 640px) {
+  .page-casos-exito .case-card h3 {
+    font-size: 1.35rem;
+  }
+
+  .page-casos-exito .case-card-body {
+    padding: 18px 18px 22px;
+  }
+
+  .page-casos-exito .case-card-img {
+    padding: 18px 18px 0;
+  }
+
+  .page-casos-exito .case-card-img img {
+    height: 210px;
+  }
+
+  .page-casos-exito .case-result {
+    grid-template-columns: 1fr;
+  }
+}
