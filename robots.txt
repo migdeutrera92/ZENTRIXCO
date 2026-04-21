@@ -1,4 +1,9 @@
 User-agent: *
 Allow: /
 
+# Bloqueo de posibles archivos innecesarios
+Disallow: /*.json$
+Disallow: /*?*
+
+# Sitemap
 Sitemap: https://www.zentrixco.com/sitemap.xml

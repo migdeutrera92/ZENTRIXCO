@@ -1,27 +1,25 @@
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blog de Automatización RPA e IA en Chile | ZentrixCo</title>
-  <meta name="description" content="Aprende sobre automatización, RPA y agentes inteligentes. Artículos, tutoriales y tendencias en transformación digital." />
-  <meta name="keywords" content="blog automatización, artículos RPA, tutoriales IA, tendencias transformación digital, agentes inteligentes" />
-  <meta name="robots" content="index, follow" />
-  <meta name="geo.region" content="CL-RM" />
-<meta name="geo.placename" content="Santiago" />
- <link rel="canonical" href="https://www.zentrixco.com/blog-automatizacion-ia" />
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Blog de automatización, RPA e IA para empresas en LATAM | ZentrixCo</title>
+<meta content="Artículos y guías sobre automatización, RPA, IA, n8n, Make y optimización de procesos para empresas en LATAM." name="description"/>
+<meta content="blog automatización, artículos RPA, tutoriales IA, tendencias transformación digital, agentes inteligentes" name="keywords"/>
+<meta content="index, follow" name="robots"/>
 
-  <meta property="og:title" content="Blog de Automatización e IA | ZentrixCo" />
-  <meta property="og:description" content="Aprende sobre automatización, RPA y agentes inteligentes." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.zentrixco.com/blog-automatizacion-ia" />
-    <meta property="og:image" content="https://mgx-backend-cdn.metadl.com/generate/images/1102970/2026-04-09/af7415f0-c172-43fc-9501-e458afb29d60.png" />
-  <meta property="og:locale" content="es_CL" />
 
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Blog de Automatización e IA | ZentrixCo" />
-  <meta name="twitter:description" content="Aprende sobre automatización, RPA y agentes inteligentes." />
-
+<link href="https://www.zentrixco.com/blog-automatizacion-ia" rel="canonical"/>
+<meta content="Blog de automatización, RPA e IA para empresas en LATAM | ZentrixCo" property="og:title"/>
+<meta content="Aprende sobre automatización, RPA y agentes inteligentes." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://www.zentrixco.com/blog-automatizacion-ia" property="og:url"/>
+<meta content="https://mgx-backend-cdn.metadl.com/generate/images/1102970/2026-04-09/af7415f0-c172-43fc-9501-e458afb29d60.png" property="og:image"/>
+<meta content="es_419" property="og:locale"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Blog de Automatización e IA | ZentrixCo" name="twitter:title"/>
+<meta content="Aprende sobre automatización, RPA y agentes inteligentes." name="twitter:description"/>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -29,7 +27,7 @@
   "name": "Blog de Automatización e IA | ZentrixCo",
   "description": "Artículos, guías y tendencias sobre automatización RPA, inteligencia artificial, n8n, Make y optimización de procesos empresariales.",
   "url": "https://www.zentrixco.com/blog-automatizacion-ia",
-  "inLanguage": "es-CL",
+  "inLanguage": "es-419",
   "publisher": {
     "@type": "Organization",
     "name": "ZentrixCo",
@@ -41,416 +39,437 @@
   }
 }
 </script>
-
-  <link rel="stylesheet" href="/css/styles-global.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-</head>
+<link href="/css/styles-global.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;family=Open+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
+<meta content="#173f7a" name="theme-color"/><style>
+.blog-featured-case .featured-case-card{background:linear-gradient(135deg,#173f7a 0%,#0f2f5d 45%,#eb6428 120%);color:#fff;border-radius:24px;padding:40px;box-shadow:0 20px 60px rgba(15,47,93,.22)}
+.blog-featured-case .featured-label{display:inline-block;margin-bottom:14px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.16);font-weight:700;font-size:.85rem}
+.blog-featured-case h2{color:#fff;margin-bottom:14px}
+.blog-featured-case p{color:rgba(255,255,255,.9);max-width:820px;line-height:1.8}
+.featured-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:24px}
+.newsletter-modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;padding:20px;z-index:9999}
+.newsletter-modal.active{display:flex}
+.newsletter-backdrop{position:absolute;inset:0;background:rgba(10,20,35,.58)}
+.newsletter-dialog{position:relative;z-index:1;width:min(100%,620px);background:#fff;border-radius:22px;padding:28px;box-shadow:0 30px 90px rgba(15,47,93,.25)}
+.newsletter-kicker{display:inline-block;margin-bottom:10px;font-weight:700;color:#eb6428}
+.newsletter-dialog h3{margin-bottom:10px;color:#173f7a}
+.newsletter-dialog p{color:#4f5b6a;line-height:1.7}
+.newsletter-close{position:absolute;top:14px;right:14px;border:none;background:transparent;font-size:2rem;line-height:1;color:#173f7a;cursor:pointer}
+.newsletter-form{margin-top:18px}
+.newsletter-form .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.newsletter-form .form-group{margin-bottom:14px}
+.newsletter-form label{display:block;margin-bottom:6px;font-weight:600;color:#173f7a}
+.newsletter-form input{width:100%;padding:14px 16px;border:1px solid #d9e1ee;border-radius:14px}
+.newsletter-status{font-size:.92rem;margin-top:12px}
+@media (max-width:768px){.newsletter-form .form-row{grid-template-columns:1fr}.newsletter-dialog{padding:22px}}
+</style></head>
 <body>
-
-  <!-- Header -->
-  <header class="header" id="header">
-    <div class="container header-inner">
-      <a href="/" class="logo"><img src="https://mgx-backend-cdn.metadl.com/generate/images/1102970/2026-04-15/mvbqgriaafaa/logo-zentrixco-transparent.png" alt="ZentrixCo Logo" class="logo-img" /><span class="logo-text">Zentrix<span class="logo-highlight">Co</span></span></a>
-      <nav class="nav" id="nav">
-        <a href="/" class="nav-link">Inicio</a><a href="servicios.html" class="nav-link">Servicios</a><a href="soluciones.html" class="nav-link">Soluciones</a><a href="casos-de-exito-automatizacion.html" class="nav-link">Casos de Éxito</a><a href="sobre-nosotros.html" class="nav-link">Nosotros</a><a href="blog-automatizacion-ia.html" class="nav-link active">Blog</a><a href="contacto.html" class="nav-link">Contacto</a>
-      </nav>
-      <a href="contacto.html" class="btn btn-primary btn-sm header-cta">Consulta Gratis</a>
-      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
-    </div>
-  </header>
-  
-
-  <section class="page-hero page-hero--blog">
-    <h1>Blog de automatización RPA, inteligencia artificial y optimización de procesos en Chile</h1>
-    <p>Artículos, tutoriales y tendencias sobre automatización, RPA e inteligencia artificial aplicada a negocios.</p>
-    <div class="breadcrumb"><a href="/">Inicio</a> <span>/</span> <span>Blog</span></div>
-  </section>
-
+<!-- Header -->
+<header class="header" id="header">
+<div class="container header-inner">
+<a class="logo" href="/"><img alt="ZentrixCo Logo" class="logo-img" src="https://mgx-backend-cdn.metadl.com/generate/images/1102970/2026-04-15/mvbqgriaafaa/logo-zentrixco-transparent.png"/><span class="logo-text">Zentrix<span class="logo-highlight">Co</span></span></a>
+<nav class="nav" id="nav">
+<a class="nav-link" href="/">Inicio</a><a class="nav-link" href="/servicios">Servicios</a><a class="nav-link" href="/soluciones">Soluciones</a><a class="nav-link" href="/casos-de-exito-automatizacion">Casos de Éxito</a><a class="nav-link" href="/sobre-nosotros">Nosotros</a><a class="nav-link active" href="/blog-automatizacion-ia">Blog</a><a class="nav-link" href="/contacto#formulario-contacto">Contacto</a>
+</nav>
+<a class="btn btn-primary btn-sm header-cta" href="/contacto#formulario-contacto">Consulta Gratis</a>
+<button aria-label="Toggle menu" class="mobile-toggle" id="mobileToggle"><span></span><span></span><span></span></button>
+</div>
+</header>
+<section class="page-hero page-hero--blog">
+<h1>Blog de automatización, inteligencia artificial y optimización de procesos para empresas en LATAM</h1>
+<p>Artículos, tutoriales y tendencias sobre automatización, RPA e inteligencia artificial aplicada a negocios.</p>
+<div class="breadcrumb"><a href="/">Inicio</a> <span>/</span> <span>Blog</span></div>
+</section>
 <section class="section blog-intro-pro">
-  <div class="container text-center">
-
-    <span class="blog-kicker">Blog ZentrixCo</span>
-
-    <h2 class="blog-main-title">
+<div class="container text-center">
+<span class="blog-kicker">Blog ZentrixCo</span>
+<h2 class="blog-main-title">
       Blog de automatización RPA, inteligencia artificial y optimización de procesos
     </h2>
-
-    <p class="blog-main-subtitle">
-      Guías, comparativas, casos de uso y estrategias prácticas para ayudar a empresas en Chile y Latinoamérica a automatizar procesos, reducir costos y escalar con tecnología.
+<p class="blog-main-subtitle">
+      Guías, comparativas, casos de uso y estrategias prácticas para ayudar a empresas en LATAM a automatizar procesos, reducir costos y escalar con tecnología.
     </p>
-
-    <div class="blog-intro-grid-pro">
-
-      <div class="blog-intro-card-pro">
-        <div class="blog-intro-icon-pro">
-          <i class="fas fa-robot"></i>
-        </div>
-        <h3>RPA aplicado a negocios</h3>
-        <p>Aprende cómo automatizar tareas repetitivas, reportes, validaciones y flujos operativos.</p>
-      </div>
-
-      <div class="blog-intro-card-pro">
-        <div class="blog-intro-icon-pro">
-          <i class="fas fa-brain"></i>
-        </div>
-        <h3>IA para empresas</h3>
-        <p>Descubre cómo integrar inteligencia artificial y agentes inteligentes en procesos reales.</p>
-      </div>
-
-      <div class="blog-intro-card-pro">
-        <div class="blog-intro-icon-pro">
-          <i class="fas fa-chart-line"></i>
-        </div>
-        <h3>Estrategia y ROI</h3>
-        <p>Conoce qué automatizar primero, cómo medir impacto y qué herramientas elegir.</p>
-      </div>
-
-    </div>
-
-  </div>
+<div class="blog-intro-grid-pro">
+<div class="blog-intro-card-pro">
+<div class="blog-intro-icon-pro">
+<i class="fas fa-robot"></i>
+</div>
+<h3>RPA aplicado a negocios</h3>
+<p>Aprende cómo automatizar tareas repetitivas, reportes, validaciones y flujos operativos.</p>
+</div>
+<div class="blog-intro-card-pro">
+<div class="blog-intro-icon-pro">
+<i class="fas fa-brain"></i>
+</div>
+<h3>IA para empresas</h3>
+<p>Descubre cómo integrar inteligencia artificial y agentes inteligentes en procesos reales.</p>
+</div>
+<div class="blog-intro-card-pro">
+<div class="blog-intro-icon-pro">
+<i class="fas fa-chart-line"></i>
+</div>
+<h3>Estrategia y ROI</h3>
+<p>Conoce qué automatizar primero, cómo medir impacto y qué herramientas elegir.</p>
+</div>
+</div>
+</div>
 </section>
-
 <section class="section blog-authority-pro">
-  <div class="container text-center">
-
-    <span class="authority-kicker">Experiencia real</span>
-
-    <h2 class="section-title">
+<div class="container text-center">
+<span class="authority-kicker">Experiencia real</span>
+<h2 class="section-title">
       Contenido creado por expertos en automatización
     </h2>
-
-    <p class="section-subtitle authority-subtitle">
-      En ZentrixCo hemos automatizado más de 150 procesos en empresas de Chile y Latinoamérica, aplicando RPA, inteligencia artificial y agentes inteligentes en operaciones reales.
+<p class="section-subtitle authority-subtitle">
+      En ZentrixCo hemos automatizado más de 150 procesos en empresas de LATAM, aplicando RPA, inteligencia artificial y agentes inteligentes en operaciones reales.
     </p>
-
-    <div class="authority-points-pro">
-
-      <div class="authority-pill-pro">
-        <i class="fas fa-cogs"></i>
-        <span>+150 procesos automatizados</span>
-      </div>
-
-      <div class="authority-pill-pro">
-        <i class="fas fa-globe-americas"></i>
-        <span>Empresas en Chile y LATAM</span>
-      </div>
-
-      <div class="authority-pill-pro">
-        <i class="fas fa-chart-line"></i>
-        <span>Hasta 60% reducción de costos</span>
-      </div>
-
-    </div>
-
-    <p class="authority-bottom-text">
-      Si estás buscando cómo automatizar procesos en tu empresa, reducir costos operativos o implementar RPA en Chile, aquí encontrarás guías prácticas y ejemplos reales para lograrlo.
+<div class="authority-points-pro">
+<div class="authority-pill-pro">
+<i class="fas fa-cogs"></i>
+<span>+150 procesos automatizados</span>
+</div>
+<div class="authority-pill-pro">
+<i class="fas fa-globe-americas"></i>
+<span>Empresas en LATAM y LATAM</span>
+</div>
+<div class="authority-pill-pro">
+<i class="fas fa-chart-line"></i>
+<span>Hasta 60% reducción de costos</span>
+</div>
+</div>
+<p class="authority-bottom-text">
+      Si estás buscando cómo automatizar procesos en tu empresa, reducir costos operativos o implementar RPA en LATAM, aquí encontrarás guías prácticas y ejemplos reales para lograrlo.
     </p>
-
-  </div>
+</div>
 </section>
-
 <section class="section blog-seo-block-enhanced">
-  <div class="container">
-
-    <h2 class="section-title text-center">
+<div class="container">
+<h2 class="section-title text-center">
       ¿Qué es la automatización RPA y cómo puede ayudar a tu empresa?
     </h2>
-
-    <p class="section-subtitle text-center" style="max-width:750px;margin:0 auto;">
+<p class="section-subtitle text-center" style="max-width:750px;margin:0 auto;">
       Automatiza tareas repetitivas, reduce errores y acelera procesos sin aumentar tu equipo.
     </p>
-
-    <div class="grid-2 seo-enhanced-grid">
-
-      <!-- COL 1 -->
-      <div class="seo-box">
-        <h3><i class="fas fa-cogs"></i> Qué puedes automatizar</h3>
-
-        <ul>
-          <li><i class="fas fa-check"></i> Generación automática de reportes</li>
-          <li><i class="fas fa-check"></i> Validación y carga de datos</li>
-          <li><i class="fas fa-check"></i> Integración entre sistemas</li>
-          <li><i class="fas fa-check"></i> Procesos administrativos repetitivos</li>
-        </ul>
-      </div>
-
-      <!-- COL 2 -->
-      <div class="seo-box highlight">
-        <h3><i class="fas fa-chart-line"></i> Beneficios reales</h3>
-
-        <ul>
-          <li><i class="fas fa-bolt"></i> Reducción de costos operativos</li>
-          <li><i class="fas fa-bolt"></i> Eliminación de errores humanos</li>
-          <li><i class="fas fa-bolt"></i> Procesos más rápidos</li>
-          <li><i class="fas fa-bolt"></i> Escalabilidad sin contratar más personal</li>
-        </ul>
-      </div>
-
-    </div>
-
-  </div>
+<div class="grid-2 seo-enhanced-grid">
+<!-- COL 1 -->
+<div class="seo-box">
+<h3><i class="fas fa-cogs"></i> Qué puedes automatizar</h3>
+<ul>
+<li><i class="fas fa-check"></i> Generación automática de reportes</li>
+<li><i class="fas fa-check"></i> Validación y carga de datos</li>
+<li><i class="fas fa-check"></i> Integración entre sistemas</li>
+<li><i class="fas fa-check"></i> Procesos administrativos repetitivos</li>
+</ul>
+</div>
+<!-- COL 2 -->
+<div class="seo-box highlight">
+<h3><i class="fas fa-chart-line"></i> Beneficios reales</h3>
+<ul>
+<li><i class="fas fa-bolt"></i> Reducción de costos operativos</li>
+<li><i class="fas fa-bolt"></i> Eliminación de errores humanos</li>
+<li><i class="fas fa-bolt"></i> Procesos más rápidos</li>
+<li><i class="fas fa-bolt"></i> Escalabilidad sin contratar más personal</li>
+</ul>
+</div>
+</div>
+</div>
 </section>
 <section class="section blog-topics">
-  <div class="container text-center">
-
-    <h2 class="section-title">Explora por tema</h2>
-
-    <p class="section-subtitle">
+<div class="container text-center">
+<h2 class="section-title">Explora por tema</h2>
+<p class="section-subtitle">
       Encuentra contenido según tu necesidad actual.
     </p>
-
-    <div class="topic-pills">
-      <a href="#rpa" class="topic-pill">Automatización RPA</a>
-      <a href="#ia" class="topic-pill">IA aplicada</a>
-      <a href="#n8n" class="topic-pill">n8n y Make</a>
-      <a href="#roi" class="topic-pill">ROI y estrategia</a>
-      <a href="#procesos" class="topic-pill">Optimización de procesos</a>
-    </div>
-
-  </div>
+<div class="topic-pills">
+<a class="topic-pill" href="#rpa">Automatización RPA</a>
+<a class="topic-pill" href="#ia">IA aplicada</a>
+<a class="topic-pill" href="#n8n">n8n y Make</a>
+<a class="topic-pill" href="#roi">ROI y estrategia</a>
+<a class="topic-pill" href="#procesos">Optimización de procesos</a>
+</div>
+</div>
 </section>
-
 <section class="section blog-transition">
-  <div class="container text-center">
-
-    <h2>Empieza por donde más impacto tendrás</h2>
-
-    <p class="section-subtitle">
+<div class="container text-center">
+<h2>Empieza por donde más impacto tendrás</h2>
+<p class="section-subtitle">
       Estos artículos están diseñados para ayudarte a automatizar procesos reales en tu empresa.
     </p>
-
-    <div class="grid-3">
-
-      <div class="transition-card">
-        <i class="fas fa-gear"></i>
-        <h3>Procesos operativos</h3>
-        <p>Automatiza tareas repetitivas y elimina el trabajo manual.</p>
-      </div>
-
-      <div class="transition-card">
-        <i class="fas fa-brain"></i>
-        <h3>IA aplicada</h3>
-        <p>Integra inteligencia artificial en flujos reales de negocio.</p>
-      </div>
-
-      <div class="transition-card">
-        <i class="fas fa-chart-line"></i>
-        <h3>Optimización y ROI</h3>
-        <p>Reduce costos y mejora la eficiencia con automatización.</p>
-      </div>
-
-    </div>
-
-  </div>
+<div class="grid-3">
+<div class="transition-card">
+<i class="fas fa-gear"></i>
+<h3>Procesos operativos</h3>
+<p>Automatiza tareas repetitivas y elimina el trabajo manual.</p>
+</div>
+<div class="transition-card">
+<i class="fas fa-brain"></i>
+<h3>IA aplicada</h3>
+<p>Integra inteligencia artificial en flujos reales de negocio.</p>
+</div>
+<div class="transition-card">
+<i class="fas fa-chart-line"></i>
+<h3>Optimización y ROI</h3>
+<p>Reduce costos y mejora la eficiencia con automatización.</p>
+</div>
+</div>
+</div>
 </section>
+<!-- Blog Articles -->
 
-  <!-- Blog Articles -->
-  <section class="section">
-    <div class="container">
-      <div class="grid-3">
-        <!-- Article 1 -->
-        <article class="blog-card">
-          <div class="blog-card-img">
-            <img src="https://mgx-backend-cdn.metadl.com/generate/images/1102970/2026-04-09/6f2afd8c-5e87-4f79-abbe-89fb9e82c4c9.png"   loading="lazy" decoding="async" width="640" height="360" alt="Qué es RPA y cómo puede transformar tu empresa" />
-          </div>
-          <div class="blog-card-body">
-            <div class="blog-meta"><span><i class="far fa-calendar"></i> 10 Abril 2025</span><span><i class="far fa-folder"></i> Automatización</span></div>
-            <h3>¿Qué es RPA y cómo automatizar procesos en empresas en Chile?</h3>
-            <p>Descubre los fundamentos de la automatización robótica de procesos y cómo las empresas están ahorrando miles de horas con esta tecnología. cómo aplicar esto en tu empresa en nuestro servicio de 
-<a href="servicios.html">automatización RPA</a>.</p> <div class="blog-author">
-  <i class="fas fa-user"></i> Por ZentrixCo
+<section class="section blog-featured-case">
+<div class="container">
+<div class="featured-case-card">
+<div class="featured-case-copy">
+<span class="featured-label">Nuevo caso aplicado</span>
+<h2>Automatización de tickets con ServiceNow, n8n y LLMs</h2>
+<p>Un caso aplicado basado en experiencia profesional previa: clasificación inicial de tickets, solicitud automática de información faltante, resumen asistido con LLM y notificaciones por correo para acelerar el triage.</p>
+<div class="featured-actions">
+<a class="btn btn-primary" href="/caso-automatizacion-tickets-servicenow-n8n-llms">Leer caso aplicado</a>
+<a class="btn btn-secondary" href="/contacto#formulario-contacto">Quiero algo similar</a>
 </div>
-            <a href="#" class="read-more">Leer más <i class="fas fa-arrow-right" ></i></a>
-          </div>
-        </article>
-
-        <!-- Article 2 -->
-        <article class="blog-card">
-          <div class="blog-card-img">
-            <img src="https://mgx-backend-cdn.metadl.com/generate/images/1102970/2026-04-09/5f36ff99-e1cf-4c82-a36e-5e6699ba104a.png"  loading="lazy" decoding="async" width="640" height="360" alt="Guía completa de n8n para automatización empresarial" />
-          </div>
-          <div class="blog-card-body">
-            <div class="blog-meta"><span><i class="far fa-calendar"></i> 5 Abril 2025</span><span><i class="far fa-folder"></i> Tutoriales</span></div>
-            <h3>Guía completa de n8n para automatización empresarial</h3>
-            <p>Aprende paso a paso cómo configurar flujos de trabajo con n8n para conectar tus herramientas y automatizar procesos complejos.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="section">
+<div class="container">
+<div class="grid-3">
+<!-- Article 1 -->
+<article class="blog-card">
+<div class="blog-card-img">
+<img alt="Qué es RPA y cómo puede transformar tu empresa" decoding="async" height="360" loading="lazy" src="https://mgx-backend-cdn.metadl.com/generate/images/1102970/2026-04-09/6f2afd8c-5e87-4f79-abbe-89fb9e82c4c9.png" width="640"/>
+</div>
+<div class="blog-card-body">
+<div class="blog-meta"><span><i class="far fa-calendar"></i> 10 Abril 2025</span><span><i class="far fa-folder"></i> Automatización</span></div>
+<h3>¿Qué es RPA y cómo automatizar procesos para empresas en LATAM?</h3>
+<p>Descubre los fundamentos de la automatización robótica de procesos y cómo las empresas están ahorrando miles de horas con esta tecnología. cómo aplicar esto en tu empresa en nuestro servicio de 
+<a href="/servicios#rpa">automatización RPA</a>.</p> <div class="blog-author">
+<i class="fas fa-user"></i> Por ZentrixCo
+</div>
+<a class="read-more" href="/que-es-rpa-y-como-automatizar-procesos">Leer más <i class="fas fa-arrow-right"></i></a>
+</div>
+</article>
+<!-- Article 2 -->
+<article class="blog-card">
+<div class="blog-card-img">
+<img alt="Guía completa de n8n para automatización empresarial" decoding="async" height="360" loading="lazy" src="https://mgx-backend-cdn.metadl.com/generate/images/1102970/2026-04-09/5f36ff99-e1cf-4c82-a36e-5e6699ba104a.png" width="640"/>
+</div>
+<div class="blog-card-body">
+<div class="blog-meta"><span><i class="far fa-calendar"></i> 5 Abril 2025</span><span><i class="far fa-folder"></i> Tutoriales</span></div>
+<h3>Guía completa de n8n para automatización empresarial</h3>
+<p>Aprende paso a paso cómo configurar flujos de trabajo con n8n para conectar tus herramientas y automatizar procesos complejos.</p>
             Descubre cómo aplicar esto en tu empresa en nuestro servicio de 
-<a href="servicios.html">automatización RPA</a>.
+<a href="/servicios#rpa">automatización RPA</a>.
 <div class="blog-author">
-  <i class="fas fa-user"></i> Por ZentrixCo
+<i class="fas fa-user"></i> Por ZentrixCo
 </div>
-            <a href="#" class="read-more">Leer más <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </article>
-
-        <!-- Article 3 -->
-        <article class="blog-card">
-          <div class="blog-card-img">
-            <img src="https://mgx-backend-cdn.metadl.com/generate/images/1102970/2026-04-09/af7415f0-c172-43fc-9501-e458afb29d60.png"  loading="lazy" decoding="async" width="640" height="360" alt="Agentes IA: El futuro de la automatización inteligente" />
-          </div>
-          <div class="blog-card-body">
-            <div class="blog-meta"><span><i class="far fa-calendar"></i> 28 Marzo 2025</span><span><i class="far fa-folder"></i> IA Aplicada</span></div>
-            <h3>Agentes IA: El futuro de la automatización inteligente</h3>
-            <p>Los agentes de inteligencia artificial están revolucionando la forma en que las empresas operan. Conoce sus capacidades y aplicaciones reales.</p>
+<a class="read-more" href="/guia-n8n-automatizacion-empresarial">Leer más <i class="fas fa-arrow-right"></i></a>
+</div>
+</article>
+<!-- Article 3 -->
+<article class="blog-card">
+<div class="blog-card-img">
+<img alt="Agentes IA: El futuro de la automatización inteligente" decoding="async" height="360" loading="lazy" src="https://mgx-backend-cdn.metadl.com/generate/images/1102970/2026-04-09/af7415f0-c172-43fc-9501-e458afb29d60.png" width="640"/>
+</div>
+<div class="blog-card-body">
+<div class="blog-meta"><span><i class="far fa-calendar"></i> 28 Marzo 2025</span><span><i class="far fa-folder"></i> IA Aplicada</span></div>
+<h3>Agentes IA: el siguiente nivel de la automatización inteligente</h3>
+<p>Los agentes de inteligencia artificial están revolucionando la forma en que las empresas operan. Conoce sus capacidades y aplicaciones reales.</p>
             Descubre cómo aplicar esto en tu empresa en nuestro servicio de 
-<a href="servicios.html">automatización RPA</a>.
+<a href="/servicios#rpa">automatización RPA</a>.
 <div class="blog-author">
-  <i class="fas fa-user"></i> Por ZentrixCo
+<i class="fas fa-user"></i> Por ZentrixCo
 </div>
-            <a href="#" class="read-more">Leer más <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </article>
-        <div style="grid-column: span 3; text-align:center; margin:30px 0;">
-  <p style="font-weight:500; color:#1a3a6b;">
+<a class="read-more" href="/agentes-ia-automatizacion-inteligente">Leer más <i class="fas fa-arrow-right"></i></a>
+</div>
+</article>
+<div style="grid-column: span 3; text-align:center; margin:30px 0;">
+<p style="font-weight:500; color:#1a3a6b;">
     ¿Quieres aplicar esto en tu empresa sin perder meses probando?
-  </p><br>
-  <a href="contacto.html" class="btn btn-primary">
+  </p><br/>
+<a class="btn btn-primary" href="/contacto#formulario-contacto">
     Ver cómo automatizar mi empresa
   </a>
 </div>
-        <!-- Article 4 -->
-        <article class="blog-card">
-          <div class="blog-card-img">
-            <img src="https://mgx-backend-cdn.metadl.com/generate/images/1102970/2026-04-09/3a94f469-d53b-45af-9a6d-e3ed23b753d3.png" loading="lazy" decoding="async" width="640" height="360" alt="Hiperautomatización: Más allá del RPA tradicional" />
-          </div>
-          <div class="blog-card-body">
-            <div class="blog-meta"><span><i class="far fa-calendar"></i> 20 Marzo 2025</span><span><i class="far fa-folder"></i> Automatización</span></div>
-            <h3>Hiperautomatización: Más allá del RPA tradicional</h3>
-            <p>La hiperautomatización combina múltiples tecnologías para automatizar procesos end-to-end. Descubre cómo implementarla en tu organización.</p>
-            Descubre cómo aplicar esto en tu empresa en nuestro servicio de 
-<a href="servicios.html">automatización RPA</a>.
-<div class="blog-author">
-  <i class="fas fa-user"></i> Por ZentrixCo
+<!-- Article 4 -->
+<article class="blog-card">
+<div class="blog-card-img">
+<img alt="Hiperautomatización: Más allá del RPA tradicional" decoding="async" height="360" loading="lazy" src="https://mgx-backend-cdn.metadl.com/generate/images/1102970/2026-04-09/3a94f469-d53b-45af-9a6d-e3ed23b753d3.png" width="640"/>
 </div>
-            <a href="#" class="read-more">Leer más <i class="fas fa-arrow-right"></i></a>
-          
-
-          </div>
-        </article>
-
-        <!-- Article 5 -->
-        <article class="blog-card">
-          <div class="blog-card-img">
-            <img src="https://mgx-backend-cdn.metadl.com/generate/images/1102970/2026-04-09/6f2afd8c-5e87-4f79-abbe-89fb9e82c4c9.png" loading="lazy" decoding="async" width="640" height="360" alt="Cómo calcular el ROI de la automatización" />
-          </div>
-          <div class="blog-card-body">
-            <div class="blog-meta"><span><i class="far fa-calendar"></i> 15 Marzo 2025</span><span><i class="far fa-folder"></i> Estrategia</span></div>
-            <h3>Cómo calcular el ROI de la automatización</h3>
-            <p>Aprende a medir el retorno de inversión de tus proyectos de automatización con métricas claras y ejemplos prácticos.</p>
+<div class="blog-card-body">
+<div class="blog-meta"><span><i class="far fa-calendar"></i> 20 Marzo 2025</span><span><i class="far fa-folder"></i> Automatización</span></div>
+<h3>Hiperautomatización: más allá del RPA tradicional</h3>
+<p>La hiperautomatización combina múltiples tecnologías para automatizar procesos end-to-end. Descubre cómo implementarla en tu organización.</p>
             Descubre cómo aplicar esto en tu empresa en nuestro servicio de 
-<a href="servicios.html">automatización RPA</a>.
+<a href="/servicios#rpa">automatización RPA</a>.
 <div class="blog-author">
-  <i class="fas fa-user"></i> Por ZentrixCo
+<i class="fas fa-user"></i> Por ZentrixCo
 </div>
-            <a href="#" class="read-more">Leer más <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </article>
-
-        <!-- Article 6 -->
-        <article class="blog-card">
-          <div class="blog-card-img">
-            <img src="https://mgx-backend-cdn.metadl.com/generate/images/1102970/2026-04-09/5f36ff99-e1cf-4c82-a36e-5e6699ba104a.png" loading="lazy" decoding="async" width="640" height="360" alt="Make vs n8n: Comparativa de herramientas de automatización" />
-          </div>
-          <div class="blog-card-body">
-            <div class="blog-meta"><span><i class="far fa-calendar"></i> 8 Marzo 2025</span><span><i class="far fa-folder"></i> Tutoriales</span></div>
-            <h3>Make vs n8n: ¿Cuál elegir para tu empresa?</h3>
-            <p>Comparamos las dos herramientas de automatización más populares para ayudarte a elegir la mejor opción según tus necesidades.</p>
+<a class="read-more" href="/hiperautomatizacion-mas-alla-del-rpa">Leer más <i class="fas fa-arrow-right"></i></a>
+</div>
+</article>
+<!-- Article 5 -->
+<article class="blog-card">
+<div class="blog-card-img">
+<img alt="Cómo calcular el ROI de la automatización" decoding="async" height="360" loading="lazy" src="https://mgx-backend-cdn.metadl.com/generate/images/1102970/2026-04-09/6f2afd8c-5e87-4f79-abbe-89fb9e82c4c9.png" width="640"/>
+</div>
+<div class="blog-card-body">
+<div class="blog-meta"><span><i class="far fa-calendar"></i> 15 Marzo 2025</span><span><i class="far fa-folder"></i> Estrategia</span></div>
+<h3>Cómo calcular el ROI de la automatización</h3>
+<p>Aprende a medir el retorno de inversión de tus proyectos de automatización con métricas claras y ejemplos prácticos.</p>
+            Descubre cómo aplicar esto en tu empresa en nuestro servicio de 
+<a href="/servicios#rpa">automatización RPA</a>.
+<div class="blog-author">
+<i class="fas fa-user"></i> Por ZentrixCo
+</div>
+<a class="read-more" href="/como-calcular-roi-automatizacion">Leer más <i class="fas fa-arrow-right"></i></a>
+</div>
+</article>
+<!-- Article 6 -->
+<article class="blog-card">
+<div class="blog-card-img">
+<img alt="Make vs n8n: Comparativa de herramientas de automatización" decoding="async" height="360" loading="lazy" src="https://mgx-backend-cdn.metadl.com/generate/images/1102970/2026-04-09/5f36ff99-e1cf-4c82-a36e-5e6699ba104a.png" width="640"/>
+</div>
+<div class="blog-card-body">
+<div class="blog-meta"><span><i class="far fa-calendar"></i> 8 Marzo 2025</span><span><i class="far fa-folder"></i> Tutoriales</span></div>
+<h3>Make vs n8n: cuál elegir para tu empresa</h3>
+<p>Comparamos las dos herramientas de automatización más populares para ayudarte a elegir la mejor opción según tus necesidades.</p>
            Descubre cómo aplicar esto en tu empresa en nuestro servicio de 
-<a href="servicios.html">automatización RPA</a>.
+<a href="/servicios#rpa">automatización RPA</a>.
 <div class="blog-author">
-  <i class="fas fa-user"></i> Por ZentrixCo
+<i class="fas fa-user"></i> Por ZentrixCo
 </div>
-            <a href="#" class="read-more">Leer más <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section blog-cta-inline">
-  <div class="container text-center">
-
-    <h2>¿Quieres aplicar esto en tu empresa?</h2>
-
-    <p class="section-subtitle">
+<a class="read-more" href="/make-vs-n8n-cual-elegir">Leer más <i class="fas fa-arrow-right"></i></a>
+</div>
+</article>
+</div>
+</div>
+</section>
+<section class="section blog-cta-inline">
+<div class="container text-center">
+<h2>¿Quieres aplicar esto en tu empresa?</h2>
+<p class="section-subtitle">
       Te mostramos exactamente qué procesos puedes automatizar y cuánto podrías ahorrar.
     </p>
-
-    <a href="contacto.html" class="btn btn-primary btn-lg">Quiero automatizar mi empresa ahora</a>
-    <p style="margin-top:15px; font-size:0.9rem; color:#666;">
+<a class="btn btn-primary btn-lg" href="/contacto#formulario-contacto">Quiero automatizar mi empresa ahora</a>
+<p style="margin-top:15px; font-size:0.9rem; color:#666;">
 Cada mes que no automatizas, estás perdiendo tiempo y dinero.
 </p>
-
-  </div>
+</div>
 </section>
-
 <section class="section blog-seo-text-enhanced">
-  <div class="container">
-
-    <h2 class="section-title text-center">
+<div class="container">
+<h2 class="section-title text-center">
       ¿Por qué cada vez más empresas están automatizando sus procesos?
     </h2>
-
-    <p class="section-subtitle text-center">
+<p class="section-subtitle text-center">
       La automatización ya no es opcional. Es la diferencia entre crecer… o quedarse atrás.
     </p>
-
-    <div class="grid-3 seo-benefits">
-
-      <div class="seo-card">
-        <i class="fas fa-clock"></i>
-        <h3>Ahorro de tiempo</h3>
-        <p>Procesos que tomaban horas ahora se ejecutan en segundos.</p>
-      </div>
-
-      <div class="seo-card">
-        <i class="fas fa-chart-line"></i>
-        <h3>Reducción de costos</h3>
-        <p>Menos errores, menos reprocesos y mayor eficiencia.</p>
-      </div>
-
-      <div class="seo-card">
-        <i class="fas fa-robot"></i>
-        <h3>Escalabilidad</h3>
-        <p>Crece sin aumentar tu equipo ni tus costos.</p>
-      </div>
-
-    </div>
-
+<div class="grid-3 seo-benefits">
+<div class="seo-card">
+<i class="fas fa-clock"></i>
+<h3>Ahorro de tiempo</h3>
+<p>Procesos que tomaban horas ahora se ejecutan en segundos.</p>
+</div>
+<div class="seo-card">
+<i class="fas fa-chart-line"></i>
+<h3>Reducción de costos</h3>
+<p>Menos errores, menos reprocesos y mayor eficiencia.</p>
+</div>
+<div class="seo-card">
+<i class="fas fa-robot"></i>
+<h3>Escalabilidad</h3>
+<p>Crece sin aumentar tu equipo ni tus costos.</p>
+</div>
+</div>
 <p class="seo-footer">
 Las empresas que automatizan hoy… son las que lideran mañana.
 </p>
-  </div>
+</div>
 </section>
+<!-- Newsletter CTA -->
+<section class="cta-banner">
+<div class="container">
+<h2>Recibe ideas accionables de automatización</h2>
+<p>Suscríbete y recibe guías, comparativas y oportunidades para automatizar procesos en tu empresa.</p>
+<button class="btn btn-primary btn-lg" id="openNewsletterModal" type="button">Suscribirme al newsletter</button>
+</div>
+</section>
+<!-- Footer -->
 
-  <!-- Newsletter CTA -->
-  <section class="cta-banner">
-    <div class="container">
-      <h2>Suscríbete a nuestro newsletter</h2>
-      <p>Recibe artículos, tutoriales y novedades sobre automatización directamente en tu correo.</p>
-      <a href="contacto.html" class="btn btn-primary btn-lg">Suscribirme</a>
-    </div>
-  </section>
-  
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-about"><div class="footer-logo"><img src="https://mgx-backend-cdn.metadl.com/generate/images/1102970/2026-04-15/mvbqgriaafaa/logo-zentrixco-transparent.png" alt="ZentrixCo Logo" class="logo-img" /><span class="logo-text">Zentrix<span class="logo-highlight">Co</span></span></div><p>Expertos en automatización RPA, inteligencia artificial y transformación digital.</p></div>
-        <div class="footer-col"><h4>Servicios</h4><a href="servicios.html">Automatización RPA</a><a href="servicios.html">Agentes IA</a><a href="servicios.html">Integraciones</a><a href="servicios.html">Hiperautomatización</a></div>
-        <div class="footer-col"><h4>Empresa</h4><a href="sobre-nosotros.html">Sobre Nosotros</a><a href="casos-de-exito-automatizacion.html">Casos de Éxito</a><a href="blog-automatizacion-ia.html">Blog</a><a href="contacto.html">Contacto</a></div>
-        <div class="footer-col"><h4>Soluciones</h4><a href="soluciones.html">Finanzas</a><a href="soluciones.html">Retail</a><a href="soluciones.html">Salud</a><a href="soluciones.html">Logística</a></div>
-      </div>
-      <div class="footer-bottom"><p class="footer-copy">&copy; 2025 ZentrixCo. Todos los derechos reservados.</p><div class="footer-socials"><a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a><a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a><a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a></div></div>
-    </div>
-  </footer>
-
-  <script type="module" src="js/scripts-global.js"></script>
-  <script type="module" src="js/chat-widget.js"></script>
-  <script>
+<div aria-hidden="true" class="newsletter-modal" id="newsletterModal">
+<div class="newsletter-backdrop" id="newsletterBackdrop"></div>
+<div aria-labelledby="newsletterTitle" aria-modal="true" class="newsletter-dialog" role="dialog">
+<button aria-label="Cerrar formulario" class="newsletter-close" id="closeNewsletterModal" type="button">×</button>
+<span class="newsletter-kicker">Newsletter ZentrixCo</span>
+<h3 id="newsletterTitle">Recibe contenido útil de automatización</h3>
+<p>Déjanos tus datos y te enviaremos contenido práctico sobre RPA, IA, n8n, Make y mejora de procesos.</p>
+<form action="https://api.zentrixco.com/forms/newsletter-subscribe" class="newsletter-form" id="newsletterForm" method="POST">
+<div class="form-row">
+<div class="form-group">
+<label for="newsletterName">Nombre</label>
+<input id="newsletterName" name="nombre" placeholder="Tu nombre" required="" type="text"/>
+</div>
+<div class="form-group">
+<label for="newsletterLastName">Apellido</label>
+<input id="newsletterLastName" name="apellido" placeholder="Tu apellido" required="" type="text"/>
+</div>
+</div>
+<div class="form-group">
+<label for="newsletterEmail">Correo</label>
+<input id="newsletterEmail" name="correo" placeholder="tu@email.com" required="" type="email"/>
+</div>
+<button class="btn btn-primary btn-full" type="submit">Quiero recibir contenido</button>
+<p class="newsletter-status" id="newsletterStatus">Sin spam. Solo contenido útil y oportunidades reales para automatizar.</p>
+</form>
+</div>
+</div>
+<footer class="footer">
+<div class="container">
+<div class="footer-grid">
+<div class="footer-about"><div class="footer-logo"><img alt="ZentrixCo Logo" class="logo-img" src="https://mgx-backend-cdn.metadl.com/generate/images/1102970/2026-04-15/mvbqgriaafaa/logo-zentrixco-transparent.png"/><span class="logo-text">Zentrix<span class="logo-highlight">Co</span></span></div><p>Expertos en automatización RPA, inteligencia artificial y transformación digital.</p></div>
+<div class="footer-col"><h4>Servicios</h4><a href="/servicios">Automatización RPA</a><a href="/servicios">Agentes IA</a><a href="/servicios">Integraciones</a><a href="/servicios">Hiperautomatización</a></div>
+<div class="footer-col"><h4>Empresa</h4><a href="/sobre-nosotros">Sobre Nosotros</a><a href="/casos-de-exito-automatizacion">Casos de Éxito</a><a href="/blog-automatizacion-ia">Blog</a><a href="/contacto#formulario-contacto">Contacto</a></div>
+<div class="footer-col"><h4>Soluciones</h4><a href="/soluciones">Finanzas</a><a href="/soluciones">Retail</a><a href="/soluciones">Salud</a><a href="/soluciones">Logística</a></div>
+</div>
+<div class="footer-bottom"><p class="footer-copy">© 2025 ZentrixCo. Todos los derechos reservados.</p><div class="footer-socials"><a aria-label="Facebook" href="#"><i class="fab fa-facebook-f"></i></a><a aria-label="Twitter" href="#"><i class="fab fa-twitter"></i></a><a aria-label="LinkedIn" href="#"><i class="fab fa-linkedin-in"></i></a><a aria-label="Instagram" href="#"><i class="fab fa-instagram"></i></a></div></div>
+</div>
+</footer><script>
+document.addEventListener('DOMContentLoaded', function () {
+  const modal = document.getElementById('newsletterModal');
+  const openBtn = document.getElementById('openNewsletterModal');
+  const closeBtn = document.getElementById('closeNewsletterModal');
+  const backdrop = document.getElementById('newsletterBackdrop');
+  const form = document.getElementById('newsletterForm');
+  const status = document.getElementById('newsletterStatus');
+  function openModal(){ if(modal){ modal.classList.add('active'); modal.setAttribute('aria-hidden','false'); } }
+  function closeModal(){ if(modal){ modal.classList.remove('active'); modal.setAttribute('aria-hidden','true'); } }
+  if(openBtn){ openBtn.addEventListener('click', openModal); }
+  if(closeBtn){ closeBtn.addEventListener('click', closeModal); }
+  if(backdrop){ backdrop.addEventListener('click', closeModal); }
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape'){ closeModal(); } });
+  let shown = false;
+  window.addEventListener('scroll', function(){
+    if(shown) return;
+    const scrolled = (window.scrollY + window.innerHeight) / document.body.scrollHeight;
+    if(scrolled > 0.42){ shown = true; openModal(); }
+  }, {passive:true});
+  if(form){
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      status.textContent = '✅ Formulario listo para integrarse con tu endpoint de newsletter.';
+      status.style.color = 'green';
+      form.reset();
+    });
+  }
+});
+</script>
+<script src="js/scripts-global.js" type="module"></script>
+<script src="js/chat-widget.js" type="module"></script>
+<script>
 document.addEventListener("DOMContentLoaded", function () {
   const toggle = document.getElementById("mobileToggle");
   const nav = document.getElementById("nav");

@@ -13,15 +13,25 @@
 
   "rewrites": [
     { "source": "/", "destination": "/index.html" },
-    { "source": "/automatizacion-rpa-chile", "destination": "/servicios.html#rpa" },
-    { "source": "/agentes-ia-empresas", "destination": "/servicios.html#ia" },
-    { "source": "/integracion-sistemas-empresariales", "destination": "/servicios.html#integraciones" },
+
+    { "source": "/servicios", "destination": "/servicios.html" },
+    { "source": "/soluciones", "destination": "/soluciones.html" },
     { "source": "/sobre-nosotros", "destination": "/sobre-nosotros.html" },
-    { "source": "/contacto", "destination": "/contacto.html" },
-    { "source": "/automatizacion-procesos-finanzas", "destination": "/soluciones.html#finanzas" },
-    { "source": "/automatizacion-retail", "destination": "/soluciones.html#retail" },
-    { "source": "/automatizacion-logistica", "destination": "/soluciones.html#logistica" },
+    { "source": "/contacto", "destination": "/contacto.html#formulario" },
+
     { "source": "/blog-automatizacion-ia", "destination": "/blog-automatizacion-ia.html" },
-    { "source": "/casos-de-exito-automatizacion", "destination": "/casos-de-exito-automatizacion.html" }
+    { "source": "/casos-de-exito-automatizacion", "destination": "/casos-de-exito-automatizacion.html" },
+
+    // BLOG ARTICLES (CLAVE SEO)
+    { "source": "/automatizacion-rpa-empresas", "destination": "/blog/automatizacion-rpa.html" },
+    { "source": "/caso-servicenow-n8n-ia", "destination": "/blog/caso-servicenow.html" },
+    { "source": "/automatizacion-finanzas", "destination": "/blog/automatizacion-finanzas.html" },
+    { "source": "/automatizacion-retail", "destination": "/blog/automatizacion-retail.html" },
+    { "source": "/automatizacion-logistica", "destination": "/blog/automatizacion-logistica.html" },
+
+    // LANDINGS SEO
+    { "source": "/automatizacion-rpa-latam", "destination": "/servicios.html#rpa" },
+    { "source": "/agentes-ia-empresas", "destination": "/servicios.html#ia" },
+    { "source": "/integracion-sistemas", "destination": "/servicios.html#integraciones" }
   ]
 }
