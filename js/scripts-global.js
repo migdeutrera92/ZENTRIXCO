@@ -1,22 +1,53 @@
 import './styles-global.css';
 
-// ===== Mobile Navigation Toggle =====
-const mobileToggle = document.getElementById('mobileToggle');
-const nav = document.getElementById('nav');
+// ===== Mobile Navigation Toggle - FIX DEFINITIVO =====
+(function () {
+  const mobileToggle = document.getElementById('mobileToggle');
+  const nav = document.getElementById('nav');
 
-if (mobileToggle) {
-  mobileToggle.addEventListener('click', () => {
-    nav.classList.toggle('open');
-    mobileToggle.classList.toggle('active');
-  });
-}
+  if (!mobileToggle || !nav) return;
 
-document.querySelectorAll('.nav-link').forEach(link => {
-  link.addEventListener('click', () => {
+  mobileToggle.setAttribute('aria-label', 'Abrir menú');
+  mobileToggle.setAttribute('aria-expanded', 'false');
+
+  function openMenu() {
+    nav.classList.add('open');
+    nav.classList.add('active'); // compatibilidad con páginas que usan .active
+    mobileToggle.classList.add('active');
+    document.body.classList.add('menu-open');
+    mobileToggle.setAttribute('aria-expanded', 'true');
+  }
+
+  function closeMenu() {
     nav.classList.remove('open');
-    if (mobileToggle) mobileToggle.classList.remove('active');
+    nav.classList.remove('active');
+    mobileToggle.classList.remove('active');
+    document.body.classList.remove('menu-open');
+    mobileToggle.setAttribute('aria-expanded', 'false');
+  }
+
+  mobileToggle.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    const isOpen = nav.classList.contains('open') || nav.classList.contains('active');
+
+    if (isOpen) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
   });
-});
+
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 1200) {
+      closeMenu();
+    }
+  });
+})();
 
 // ===== Header Shadow on Scroll =====
 const header = document.getElementById('header');
@@ -63,7 +94,6 @@ window.addEventListener('load', revealOnScroll);
     svcSections.forEach(function (el) { allElements.push(el); });
     processSteps.forEach(function (el) { allElements.push(el); });
 
-    // First, ensure all elements are visible (no hidden state)
     allElements.forEach(function (el) {
       el.style.opacity = '1';
       el.style.transform = 'translateY(0)';
@@ -72,7 +102,6 @@ window.addEventListener('load', revealOnScroll);
     });
 
     if ('IntersectionObserver' in window) {
-      // Only apply scroll animation to elements below the fold
       allElements.forEach(function (el) {
         var rect = el.getBoundingClientRect();
         if (rect.top > window.innerHeight + 50) {
@@ -212,7 +241,6 @@ function updateCalculator() {
   }
 }
 
-// Initialize calculator if present
 window.addEventListener('load', () => {
   if (document.getElementById('calcEmployees')) {
     updateCalculator();
