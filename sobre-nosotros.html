@@ -618,144 +618,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;family=Open+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
 <meta content="#173f7a" name="theme-color"/>
-<style id="zco-mobile-nuclear-css">
-/* ZENTRIXCO - MENÚ MÓVIL NUCLEAR: independiente del nav original */
-.zco-mobile-only-toggle,
-.zco-mobile-menu-panel {
-  display: none;
-}
-
+<style id="zco-injected-mobile-helper-css">
 @media (max-width: 992px) {
-  body {
-    padding-top: 68px !important;
-  }
-
-  .header {
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    height: 68px !important;
-    background: #ffffff !important;
-    z-index: 999999 !important;
-    box-shadow: 0 8px 28px rgba(15,47,93,.12) !important;
-  }
-
-  .header-inner {
-    height: 68px !important;
-    min-height: 68px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-  }
-
-  /* Ocultamos el nav original en móvil porque está siendo pisado por CSS/JS global */
-  .header #nav,
-  .header .nav,
-  .header-cta,
-  .mobile-toggle {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
-  }
-
-  .zco-mobile-only-toggle {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 5px !important;
-    width: 44px !important;
-    height: 44px !important;
-    border: none !important;
-    background: transparent !important;
-    cursor: pointer !important;
-    padding: 6px !important;
-    z-index: 1000001 !important;
-  }
-
-  .zco-mobile-only-toggle span {
-    display: block !important;
-    width: 27px !important;
-    height: 3px !important;
-    border-radius: 99px !important;
-    background: #173f7a !important;
-    transition: .25s ease !important;
-  }
-
-  .zco-mobile-only-toggle.is-open span:nth-child(1) {
-    transform: translateY(8px) rotate(45deg) !important;
-  }
-
-  .zco-mobile-only-toggle.is-open span:nth-child(2) {
-    opacity: 0 !important;
-  }
-
-  .zco-mobile-only-toggle.is-open span:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg) !important;
-  }
-
-  .zco-mobile-menu-panel {
-    position: fixed !important;
-    top: 68px !important;
-    left: 0 !important;
-    right: 0 !important;
-    width: 100vw !important;
-    max-height: calc(100vh - 68px) !important;
-    overflow-y: auto !important;
-    background: #ffffff !important;
-    box-shadow: 0 24px 60px rgba(15,47,93,.20) !important;
-    z-index: 1000000 !important;
-    padding: 14px 22px 24px !important;
-    transform: translateY(-120%) !important;
-    opacity: 0 !important;
-    visibility: hidden !important;
-    pointer-events: none !important;
-    transition: transform .28s ease, opacity .22s ease, visibility .22s ease !important;
-  }
-
-  .zco-mobile-menu-panel.is-open {
-    display: block !important;
-    transform: translateY(0) !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    pointer-events: auto !important;
-  }
-
-  .zco-mobile-menu-panel a {
-    display: block !important;
-    padding: 15px 8px !important;
-    border-bottom: 1px solid #edf1f7 !important;
-    color: #173f7a !important;
-    text-decoration: none !important;
-    font-weight: 700 !important;
-    font-family: 'Poppins', sans-serif !important;
-    line-height: 1.4 !important;
-  }
-
-  .zco-mobile-menu-panel a:last-child {
-    border-bottom: none !important;
-  }
-
-  .zco-mobile-menu-panel a.zco-mobile-cta {
-    margin-top: 14px !important;
-    text-align: center !important;
-    border-radius: 999px !important;
-    background: linear-gradient(135deg,#eb6428,#cf531d) !important;
-    color: #ffffff !important;
-    border-bottom: none !important;
-    box-shadow: 0 12px 28px rgba(235,100,40,.22) !important;
-  }
-
-  body.zco-mobile-menu-open {
+  body.zco-injected-menu-open {
     overflow: hidden !important;
-  }
-
-  .page-hero {
-    margin-top: 0 !important;
-    padding-top: 54px !important;
-    padding-bottom: 54px !important;
   }
 }
 </style>
@@ -783,28 +649,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <a class="nav-link" href="/contacto#formulario-contacto">Contacto</a>
 </nav>
 <a class="btn btn-primary btn-sm header-cta" href="/contacto#formulario-contacto">Consulta Gratis</a>
-
-<button class="zco-mobile-only-toggle" id="zcoMobileMenuBtn" aria-label="Abrir menú móvil" aria-expanded="false" type="button">
-  <span></span>
-  <span></span>
-  <span></span>
-</button>
-
 <button aria-label="Toggle menu" class="mobile-toggle" id="mobileToggle"><span></span><span></span><span></span></button>
 </div>
 </header>
-
-<nav class="zco-mobile-menu-panel" id="zcoMobileMenuPanel" aria-label="Menú móvil ZentrixCo">
-  <a href="/">Inicio</a>
-  <a href="/servicios">Servicios</a>
-  <a href="/soluciones">Soluciones</a>
-  <a href="/casos-de-exito-automatizacion">Casos de Éxito</a>
-  <a href="/sobre-nosotros">Nosotros</a>
-  <a href="/blog-automatizacion-ia">Blog</a>
-  <a href="/contacto#formulario-contacto">Contacto</a>
-  <a class="zco-mobile-cta" href="/contacto#formulario-contacto">Consulta Gratis</a>
-</nav>
-
 <!-- Banner updated: removed woman with turban, now office team image -->
 <section class="page-hero page-hero--nosotros" style="background:linear-gradient(135deg, rgba(10,42,74,0.82) 0%, rgba(21,101,168,0.78) 40%, rgba(33,150,200,0.75) 100%), url('https://mgx-backend-cdn.metadl.com/generate/images/1102970/2026-04-17/mzfqazqaae6q/banner-nosotros-office-team.png') center/cover no-repeat;">
 <h1>Sobre ZentrixCo: automatización RPA e IA para empresas que quieren escalar</h1>
@@ -1315,33 +1162,173 @@ Automatizar no es una opción: es una ventaja competitiva.
 <script src="js/scripts-global.js" type="module"></script>
 <script src="js/chat-widget.js"></script>
 
-<script id="zco-mobile-nuclear-js">
+<script id="zco-injected-mobile-menu-final">
 (function () {
-  function initZcoNuclearMenu() {
-    var btn = document.getElementById("zcoMobileMenuBtn");
-    var panel = document.getElementById("zcoMobileMenuPanel");
+  function buildZcoInjectedMenu() {
+    if (document.getElementById("zcoInjectedMenuButton")) return;
 
-    if (!btn || !panel || btn.dataset.ready === "true") return;
-    btn.dataset.ready = "true";
+    var links = [
+      ["Inicio", "/"],
+      ["Servicios", "/servicios"],
+      ["Soluciones", "/soluciones"],
+      ["Casos de Éxito", "/casos-de-exito-automatizacion"],
+      ["Nosotros", "/sobre-nosotros"],
+      ["Blog", "/blog-automatizacion-ia"],
+      ["Contacto", "/contacto#formulario-contacto"]
+    ];
+
+    var btn = document.createElement("button");
+    btn.id = "zcoInjectedMenuButton";
+    btn.type = "button";
+    btn.setAttribute("aria-label", "Abrir menú");
     btn.setAttribute("aria-expanded", "false");
 
+    btn.innerHTML = "<span></span><span></span><span></span>";
+
+    var panel = document.createElement("nav");
+    panel.id = "zcoInjectedMenuPanel";
+    panel.setAttribute("aria-label", "Menú móvil ZentrixCo");
+
+    links.forEach(function (item) {
+      var a = document.createElement("a");
+      a.textContent = item[0];
+      a.href = item[1];
+      panel.appendChild(a);
+    });
+
+    var cta = document.createElement("a");
+    cta.textContent = "Consulta Gratis";
+    cta.href = "/contacto#formulario-contacto";
+    cta.className = "zcoInjectedCta";
+    panel.appendChild(cta);
+
+    document.body.appendChild(btn);
+    document.body.appendChild(panel);
+
+    function applyBaseStyles() {
+      var isMobile = window.innerWidth <= 992;
+
+      if (!isMobile) {
+        btn.style.display = "none";
+        panel.style.display = "none";
+        document.body.classList.remove("zco-injected-menu-open");
+        return;
+      }
+
+      btn.style.setProperty("display", "flex", "important");
+      btn.style.setProperty("position", "fixed", "important");
+      btn.style.setProperty("top", "14px", "important");
+      btn.style.setProperty("right", "18px", "important");
+      btn.style.setProperty("width", "46px", "important");
+      btn.style.setProperty("height", "46px", "important");
+      btn.style.setProperty("z-index", "2147483647", "important");
+      btn.style.setProperty("border", "0", "important");
+      btn.style.setProperty("border-radius", "12px", "important");
+      btn.style.setProperty("background", "#ffffff", "important");
+      btn.style.setProperty("box-shadow", "0 10px 30px rgba(15,47,93,.22)", "important");
+      btn.style.setProperty("align-items", "center", "important");
+      btn.style.setProperty("justify-content", "center", "important");
+      btn.style.setProperty("flex-direction", "column", "important");
+      btn.style.setProperty("gap", "5px", "important");
+      btn.style.setProperty("padding", "7px", "important");
+      btn.style.setProperty("cursor", "pointer", "important");
+      btn.style.setProperty("opacity", "1", "important");
+      btn.style.setProperty("visibility", "visible", "important");
+      btn.style.setProperty("pointer-events", "auto", "important");
+
+      Array.prototype.forEach.call(btn.querySelectorAll("span"), function (span) {
+        span.style.setProperty("display", "block", "important");
+        span.style.setProperty("width", "27px", "important");
+        span.style.setProperty("height", "3px", "important");
+        span.style.setProperty("background", "#173f7a", "important");
+        span.style.setProperty("border-radius", "99px", "important");
+        span.style.setProperty("transition", ".25s ease", "important");
+      });
+
+      panel.style.setProperty("position", "fixed", "important");
+      panel.style.setProperty("top", "74px", "important");
+      panel.style.setProperty("left", "12px", "important");
+      panel.style.setProperty("right", "12px", "important");
+      panel.style.setProperty("width", "auto", "important");
+      panel.style.setProperty("max-height", "calc(100vh - 88px)", "important");
+      panel.style.setProperty("overflow-y", "auto", "important");
+      panel.style.setProperty("background", "#ffffff", "important");
+      panel.style.setProperty("border-radius", "18px", "important");
+      panel.style.setProperty("box-shadow", "0 24px 70px rgba(15,47,93,.25)", "important");
+      panel.style.setProperty("z-index", "2147483646", "important");
+      panel.style.setProperty("padding", "14px 18px 18px", "important");
+      panel.style.setProperty("display", "block", "important");
+      panel.style.setProperty("transition", ".25s ease", "important");
+
+      if (!panel.classList.contains("is-open")) {
+        panel.style.setProperty("transform", "translateY(-18px)", "important");
+        panel.style.setProperty("opacity", "0", "important");
+        panel.style.setProperty("visibility", "hidden", "important");
+        panel.style.setProperty("pointer-events", "none", "important");
+      }
+
+      Array.prototype.forEach.call(panel.querySelectorAll("a"), function (a) {
+        a.style.setProperty("display", "block", "important");
+        a.style.setProperty("padding", "15px 8px", "important");
+        a.style.setProperty("border-bottom", "1px solid #edf1f7", "important");
+        a.style.setProperty("color", "#173f7a", "important");
+        a.style.setProperty("font-family", "Poppins, Arial, sans-serif", "important");
+        a.style.setProperty("font-weight", "700", "important");
+        a.style.setProperty("font-size", "16px", "important");
+        a.style.setProperty("text-decoration", "none", "important");
+        a.style.setProperty("line-height", "1.35", "important");
+      });
+
+      var cta = panel.querySelector(".zcoInjectedCta");
+      if (cta) {
+        cta.style.setProperty("margin-top", "14px", "important");
+        cta.style.setProperty("border-bottom", "0", "important");
+        cta.style.setProperty("border-radius", "999px", "important");
+        cta.style.setProperty("text-align", "center", "important");
+        cta.style.setProperty("background", "linear-gradient(135deg,#eb6428,#cf531d)", "important");
+        cta.style.setProperty("color", "#ffffff", "important");
+        cta.style.setProperty("box-shadow", "0 12px 28px rgba(235,100,40,.24)", "important");
+      }
+    }
+
     function openMenu() {
-      btn.classList.add("is-open");
       panel.classList.add("is-open");
-      document.body.classList.add("zco-mobile-menu-open");
+      btn.classList.add("is-open");
       btn.setAttribute("aria-expanded", "true");
+      document.body.classList.add("zco-injected-menu-open");
+
+      panel.style.setProperty("transform", "translateY(0)", "important");
+      panel.style.setProperty("opacity", "1", "important");
+      panel.style.setProperty("visibility", "visible", "important");
+      panel.style.setProperty("pointer-events", "auto", "important");
+
+      var spans = btn.querySelectorAll("span");
+      if (spans[0]) spans[0].style.setProperty("transform", "translateY(8px) rotate(45deg)", "important");
+      if (spans[1]) spans[1].style.setProperty("opacity", "0", "important");
+      if (spans[2]) spans[2].style.setProperty("transform", "translateY(-8px) rotate(-45deg)", "important");
     }
 
     function closeMenu() {
-      btn.classList.remove("is-open");
       panel.classList.remove("is-open");
-      document.body.classList.remove("zco-mobile-menu-open");
+      btn.classList.remove("is-open");
       btn.setAttribute("aria-expanded", "false");
+      document.body.classList.remove("zco-injected-menu-open");
+
+      panel.style.setProperty("transform", "translateY(-18px)", "important");
+      panel.style.setProperty("opacity", "0", "important");
+      panel.style.setProperty("visibility", "hidden", "important");
+      panel.style.setProperty("pointer-events", "none", "important");
+
+      var spans = btn.querySelectorAll("span");
+      if (spans[0]) spans[0].style.setProperty("transform", "none", "important");
+      if (spans[1]) spans[1].style.setProperty("opacity", "1", "important");
+      if (spans[2]) spans[2].style.setProperty("transform", "none", "important");
     }
 
     btn.addEventListener("click", function (e) {
       e.preventDefault();
       e.stopPropagation();
+
       if (panel.classList.contains("is-open")) {
         closeMenu();
       } else {
@@ -1349,8 +1336,8 @@ Automatizar no es una opción: es una ventaja competitiva.
       }
     });
 
-    panel.querySelectorAll("a").forEach(function (link) {
-      link.addEventListener("click", closeMenu);
+    panel.querySelectorAll("a").forEach(function (a) {
+      a.addEventListener("click", closeMenu);
     });
 
     document.addEventListener("click", function (e) {
@@ -1361,16 +1348,17 @@ Automatizar no es una opción: es una ventaja competitiva.
     });
 
     window.addEventListener("resize", function () {
-      if (window.innerWidth > 992) {
-        closeMenu();
-      }
+      applyBaseStyles();
+      if (window.innerWidth > 992) closeMenu();
     });
+
+    applyBaseStyles();
   }
 
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initZcoNuclearMenu);
+    document.addEventListener("DOMContentLoaded", buildZcoInjectedMenu);
   } else {
-    initZcoNuclearMenu();
+    buildZcoInjectedMenu();
   }
 })();
 </script>
