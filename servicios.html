@@ -262,10 +262,256 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
   </style>
 
-<style id="zco-injected-mobile-helper-css">
-@media (max-width: 992px) {
-  body.zco-injected-menu-open {
+<style id="zco-mobile-overflow-final-fix">
+/* FIX FINAL: elimina overflow horizontal y alinea menú móvil en Servicios/Nosotros */
+html,
+body {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box !important;
+}
+
+img,
+video,
+iframe {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+.container,
+.header-inner,
+section,
+.page-hero,
+.grid-2,
+.grid-3,
+.grid-4 {
+  max-width: 100% !important;
+}
+
+@media (max-width: 1200px) {
+  body {
+    padding-top: 70px !important;
+  }
+
+  .header {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    overflow: visible !important;
+    background: #ffffff !important;
+    z-index: 99999 !important;
+    box-shadow: 0 8px 28px rgba(15,47,93,.10) !important;
+  }
+
+  .header-inner {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 70px !important;
+    min-height: 70px !important;
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    overflow: visible !important;
+  }
+
+  .logo {
+    min-width: 0 !important;
+    max-width: calc(100vw - 92px) !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+  }
+
+  .logo-img {
+    width: auto !important;
+    max-width: 44px !important;
+    max-height: 44px !important;
+    flex: 0 0 auto !important;
+  }
+
+  .logo-text {
+    font-size: clamp(1.35rem, 6vw, 2rem) !important;
+    white-space: nowrap !important;
     overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  .header-cta {
+    display: none !important;
+  }
+
+  .mobile-toggle {
+    display: flex !important;
+    flex: 0 0 44px !important;
+    width: 44px !important;
+    height: 44px !important;
+    border: 0 !important;
+    background: #ffffff !important;
+    border-radius: 14px !important;
+    box-shadow: 0 8px 24px rgba(15,47,93,.12) !important;
+    padding: 6px !important;
+    cursor: pointer !important;
+    z-index: 100001 !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 5px !important;
+  }
+
+  .mobile-toggle span {
+    display: block !important;
+    width: 27px !important;
+    height: 3px !important;
+    background: #173f7a !important;
+    border-radius: 999px !important;
+    transition: transform .25s ease, opacity .2s ease !important;
+  }
+
+  .mobile-toggle.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg) !important;
+  }
+
+  .mobile-toggle.active span:nth-child(2) {
+    opacity: 0 !important;
+  }
+
+  .mobile-toggle.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg) !important;
+  }
+
+  #nav.nav {
+    position: fixed !important;
+    top: 70px !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    max-height: calc(100vh - 70px) !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    background: #ffffff !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0 !important;
+    padding: 12px 22px 22px !important;
+    box-shadow: 0 20px 45px rgba(15,47,93,.16) !important;
+    z-index: 100000 !important;
+    transform: translateY(-130%) !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transition: transform .28s ease, opacity .2s ease, visibility .2s ease !important;
+  }
+
+  #nav.nav.open,
+  #nav.nav.active {
+    transform: translateY(0) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+  }
+
+  #nav.nav .nav-link {
+    display: block !important;
+    width: 100% !important;
+    padding: 15px 8px !important;
+    border-bottom: 1px solid #edf1f7 !important;
+    color: #173f7a !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+    text-align: left !important;
+    line-height: 1.4 !important;
+    white-space: normal !important;
+  }
+
+  #nav.nav .nav-link:last-child {
+    border-bottom: 0 !important;
+  }
+
+  body.menu-open {
+    overflow: hidden !important;
+  }
+
+  .page-hero {
+    width: 100% !important;
+    max-width: 100vw !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    overflow: hidden !important;
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+    padding-top: 58px !important;
+    padding-bottom: 58px !important;
+  }
+
+  .page-hero h1,
+  .page-hero p,
+  .section-title,
+  h1,
+  h2,
+  h3,
+  p {
+    max-width: 100% !important;
+    overflow-wrap: break-word !important;
+    word-break: normal !important;
+  }
+
+  .page-hero h1 {
+    font-size: clamp(1.75rem, 7vw, 2.35rem) !important;
+    line-height: 1.18 !important;
+  }
+
+  .page-hero p {
+    font-size: 1rem !important;
+    line-height: 1.65 !important;
+  }
+
+  .grid-2,
+  .grid-3,
+  .grid-4,
+  .historia-grid,
+  .case-flow,
+  .timeline-mini-wrapper,
+  .stats-row,
+  .fd-grid {
+    grid-template-columns: 1fr !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .card,
+  .case-card,
+  .historia-card,
+  .fd-card {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+@media (min-width: 1201px) {
+  #nav.nav {
+    display: flex !important;
+    position: static !important;
+    transform: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+  }
+
+  .mobile-toggle {
+    display: none !important;
   }
 }
 </style>
@@ -293,7 +539,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <a class="nav-link" href="/contacto#formulario-contacto">Contacto</a>
 </nav>
 <a class="btn btn-primary btn-sm header-cta" href="/contacto#formulario-contacto">Consulta Gratis</a>
-<button aria-label="Toggle menu" class="mobile-toggle" id="mobileToggle"><span></span><span></span><span></span></button>
+<button aria-label="Abrir menú" class="mobile-toggle" id="mobileToggle"><span></span><span></span><span></span></button>
 </div>
 </header>
 <!-- Page Hero -->
@@ -704,203 +950,58 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script src="/js/scripts-global.js" type="module"></script>
 <script src="/js/chat-widget.js"></script>
 
-<script id="zco-injected-mobile-menu-final">
+<script id="zco-mobile-menu-clean-js">
 (function () {
-  function buildZcoInjectedMenu() {
-    if (document.getElementById("zcoInjectedMenuButton")) return;
+  function initZcoMenu() {
+    var toggle = document.getElementById("mobileToggle");
+    var nav = document.getElementById("nav");
 
-    var links = [
-      ["Inicio", "/"],
-      ["Servicios", "/servicios"],
-      ["Soluciones", "/soluciones"],
-      ["Casos de Éxito", "/casos-de-exito-automatizacion"],
-      ["Nosotros", "/sobre-nosotros"],
-      ["Blog", "/blog-automatizacion-ia"],
-      ["Contacto", "/contacto#formulario-contacto"]
-    ];
+    if (!toggle || !nav || toggle.dataset.zcoCleanReady === "true") return;
+    toggle.dataset.zcoCleanReady = "true";
 
-    var btn = document.createElement("button");
-    btn.id = "zcoInjectedMenuButton";
-    btn.type = "button";
-    btn.setAttribute("aria-label", "Abrir menú");
-    btn.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-label", "Abrir menú");
+    toggle.setAttribute("aria-expanded", "false");
 
-    btn.innerHTML = "<span></span><span></span><span></span>";
-
-    var panel = document.createElement("nav");
-    panel.id = "zcoInjectedMenuPanel";
-    panel.setAttribute("aria-label", "Menú móvil ZentrixCo");
-
-    links.forEach(function (item) {
-      var a = document.createElement("a");
-      a.textContent = item[0];
-      a.href = item[1];
-      panel.appendChild(a);
-    });
-
-    var cta = document.createElement("a");
-    cta.textContent = "Consulta Gratis";
-    cta.href = "/contacto#formulario-contacto";
-    cta.className = "zcoInjectedCta";
-    panel.appendChild(cta);
-
-    document.body.appendChild(btn);
-    document.body.appendChild(panel);
-
-    function applyBaseStyles() {
-      var isMobile = window.innerWidth <= 992;
-
-      if (!isMobile) {
-        btn.style.display = "none";
-        panel.style.display = "none";
-        document.body.classList.remove("zco-injected-menu-open");
-        return;
-      }
-
-      btn.style.setProperty("display", "flex", "important");
-      btn.style.setProperty("position", "fixed", "important");
-      btn.style.setProperty("top", "14px", "important");
-      btn.style.setProperty("right", "18px", "important");
-      btn.style.setProperty("width", "46px", "important");
-      btn.style.setProperty("height", "46px", "important");
-      btn.style.setProperty("z-index", "2147483647", "important");
-      btn.style.setProperty("border", "0", "important");
-      btn.style.setProperty("border-radius", "12px", "important");
-      btn.style.setProperty("background", "#ffffff", "important");
-      btn.style.setProperty("box-shadow", "0 10px 30px rgba(15,47,93,.22)", "important");
-      btn.style.setProperty("align-items", "center", "important");
-      btn.style.setProperty("justify-content", "center", "important");
-      btn.style.setProperty("flex-direction", "column", "important");
-      btn.style.setProperty("gap", "5px", "important");
-      btn.style.setProperty("padding", "7px", "important");
-      btn.style.setProperty("cursor", "pointer", "important");
-      btn.style.setProperty("opacity", "1", "important");
-      btn.style.setProperty("visibility", "visible", "important");
-      btn.style.setProperty("pointer-events", "auto", "important");
-
-      Array.prototype.forEach.call(btn.querySelectorAll("span"), function (span) {
-        span.style.setProperty("display", "block", "important");
-        span.style.setProperty("width", "27px", "important");
-        span.style.setProperty("height", "3px", "important");
-        span.style.setProperty("background", "#173f7a", "important");
-        span.style.setProperty("border-radius", "99px", "important");
-        span.style.setProperty("transition", ".25s ease", "important");
-      });
-
-      panel.style.setProperty("position", "fixed", "important");
-      panel.style.setProperty("top", "74px", "important");
-      panel.style.setProperty("left", "12px", "important");
-      panel.style.setProperty("right", "12px", "important");
-      panel.style.setProperty("width", "auto", "important");
-      panel.style.setProperty("max-height", "calc(100vh - 88px)", "important");
-      panel.style.setProperty("overflow-y", "auto", "important");
-      panel.style.setProperty("background", "#ffffff", "important");
-      panel.style.setProperty("border-radius", "18px", "important");
-      panel.style.setProperty("box-shadow", "0 24px 70px rgba(15,47,93,.25)", "important");
-      panel.style.setProperty("z-index", "2147483646", "important");
-      panel.style.setProperty("padding", "14px 18px 18px", "important");
-      panel.style.setProperty("display", "block", "important");
-      panel.style.setProperty("transition", ".25s ease", "important");
-
-      if (!panel.classList.contains("is-open")) {
-        panel.style.setProperty("transform", "translateY(-18px)", "important");
-        panel.style.setProperty("opacity", "0", "important");
-        panel.style.setProperty("visibility", "hidden", "important");
-        panel.style.setProperty("pointer-events", "none", "important");
-      }
-
-      Array.prototype.forEach.call(panel.querySelectorAll("a"), function (a) {
-        a.style.setProperty("display", "block", "important");
-        a.style.setProperty("padding", "15px 8px", "important");
-        a.style.setProperty("border-bottom", "1px solid #edf1f7", "important");
-        a.style.setProperty("color", "#173f7a", "important");
-        a.style.setProperty("font-family", "Poppins, Arial, sans-serif", "important");
-        a.style.setProperty("font-weight", "700", "important");
-        a.style.setProperty("font-size", "16px", "important");
-        a.style.setProperty("text-decoration", "none", "important");
-        a.style.setProperty("line-height", "1.35", "important");
-      });
-
-      var cta = panel.querySelector(".zcoInjectedCta");
-      if (cta) {
-        cta.style.setProperty("margin-top", "14px", "important");
-        cta.style.setProperty("border-bottom", "0", "important");
-        cta.style.setProperty("border-radius", "999px", "important");
-        cta.style.setProperty("text-align", "center", "important");
-        cta.style.setProperty("background", "linear-gradient(135deg,#eb6428,#cf531d)", "important");
-        cta.style.setProperty("color", "#ffffff", "important");
-        cta.style.setProperty("box-shadow", "0 12px 28px rgba(235,100,40,.24)", "important");
-      }
+    function closeMenu() {
+      nav.classList.remove("open");
+      nav.classList.remove("active");
+      toggle.classList.remove("active");
+      document.body.classList.remove("menu-open");
+      toggle.setAttribute("aria-expanded", "false");
     }
 
     function openMenu() {
-      panel.classList.add("is-open");
-      btn.classList.add("is-open");
-      btn.setAttribute("aria-expanded", "true");
-      document.body.classList.add("zco-injected-menu-open");
-
-      panel.style.setProperty("transform", "translateY(0)", "important");
-      panel.style.setProperty("opacity", "1", "important");
-      panel.style.setProperty("visibility", "visible", "important");
-      panel.style.setProperty("pointer-events", "auto", "important");
-
-      var spans = btn.querySelectorAll("span");
-      if (spans[0]) spans[0].style.setProperty("transform", "translateY(8px) rotate(45deg)", "important");
-      if (spans[1]) spans[1].style.setProperty("opacity", "0", "important");
-      if (spans[2]) spans[2].style.setProperty("transform", "translateY(-8px) rotate(-45deg)", "important");
+      nav.classList.add("open");
+      nav.classList.add("active");
+      toggle.classList.add("active");
+      document.body.classList.add("menu-open");
+      toggle.setAttribute("aria-expanded", "true");
     }
 
-    function closeMenu() {
-      panel.classList.remove("is-open");
-      btn.classList.remove("is-open");
-      btn.setAttribute("aria-expanded", "false");
-      document.body.classList.remove("zco-injected-menu-open");
-
-      panel.style.setProperty("transform", "translateY(-18px)", "important");
-      panel.style.setProperty("opacity", "0", "important");
-      panel.style.setProperty("visibility", "hidden", "important");
-      panel.style.setProperty("pointer-events", "none", "important");
-
-      var spans = btn.querySelectorAll("span");
-      if (spans[0]) spans[0].style.setProperty("transform", "none", "important");
-      if (spans[1]) spans[1].style.setProperty("opacity", "1", "important");
-      if (spans[2]) spans[2].style.setProperty("transform", "none", "important");
-    }
-
-    btn.addEventListener("click", function (e) {
-      e.preventDefault();
-      e.stopPropagation();
-
-      if (panel.classList.contains("is-open")) {
+    toggle.addEventListener("click", function (event) {
+      event.preventDefault();
+      if (nav.classList.contains("open") || nav.classList.contains("active")) {
         closeMenu();
       } else {
         openMenu();
       }
     });
 
-    panel.querySelectorAll("a").forEach(function (a) {
-      a.addEventListener("click", closeMenu);
-    });
-
-    document.addEventListener("click", function (e) {
-      if (window.innerWidth > 992) return;
-      if (!panel.contains(e.target) && !btn.contains(e.target)) {
-        closeMenu();
-      }
+    nav.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", closeMenu);
     });
 
     window.addEventListener("resize", function () {
-      applyBaseStyles();
-      if (window.innerWidth > 992) closeMenu();
+      if (window.innerWidth > 1200) {
+        closeMenu();
+      }
     });
-
-    applyBaseStyles();
   }
 
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", buildZcoInjectedMenu);
+    document.addEventListener("DOMContentLoaded", initZcoMenu);
   } else {
-    buildZcoInjectedMenu();
+    initZcoMenu();
   }
 })();
 </script>
