@@ -486,20 +486,38 @@ var WEBHOOK_URL = "https://hook.us2.make.com/7ulf3o76oir87dk6cpshg4mcqurwpch2"; 
           history: getLastMessages(12)
         })
       })
-      .then(function (res) { return res.json(); })
-      .then(function (data) {
+      .then(function (res) {
+        return res.text().then(function (text) {
+          return { ok: res.ok, status: res.status, text: text };
+        });
+      })
+      .then(function (response) {
         hideTyping();
-        var reply = 'Gracias por tu mensaje. Un experto te contactara pronto.';
-        if (data) {
-          reply = data.reply || data.message || data.text || reply;
+
+        if (!response.ok) {
+          throw new Error('HTTP ' + response.status + ': ' + response.text);
         }
+
+        var reply = 'Gracias por tu mensaje. Un experto te contactara pronto.';
+
+        if (response.text) {
+          try {
+            var data = JSON.parse(response.text);
+            reply = data.reply || data.message || data.text || reply;
+          } catch (e) {
+            // Si Make responde texto plano o JSON mal escapado, mostramos el texto para no romper el chat.
+            reply = response.text;
+          }
+        }
+
         addMessage(reply, 'bot');
         submitBtn.disabled = false;
         submitBtn.textContent = 'Enviar';
       })
-      .catch(function () {
+      .catch(function (error) {
         hideTyping();
-        addMessage('Lo siento, hubo un error de conexion. Por favor intenta de nuevo o visita nuestra pagina de contacto.', 'bot');
+        console.error('ZentrixCo chatbot webhook error:', error);
+        addMessage('Estoy teniendo un problema de conexión con el asistente. Por favor intenta nuevamente en unos segundos o agenda tu diagnóstico desde la página de contacto.', 'bot');
         submitBtn.disabled = false;
         submitBtn.textContent = 'Enviar';
       });
