@@ -5,7 +5,7 @@
  * CONFIGURACION DE WEBHOOK (n8n / Make)
  * Para conectar este chatbot con n8n o Make, pega tu URL de webhook aqui:
  */
-var WEBHOOK_URL = "";
+var WEBHOOK_URL = "https://hook.us2.make.com/7ulf3o76oir87dk6cpshg4mcqurwpch2"; // Ejemplo: https://hook.us1.make.com/xxxx
 /**
  * Ejemplo n8n:  "https://tu-instancia-n8n.com/webhook/xxxxxxxx"
  * Ejemplo Make: "https://hook.us1.make.com/xxxxxxxxxxxxxxxx"
@@ -20,6 +20,26 @@ var WEBHOOK_URL = "";
   'use strict';
 
   var STORAGE_KEY = 'zentrixco_chat_history';
+  var SESSION_KEY = 'zentrixco_chat_session_id';
+
+  function getSessionId() {
+    try {
+      var existing = localStorage.getItem(SESSION_KEY);
+      if (existing) return existing;
+      var newId = 'zco_' + Date.now() + '_' + Math.random().toString(36).slice(2, 10);
+      localStorage.setItem(SESSION_KEY, newId);
+      return newId;
+    } catch (e) {
+      return 'zco_' + Date.now() + '_' + Math.random().toString(36).slice(2, 10);
+    }
+  }
+
+  function getLastMessages(limit) {
+    var history = getChatHistory();
+    return history.slice(-limit).map(function (item) {
+      return { role: item.role, text: item.text, time: item.time };
+    });
+  }
 
   var FAQ_RESPONSES = {
     'rpa': 'Automatizacion RPA: Automatizamos tareas repetitivas como procesamiento de documentos, migracion de datos y gestion de correos. Nuestros bots RPA operan 24/7 con precision del 99%.',
@@ -28,7 +48,7 @@ var WEBHOOK_URL = "";
     'n8n': 'Somos expertos en n8n y Make (Integromat). Creamos workflows personalizados para conectar tus APIs, bases de datos y servicios en la nube.',
     'make': 'Trabajamos con Make (Integromat) para crear escenarios visuales de automatizacion sin codigo. Ideal para conectar herramientas como CRM, email marketing, ERPs y mas.',
     'ia': 'Nuestros Agentes IA incluyen chatbots inteligentes, analisis predictivo y automatizacion cognitiva. Pueden aprender, decidir y ejecutar tareas complejas de forma autonoma.',
-    'contacto': 'Puedes contactarnos a traves de nuestra pagina de contacto: zentrixco.com/contacto. Tambien puedes agendar una consultoria gratuita directamente desde ahi.',
+    'contacto': 'Puedes contactarnos a traves de nuestra pagina de contacto: zentrixco.ai/contacto. Tambien puedes agendar una consultoria gratuita directamente desde ahi.',
     'diagnostico': 'Ofrecemos un diagnostico gratuito donde auditamos tus procesos actuales e identificamos oportunidades de automatizacion. Sin compromiso!',
     'industria': 'Trabajamos con multiples industrias: Finanzas, Retail, Salud y Logistica. Cual es tu sector?',
     'finanzas': 'En Finanzas: automatizamos conciliacion bancaria, deteccion de fraude con IA, reporteria regulatoria y procesamiento de creditos. Reduccion de errores del 85%.',
@@ -456,14 +476,24 @@ var WEBHOOK_URL = "";
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           message: message,
+          sessionId: getSessionId(),
           page: window.location.pathname,
-          timestamp: new Date().toISOString()
+          pageUrl: window.location.href,
+          pageTitle: document.title,
+          referrer: document.referrer || "",
+          timestamp: new Date().toISOString(),
+          userAgent: navigator.userAgent,
+          history: getLastMessages(12)
         })
       })
       .then(function (res) { return res.json(); })
       .then(function (data) {
         hideTyping();
-        addMessage((data && data.reply) ? data.reply : 'Gracias por tu mensaje. Un experto te contactara pronto.', 'bot');
+        var reply = 'Gracias por tu mensaje. Un experto te contactara pronto.';
+        if (data) {
+          reply = data.reply || data.message || data.text || reply;
+        }
+        addMessage(reply, 'bot');
         submitBtn.disabled = false;
         submitBtn.textContent = 'Enviar';
       })
