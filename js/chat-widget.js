@@ -511,25 +511,8 @@ var WEBHOOK_URL = "https://hook.us2.make.com/7ulf3o76oir87dk6cpshg4mcqurwpch2"; 
         }
 
         addMessage(reply, 'bot');
-
-/* Reset automatico despues de agendamiento */
-if (
-  reply &&
-  (
-    reply.includes('Tu reunión fue agendada correctamente') ||
-    reply.includes('Tu reunion fue agendada correctamente')
-  )
-) {
-  try {
-    localStorage.removeItem(STORAGE_KEY);
-    localStorage.removeItem(SESSION_KEY);
-  } catch (e) {
-    console.error('Error limpiando historial:', e);
-  }
-}
-
-submitBtn.disabled = false;
-submitBtn.textContent = 'Enviar';
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Enviar';
       })
       .catch(function (error) {
         hideTyping();
