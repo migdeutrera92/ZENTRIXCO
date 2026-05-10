@@ -277,13 +277,20 @@ body {
   box-sizing: border-box !important;
 }
 
-img,
 video,
 iframe {
   max-width: 100% !important;
   height: auto !important;
 }
 
+.header .logo-img,
+.footer-logo .logo-img {
+  height: 38px !important;
+  width: auto !important;
+  max-width: none !important;
+  max-height: 38px !important;
+  object-fit: contain !important;
+}
 .container,
 .header-inner,
 section,
@@ -526,6 +533,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <header class="header" id="header">
 <div class="container header-inner">
 <a class="logo" href="/">
+<img alt="ZentrixCo Logo" class="logo-img" src="https://mgx-backend-cdn.metadl.com/generate/images/1102970/2026-04-15/mvbqgriaafaa/logo-zentrixco-transparent.png"/>
 <span class="logo-text">Zentrix<span class="logo-highlight">Co</span></span>
 </a>
 <nav class="nav" id="nav">
