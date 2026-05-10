@@ -3327,8 +3327,7 @@ CTA INLINE (OPTIMIZADO ÚNICO)
 }
 
 .page-hero--nosotros {
-  background: linear-gradient(135deg, rgba(10,42,74,0.82) 0%, rgba(21,101,168,0.78) 40%, rgba(33,150,200,0.75) 100%),
-              url('https://mgx-backend-cdn.metadl.com/generate/images/1102970/2026-04-15/mvbqj6iaafaa/banner-nosotros.png') center/cover no-repeat;
+  background: linear-gradient(135deg, #173f7a 0%, #1a3a6b 100%) !important;
 }
 .page-hero--nosotros::before {
   background: radial-gradient(circle, rgba(33,150,200,0.2) 0%, transparent 70%);
