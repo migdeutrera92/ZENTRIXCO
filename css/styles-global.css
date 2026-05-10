@@ -4399,3 +4399,10 @@ CTA INLINE (OPTIMIZADO ÚNICO)
     grid-template-columns: 1fr;
   }
 }
+/* FIX HERO SERVICIOS Y NOSOTROS */
+.page-hero--servicios,
+.page-hero--nosotros,
+.page-hero--about {
+    background-image: none !important;
+    background: linear-gradient(135deg, #173f7a, #1a3a6b) !important;
+}
