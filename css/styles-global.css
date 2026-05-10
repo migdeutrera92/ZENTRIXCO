@@ -4404,3 +4404,18 @@ CTA INLINE (OPTIMIZADO ÚNICO)
     background-image: none !important;
     background: linear-gradient(135deg, #173f7a, #1a3a6b) !important;
 }
+
+/* FIX DEFINITIVO: quitar imagen gigante del hero */
+.page-hero--servicios,
+.page-hero--nosotros {
+  background-image: none !important;
+  background: linear-gradient(135deg, #173f7a 0%, #1a3a6b 100%) !important;
+}
+
+.page-hero--servicios::before,
+.page-hero--servicios::after,
+.page-hero--nosotros::before,
+.page-hero--nosotros::after {
+  background: none !important;
+  display: none !important;
+}
