@@ -18,9 +18,10 @@ var WEBHOOK_URL = "https://hook.us2.make.com/7ulf3o76oir87dk6cpshg4mcqurwpch2"; 
 
 (function () {
   'use strict';
-
-  var STORAGE_KEY = 'zentrixco_chat_history';
+ var STORAGE_KEY = 'zentrixco_chat_history';
   var SESSION_KEY = 'zentrixco_chat_session_id';
+  var CHAT_EXPIRATION_MS = 30 * 60 * 1000;
+  var STORAGE_TIME_KEY = STORAGE_KEY + '_last_activity';
 
   function getSessionId() {
     try {
@@ -78,16 +79,32 @@ var WEBHOOK_URL = "https://hook.us2.make.com/7ulf3o76oir87dk6cpshg4mcqurwpch2"; 
     return bestMatch || DEFAULT_RESPONSE;
   }
 
-  function getChatHistory() {
-    try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); }
-    catch (e) { return []; }
-  }
+function getChatHistory() {
+  try {
+    var lastActivity = localStorage.getItem(STORAGE_TIME_KEY);
+    var now = Date.now();
 
-  function saveChatHistory(history) {
-    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(history.slice(-50))); }
-    catch (e) { /* ignore */ }
-  }
+    if (lastActivity && now - Number(lastActivity) > CHAT_EXPIRATION_MS) {
+      localStorage.removeItem(STORAGE_KEY);
+      localStorage.removeItem(SESSION_KEY);
+      localStorage.removeItem(STORAGE_TIME_KEY);
+      return [];
+    }
 
+    return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+  } catch (e) {
+    return [];
+  }
+}
+
+ function saveChatHistory(history) {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(history.slice(-50)));
+    localStorage.setItem(STORAGE_TIME_KEY, String(Date.now()));
+  } catch (e) {
+    /* ignore */
+  }
+}
   /* ── Inject CSS directly (no bundler needed) ─────────────────────────── */
   var style = document.createElement('style');
   style.textContent = `
@@ -461,8 +478,6 @@ fab.addEventListener('click', function (e) {
     messagesEl.scrollTop = messagesEl.scrollHeight;
   }
 
-  var CHAT_EXPIRATION_MS = 30 * 60 * 1000;
-  var STORAGE_TIME_KEY = STORAGE_KEY + '_last_activity';
   function clearChatSession() {
   try {
     localStorage.removeItem(STORAGE_KEY);
@@ -483,6 +498,8 @@ fab.addEventListener('click', function (e) {
     console.error('Error limpiando chat:', e);
   }
 }
+
+
 
 function checkChatExpiration() {
   try {
@@ -556,8 +573,20 @@ setInterval(checkChatExpiration, 60 * 1000);
         }
 
         addMessage(reply, 'bot');
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Enviar';
+
+/* Reset automatico despues de agendamiento exitoso */
+if (
+  reply &&
+  (
+    reply.toLowerCase().includes('agendada correctamente') ||
+    reply.toLowerCase().includes('reunión fue agendada') ||
+    reply.toLowerCase().includes('reunion fue agendada')
+  )
+) {
+  clearChatSession();
+}
+submitBtn.disabled = false;
+submitBtn.textContent = 'Enviar';
       })
       .catch(function (error) {
         hideTyping();
