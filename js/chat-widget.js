@@ -412,18 +412,25 @@ var WEBHOOK_URL = "https://hook.us2.make.com/7ulf3o76oir87dk6cpshg4mcqurwpch2"; 
   submitBtn.addEventListener('click', sendMessage);
 
   /* Toggle panel */
-  fab.addEventListener('click', function (e) {
-    e.stopPropagation();
-    var isOpen = fab.classList.contains('open');
-    if (isOpen) {
-      fab.classList.remove('open');
-      panel.classList.remove('visible');
-    } else {
-      fab.classList.add('open');
-      panel.classList.add('visible');
-      setTimeout(function () { messagesEl.scrollTop = messagesEl.scrollHeight; }, 100);
-    }
-  });
+/* Toggle panel */
+fab.addEventListener('click', function (e) {
+  e.stopPropagation();
+  var isOpen = fab.classList.contains('open');
+
+  if (isOpen) {
+    fab.classList.remove('open');
+    panel.classList.remove('visible');
+  } else {
+    checkChatExpiration();
+
+    fab.classList.add('open');
+    panel.classList.add('visible');
+
+    setTimeout(function () { 
+      messagesEl.scrollTop = messagesEl.scrollHeight; 
+    }, 100);
+  }
+});
 
   document.addEventListener('click', function (e) {
     if (!fab.contains(e.target) && !panel.contains(e.target) && fab.classList.contains('open')) {
@@ -453,6 +460,44 @@ var WEBHOOK_URL = "https://hook.us2.make.com/7ulf3o76oir87dk6cpshg4mcqurwpch2"; 
     messagesEl.appendChild(typing);
     messagesEl.scrollTop = messagesEl.scrollHeight;
   }
+
+  var CHAT_EXPIRATION_MS = 30 * 60 * 1000;
+  var STORAGE_TIME_KEY = STORAGE_KEY + '_last_activity';
+  function clearChatSession() {
+  try {
+    localStorage.removeItem(STORAGE_KEY);
+    localStorage.removeItem(SESSION_KEY);
+    localStorage.removeItem(STORAGE_TIME_KEY);
+
+    if (typeof messagesEl !== 'undefined' && messagesEl) {
+      messagesEl.innerHTML = '';
+
+      var welcomeMsg = document.createElement('div');
+      welcomeMsg.className = 'chat-msg bot';
+      welcomeMsg.textContent =
+        'Hola! Soy el asistente virtual de ZentrixCo. ¿En qué puedo ayudarte hoy?';
+
+      messagesEl.appendChild(welcomeMsg);
+    }
+  } catch (e) {
+    console.error('Error limpiando chat:', e);
+  }
+}
+
+function checkChatExpiration() {
+  try {
+    var lastActivity = localStorage.getItem(STORAGE_TIME_KEY);
+    var now = Date.now();
+
+    if (lastActivity && now - Number(lastActivity) > CHAT_EXPIRATION_MS) {
+      clearChatSession();
+    }
+  } catch (e) {
+    console.error('Error validando expiración del chat:', e);
+  }
+}
+
+setInterval(checkChatExpiration, 60 * 1000);
 
   function hideTyping() {
     var el = document.getElementById('typingIndicator');
