@@ -42,6 +42,78 @@ var WEBHOOK_URL = "https://hook.us2.make.com/7ulf3o76oir87dk6cpshg4mcqurwpch2"; 
     });
   }
 
+  function buildHistoryText(historyItems) {
+    return historyItems.map(function (item) {
+      var roleLabel = item.role === 'user' ? 'Usuario' : 'Bot';
+      return roleLabel + ': ' + item.text;
+    }).join('\\n');
+  }
+
+  function cleanMarkdownJson(text) {
+    if (!text) return '';
+    return String(text)
+      .replace(/^\\s*```json\\s*/i, '')
+      .replace(/^\\s*```\\s*/i, '')
+      .replace(/\\s*```\\s*$/i, '')
+      .trim();
+  }
+
+  function extractReplyFromResponseText(responseText) {
+    var fallback = 'Estoy revisando tu solicitud, pero no recibí una respuesta clara del asistente. ¿Puedes intentar nuevamente en unos segundos?';
+
+    if (!responseText) return fallback;
+
+    var raw = cleanMarkdownJson(responseText);
+
+    if (raw.trim().toLowerCase() === 'accepted') {
+      return 'Recibí tu mensaje, pero no logré obtener la respuesta final del asistente. Por favor intenta nuevamente en unos segundos.';
+    }
+
+    try {
+      var data = JSON.parse(raw);
+
+      if (data && typeof data.reply === 'string' && data.reply.trim()) {
+        return data.reply.trim();
+      }
+
+      if (data && typeof data.message === 'string' && data.message.trim()) {
+        return data.message.trim();
+      }
+
+      if (data && typeof data.text === 'string' && data.text.trim()) {
+        return data.text.trim();
+      }
+
+      return fallback;
+    } catch (e) {
+      return raw || fallback;
+    }
+  }
+
+  function isSuccessfulBookingReply(reply) {
+    if (!reply) return false;
+    var lower = reply.toLowerCase();
+    return (
+      lower.indexOf('quedó agendado') !== -1 ||
+      lower.indexOf('quedo agendado') !== -1 ||
+      lower.indexOf('agendada correctamente') !== -1 ||
+      lower.indexOf('reunión fue agendada') !== -1 ||
+      lower.indexOf('reunion fue agendada') !== -1 ||
+      lower.indexOf('diagnóstico quedó agendado') !== -1 ||
+      lower.indexOf('diagnostico quedo agendado') !== -1
+    );
+  }
+
+  function resetStoredSessionOnly() {
+    try {
+      localStorage.removeItem(STORAGE_KEY);
+      localStorage.removeItem(SESSION_KEY);
+      localStorage.removeItem(STORAGE_TIME_KEY);
+    } catch (e) {
+      console.error('Error limpiando storage del chat:', e);
+    }
+  }
+
   var FAQ_RESPONSES = {
     'rpa': 'Automatizacion RPA: Automatizamos tareas repetitivas como procesamiento de documentos, migracion de datos y gestion de correos. Nuestros bots RPA operan 24/7 con precision del 99%.',
     'automatizacion': 'Ofrecemos servicios completos de automatizacion: RPA, Agentes IA, Integraciones (n8n/Make) e Hiperautomatizacion. Podemos reducir tus costos operativos hasta un 70%.',
@@ -533,6 +605,9 @@ setInterval(checkChatExpiration, 60 * 1000);
     showTyping();
 
     if (WEBHOOK_URL) {
+      var historyItems = getLastMessages(12);
+      var historyText = buildHistoryText(historyItems);
+
       fetch(WEBHOOK_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -545,7 +620,12 @@ setInterval(checkChatExpiration, 60 * 1000);
           referrer: document.referrer || "",
           timestamp: new Date().toISOString(),
           userAgent: navigator.userAgent,
-          history: getLastMessages(12)
+
+          // Formato que lee Make/OpenAI con {{1.history}}
+          history: historyText,
+
+          // Copia estructurada por si luego quieres usarla en Make
+          historyMessages: historyItems
         })
       })
       .then(function (res) {
@@ -560,33 +640,28 @@ setInterval(checkChatExpiration, 60 * 1000);
           throw new Error('HTTP ' + response.status + ': ' + response.text);
         }
 
-        var reply = 'Gracias por tu mensaje. Un experto te contactara pronto.';
+        var reply = extractReplyFromResponseText(response.text);
 
-        if (response.text) {
-          try {
-            var data = JSON.parse(response.text);
-            reply = data.reply || data.message || data.text || reply;
-          } catch (e) {
-            // Si Make responde texto plano o JSON mal escapado, mostramos el texto para no romper el chat.
-            reply = response.text;
-          }
+        if (reply && reply.trim()) {
+          addMessage(reply, 'bot');
+        } else {
+          addMessage('Recibí tu mensaje, pero no llegó una respuesta visible del asistente. Por favor intenta nuevamente.', 'bot');
         }
 
-        addMessage(reply, 'bot');
+        /*
+         * IMPORTANTE:
+         * Antes se llamaba clearChatSession() inmediatamente después de agendar.
+         * Eso borraba visualmente el mensaje final del chat.
+         * Ahora solo limpiamos el storage después de unos segundos, sin borrar la pantalla actual.
+         */
+        if (isSuccessfulBookingReply(reply)) {
+          setTimeout(function () {
+            resetStoredSessionOnly();
+          }, 8000);
+        }
 
-/* Reset automatico despues de agendamiento exitoso */
-if (
-  reply &&
-  (
-    reply.toLowerCase().includes('agendada correctamente') ||
-    reply.toLowerCase().includes('reunión fue agendada') ||
-    reply.toLowerCase().includes('reunion fue agendada')
-  )
-) {
-  clearChatSession();
-}
-submitBtn.disabled = false;
-submitBtn.textContent = 'Enviar';
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Enviar';
       })
       .catch(function (error) {
         hideTyping();
