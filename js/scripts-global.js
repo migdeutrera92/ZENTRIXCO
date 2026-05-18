@@ -1,5 +1,3 @@
-import './styles-global.css';
-
 // ===== Mobile Navigation Toggle - FIX DEFINITIVO =====
 (function () {
   const mobileToggle = document.getElementById('mobileToggle');
