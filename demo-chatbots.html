@@ -1,17 +1,40 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18125783859"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18125783859');
+  </script>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-NGB6BGZB');</script>
+  <!-- End Google Tag Manager -->
+
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>Demo interactiva de chatbots para empresas | ZentrixCo</title>
-  <meta name="description" content="Prueba una demo interactiva de Chatbot Básico vs Chatbot Intermedio de ZentrixCo. Compara atención, captura de leads, calificación y agendamiento automático."/>
-  <meta name="keywords" content="demo chatbot empresas, chatbot para ventas, chatbot con agenda, automatización de leads, ZentrixCo demo"/>
+  <title>Demo de chatbot para empresas | Chatbot con IA, leads y agendamiento | ZentrixCo</title>
+  <meta name="description" content="Prueba una demo interactiva de chatbot para empresas con ZentrixCo. Compara Chatbot Básico vs Chatbot Intermedio, automatización de atención al cliente, captura de leads, calificación comercial y agendamiento automático con Make."/>
+  <meta name="keywords" content="demo chatbot para empresas, chatbot con inteligencia artificial, chatbot para atención al cliente, chatbot para ventas, automatización de leads, agendamiento automático, Make chatbot, RPA IA empresas, ZentrixCo"/>
   <meta name="robots" content="index, follow"/>
+  <meta name="author" content="ZentrixCo"/>
+  <meta name="google-site-verification" content="5DvFV_9KljcgFQSD2O9XvE-KIWp3iBrKggxXkGn4vj4"/>
   <link rel="canonical" href="https://www.zentrixco.ai/demo-chatbots"/>
-  <meta property="og:title" content="Demo interactiva de Chatbots | ZentrixCo"/>
-  <meta property="og:description" content="Compara visualmente e interactúa con dos niveles de chatbot: Básico e Intermedio."/>
+  <meta property="og:title" content="Demo de chatbot para empresas | ZentrixCo"/>
+  <meta property="og:description" content="Compara un chatbot básico con uno intermedio para automatizar atención al cliente, captura de leads y agendamiento comercial."/>
   <meta property="og:type" content="website"/>
   <meta property="og:url" content="https://www.zentrixco.ai/demo-chatbots"/>
+  <meta property="og:image" content="https://mgx-backend-cdn.metadl.com/generate/images/1102970/2026-04-09/6f2afd8c-5e87-4f79-abbe-89fb9e82c4c9.png"/>
+  <meta property="og:locale" content="es_419"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Demo de chatbot para empresas | ZentrixCo"/>
+  <meta name="twitter:description" content="Prueba una demo de chatbot con IA para atención al cliente, ventas, captura de leads y agendamiento automático."/>
   <meta name="theme-color" content="#173f7a"/>
   <link href="/css/styles-global.css" rel="stylesheet"/>
   <link href="/css/demo-chatbots.css" rel="stylesheet"/>
@@ -20,123 +43,77 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
 
-  <style id="zco-demo-no-image-and-calc-pro-style">
-    /* Banner sin imagen externa: no depende de /imagenes ni CDN */
-    .zco-demo-hero {
-      position: relative;
-      overflow: hidden;
-      background:
-        radial-gradient(circle at 18% 18%, rgba(232,106,51,.20), transparent 30%),
-        radial-gradient(circle at 82% 22%, rgba(23,63,122,.20), transparent 34%),
-        radial-gradient(circle at 78% 82%, rgba(45,118,191,.14), transparent 30%),
-        linear-gradient(135deg, #f8fbff 0%, #eef5ff 50%, #fff7f1 100%);
-    }
-    .zco-demo-hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(23,63,122,.055) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(23,63,122,.055) 1px, transparent 1px);
-      background-size: 42px 42px;
-      opacity: .8;
-    }
-    .zco-demo-hero::after {
-      content: "";
-      position: absolute;
-      right: min(7vw, 90px);
-      top: 18%;
-      width: min(40vw, 520px);
-      height: 58%;
-      border-radius: 32px;
-      border: 1px solid rgba(23,63,122,.12);
-      background: linear-gradient(135deg, rgba(255,255,255,.72), rgba(255,255,255,.34));
-      box-shadow: 0 24px 80px rgba(15,47,93,.10);
-      z-index: 0;
-    }
-    .zco-demo-hero-grid { position: relative; z-index: 1; }
+  <style id="zco-demo-banner-seo-style">
+    .zco-demo-page .header { position: fixed; top: 0; left: 0; right: 0; z-index: 9999; background:#fff; box-shadow:0 8px 26px rgba(15,47,93,.08); }
+    .zco-demo-page main { padding-top: 0; }
+    .zco-demo-hero { position: relative; min-height: 92vh; display:flex; align-items:center; overflow:hidden; padding: 120px 0 90px; }
+    .zco-demo-hero-bg { position:absolute; inset:0; z-index:0; }
+    .zco-demo-hero-bg img { width:100%; height:100%; object-fit:cover; object-position:center bottom; }
+    .zco-demo-hero-overlay { position:absolute; inset:0; background:linear-gradient(180deg, rgba(255,255,255,.94) 0%, rgba(255,255,255,.78) 52%, rgba(255,255,255,.38) 100%); }
+    .zco-demo-hero-grid { position:relative; z-index:1; }
+    .zco-demo-hero h1 { color:#1a3a6b; }
+    .zco-demo-seo-block { padding: 80px 0; background:#f7f9fc; }
+    .zco-demo-seo-block .seo-title { color:#1a3a6b; font-family:'Poppins',sans-serif; font-size:2rem; margin-bottom:18px; }
+    .zco-demo-seo-block .seo-text { color:#4b5563; line-height:1.8; max-width:980px; margin-bottom:16px; }
+    .zco-chat-bubble.loading { opacity:.72; font-style:italic; }
 
-    /* Botón limpiar chat */
     .zco-chat-actions { display:flex; align-items:center; justify-content:flex-end; gap:10px; flex-wrap:wrap; }
     .zco-clear-chat-btn { border:1px solid rgba(23,63,122,.18); background:#fff; color:#173f7a; border-radius:999px; padding:8px 12px; font-size:.82rem; font-weight:700; cursor:pointer; display:inline-flex; align-items:center; gap:7px; transition:all .2s ease; box-shadow:0 6px 16px rgba(15,47,93,.06); }
     .zco-clear-chat-btn:hover { background:#f2f6fb; transform:translateY(-1px); }
-
-    /* Calculadora PRO */
-    .zco-calc-advanced-grid { display:grid; grid-template-columns:1.04fr .96fr; gap:28px; align-items:start; }
-    .zco-calc-row.two { grid-template-columns:1fr 1fr; }
-    .zco-calc-help { display:block; color:#64748b; font-size:.84rem; line-height:1.45; margin-top:6px; }
-    .zco-tool-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin-top:12px; }
-    .zco-tool-grid label { display:flex; gap:8px; align-items:center; padding:10px 12px; border:1px solid #e4ebf5; border-radius:12px; background:#fff; color:#334155; font-size:.92rem; }
-    .zco-tool-grid input { accent-color:#e8652e; }
-    .zco-calc-lead { padding:13px 14px; border-radius:14px; background:#fff7ed; border:1px solid rgba(232,106,51,.18); color:#7c2d12; line-height:1.55; }
-    .zco-calc-result.pro { position:sticky; top:96px; }
-    .zco-result-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin:18px 0; }
-    .zco-result-metric { padding:15px; border-radius:16px; background:#f8fafc; border:1px solid #e4ebf5; }
-    .zco-result-metric small { display:block; color:#64748b; font-size:.78rem; margin-bottom:6px; }
-    .zco-result-metric strong { color:#173f7a; font-size:1.15rem; font-family:'Poppins',sans-serif; }
-    .zco-score-box { margin:18px 0; padding:16px; border-radius:18px; background:linear-gradient(135deg,#f8fbff,#fff7f1); border:1px solid #e4ebf5; }
-    .zco-score-top { display:flex; justify-content:space-between; gap:16px; align-items:flex-start; }
-    .zco-score-number { color:#e8652e; font-family:'Poppins',sans-serif; font-weight:800; font-size:1.35rem; white-space:nowrap; }
-    .zco-score-bar { height:10px; background:#dbe6f3; border-radius:999px; overflow:hidden; margin-top:14px; }
-    .zco-score-fill { display:block; height:100%; width:0%; border-radius:999px; background:linear-gradient(90deg,#173f7a,#e8652e); transition:width .25s ease; }
-    .zco-recommendation-box { margin-top:16px; padding:18px; border-radius:18px; background:#fff; border:1px solid #e4ebf5; box-shadow:0 16px 36px rgba(15,47,93,.06); }
-    .zco-recommendation-box h4 { margin:12px 0 8px; color:#173f7a; font-family:'Poppins',sans-serif; }
-    .zco-solution-pill { display:inline-flex; align-items:center; gap:8px; border-radius:999px; padding:8px 12px; background:#eef5ff; color:#173f7a; font-weight:700; font-size:.86rem; }
-
-    @media (max-width: 900px) {
-      .zco-calc-advanced-grid { grid-template-columns:1fr; }
-      .zco-calc-result.pro { position:static; }
-      .zco-demo-hero::after { opacity:.28; right:-18%; width:82vw; }
-    }
-    @media (max-width: 640px) {
-      .zco-result-grid, .zco-tool-grid, .zco-calc-row.two { grid-template-columns:1fr; }
-      .zco-score-top { flex-direction:column; }
-      .zco-chat-top { align-items:flex-start; gap:12px; }
-      .zco-chat-actions { width:100%; justify-content:flex-start; }
-      .zco-clear-chat-btn { width:100%; justify-content:center; }
-    }
+    .zco-clear-chat-btn:focus-visible { outline:3px solid rgba(232,106,51,.28); outline-offset:2px; }
+    @media (max-width: 992px) { .zco-demo-hero { min-height:auto; padding: 105px 0 70px; } }
+    @media (max-width: 768px) { .zco-demo-hero { padding: 92px 0 56px; } .zco-demo-hero h1 { font-size:2rem; line-height:1.18; } .zco-chat-top { align-items:flex-start; gap:12px; } .zco-chat-actions { width:100%; justify-content:flex-start; } .zco-clear-chat-btn { width:100%; justify-content:center; } }
   </style>
+
 </head>
 <body class="zco-demo-page">
-  <header class="header">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NGB6BGZB" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <header class="header" id="header">
     <div class="container header-inner">
       <a href="/" class="logo" aria-label="Inicio ZentrixCo">
         <img src="/imagenes/logo_zentrixco_transparente (1).png" alt="ZentrixCo Logo" class="logo-img"/>
         <span class="logo-text">Zentrix<span class="logo-highlight">Co</span></span>
       </a>
-      <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
       <nav class="nav" id="nav">
         <a href="/" class="nav-link">Inicio</a>
         <a href="/servicios" class="nav-link">Servicios</a>
         <a href="/soluciones" class="nav-link">Soluciones</a>
-        <a href="/casos-de-exito-automatizacion" class="nav-link">Casos aplicados</a>
+        <a href="/casos-de-exito-automatizacion" class="nav-link">Casos de Éxito</a>
         <a href="/sobre-nosotros" class="nav-link">Nosotros</a>
         <a href="/blog-automatizacion-ia" class="nav-link">Blog</a>
         <a href="/demo-chatbots" class="nav-link active">Demo</a>
         <a href="/contacto#formulario-contacto" class="nav-link">Contacto</a>
       </nav>
+      <a class="btn btn-primary btn-sm header-cta" href="/contacto#formulario-contacto">Consulta Gratis</a>
+      <button aria-label="Abrir menú" class="mobile-toggle" id="mobileToggle"><span></span><span></span><span></span></button>
     </div>
   </header>
 
   <main>
-    <section class="zco-demo-hero">
+    <section class="zco-demo-hero" id="home">
+      <div class="zco-demo-hero-bg" aria-hidden="true">
+        <img src="https://mgx-backend-cdn.metadl.com/generate/images/1102970/2026-04-09/6f2afd8c-5e87-4f79-abbe-89fb9e82c4c9.png" alt="" loading="eager"/>
+        <div class="zco-demo-hero-overlay"></div>
+      </div>
       <div class="container zco-demo-hero-grid">
         <div>
-          <span class="zco-demo-eyebrow"><i class="fa-solid fa-robot"></i> Demo interactiva</span>
-          <h1>Prueba la diferencia entre un chatbot que responde y uno que convierte.</h1>
-          <p>Interactúa con dos demos: el <strong>Chatbot Básico</strong>, pensado para informar y captar datos simples, y el <strong>Chatbot Intermedio</strong>, diseñado para calificar leads, pedir datos clave y avanzar hacia el agendamiento de diagnóstico.</p>
+          <span class="zco-demo-eyebrow"><i class="fa-solid fa-robot"></i> Demo de chatbot para empresas</span>
+          <h1>Demo de chatbot con IA para atención al cliente, ventas y agendamiento automático</h1>
+          <p>Prueba la diferencia entre un <strong>Chatbot Básico conectado a Make</strong>, pensado para responder consultas y capturar leads simples, y un <strong>Chatbot Intermedio</strong>, diseñado para calificar oportunidades, solicitar datos clave y avanzar hacia un diagnóstico comercial.</p>
           <div class="zco-demo-hero-actions">
-            <a href="#demo-lab" class="btn btn-primary">Probar demos</a>
-            <a href="#calculadora" class="btn btn-outline-dark">Calcular mi proceso</a>
+            <a href="#demo-lab" class="btn btn-primary">Probar chatbot básico</a>
+            <a href="#calculadora" class="btn btn-outline-dark">Calcular tiempo perdido</a>
           </div>
-          <div class="zco-demo-micro"><span>Sin consumo de IA en esta demo visual</span><span>Enfoque comercial B2B</span><span>CTA a diagnóstico</span></div>
+          <div class="zco-demo-micro"><span>Chatbot para empresas en LATAM</span><span>Automatización de leads</span><span>RPA + IA + Make</span></div>
         </div>
         <div class="zco-demo-hero-card">
           <div class="zco-flow-mini">
-            <div class="zco-flow-step"><i class="fa-solid fa-comments"></i><div><strong>1. Conversa</strong><small>El usuario prueba ambos niveles.</small></div><em>✓</em></div>
-            <div class="zco-flow-step"><i class="fa-solid fa-code-compare"></i><div><strong>2. Compara</strong><small>Ve diferencias reales de comportamiento.</small></div><em>✓</em></div>
-            <div class="zco-flow-step"><i class="fa-solid fa-calculator"></i><div><strong>3. Calcula</strong><small>Estima horas mensuales perdidas.</small></div><em>✓</em></div>
-            <div class="zco-flow-step"><i class="fa-solid fa-calendar-check"></i><div><strong>4. Agenda</strong><small>Termina en diagnóstico gratuito.</small></div><em>✓</em></div>
+            <div class="zco-flow-step"><i class="fa-solid fa-comments"></i><div><strong>1. Conversa</strong><small>El visitante prueba ambos niveles de chatbot.</small></div><em>✓</em></div>
+            <div class="zco-flow-step"><i class="fa-solid fa-code-compare"></i><div><strong>2. Compara</strong><small>Ve diferencias entre captura simple y automatización comercial.</small></div><em>✓</em></div>
+            <div class="zco-flow-step"><i class="fa-solid fa-calculator"></i><div><strong>3. Calcula</strong><small>Estima horas mensuales perdidas por trabajo manual.</small></div><em>✓</em></div>
+            <div class="zco-flow-step"><i class="fa-solid fa-calendar-check"></i><div><strong>4. Agenda</strong><small>Termina en diagnóstico gratuito con ZentrixCo.</small></div><em>✓</em></div>
           </div>
         </div>
       </div>
@@ -146,19 +123,19 @@
       <div class="container">
         <div class="zco-demo-heading">
           <span class="zco-demo-eyebrow"><i class="fa-solid fa-layer-group"></i> Dos niveles de solución</span>
-          <h2>La diferencia no está solo en cómo se ve. Está en lo que hace por tu operación.</h2>
-          <p>El básico ayuda a validar interés. El intermedio empieza a comportarse como una pieza comercial automatizada.</p>
+          <h2>Compara un chatbot básico y un chatbot intermedio para automatizar atención, leads y agendamiento.</h2>
+          <p>El Chatbot Básico responde y captura datos para seguimiento manual. El Chatbot Intermedio califica leads, guía al usuario y puede conectarse con Make, Google Calendar y Google Sheets para avanzar el proceso comercial.</p>
         </div>
         <div class="zco-compare-grid">
           <article class="zco-plan-card">
             <span class="zco-plan-badge">Ideal para empezar</span>
             <h3>Chatbot Básico</h3>
-            <p>Asistente informativo para responder preguntas frecuentes, explicar servicios y capturar datos mínimos para contacto manual.</p>
+            <p>Chatbot informativo conectado a Make para responder preguntas frecuentes, explicar servicios de automatización y capturar datos mínimos para contacto manual.</p>
             <ul class="zco-plan-list">
               <li><i class="fa-solid fa-check"></i> Responde consultas generales y servicios.</li>
               <li><i class="fa-solid fa-check"></i> Detecta interés inicial del cliente.</li>
               <li><i class="fa-solid fa-check"></i> Captura nombre, correo y proceso.</li>
-              <li><i class="fa-solid fa-check"></i> Guarda lead para seguimiento manual.</li>
+              <li><i class="fa-solid fa-check"></i> Guarda lead en Google Sheets para seguimiento manual.</li>
               <li><i class="fa-solid fa-xmark" style="color:#c2410c"></i> No agenda automáticamente.</li>
             </ul>
             <div class="zco-plan-metrics"><span>Automatización básica</span><span>Conversión inicial</span><span>Baja complejidad</span></div>
@@ -171,7 +148,7 @@
               <li><i class="fa-solid fa-check"></i> Todo lo del plan básico.</li>
               <li><i class="fa-solid fa-check"></i> Califica proceso y volumen.</li>
               <li><i class="fa-solid fa-check"></i> Solicita datos completos para diagnóstico.</li>
-              <li><i class="fa-solid fa-check"></i> Puede validar horarios con Make y Calendar.</li>
+              <li><i class="fa-solid fa-check"></i> Puede validar horarios con Make y Google Calendar.</li>
               <li><i class="fa-solid fa-check"></i> Agenda, guarda lead y envía confirmación.</li>
             </ul>
             <div class="zco-plan-metrics"><span>Automatización media</span><span>Conversión alta</span><span>Agenda asistida</span></div>
@@ -185,13 +162,13 @@
         <div class="zco-demo-heading">
           <span class="zco-demo-eyebrow"><i class="fa-solid fa-flask"></i> Laboratorio interactivo</span>
           <h2>Prueba ambos demos y mira cómo cambia la conversación.</h2>
-          <p>Esta primera versión es una simulación controlada en frontend para que el visitante entienda la diferencia sin depender de OpenAI o Make. Luego se conecta a tus webhooks reales.</p>
+          <p>En esta versión, el Chatbot Básico queda conectado a tu webhook real de Make. El Chatbot Intermedio se mantiene como demo segura para evitar agendamientos de prueba mientras se afinan prompts, horarios y reglas comerciales.</p>
         </div>
         <div class="zco-demo-lab">
           <aside class="zco-demo-selector">
             <h3>Elige demo</h3>
-            <button class="zco-demo-mode-btn active" data-mode="basico">Chatbot Básico<small>Informa, responde y capta datos.</small></button>
-            <button class="zco-demo-mode-btn" data-mode="intermedio">Chatbot Intermedio<small>Califica, guía y agenda.</small></button>
+            <button class="zco-demo-mode-btn active" data-mode="basico">Chatbot Básico<small>Conectado a Make: informa y capta leads.</small></button>
+            <button class="zco-demo-mode-btn" data-mode="intermedio">Chatbot Intermedio<small>Demo segura: califica, guía y agenda.</small></button>
             <div class="zco-demo-quick">
               <h3>Mensajes rápidos</h3>
               <button data-demo-prompt="Quiero automatizar atención al cliente">Atención al cliente</button>
@@ -202,11 +179,15 @@
           </aside>
           <section class="zco-chat-simulator" aria-label="Simulador de chatbot ZentrixCo">
             <div class="zco-chat-top">
-              <div><h3 id="zcoChatTitle">Chatbot Básico</h3><p id="zcoChatSubtitle">Responde dudas y captura datos mínimos.</p></div>
+              <div>
+                <h3 id="zcoChatTitle">Chatbot Básico</h3>
+                <p id="zcoChatSubtitle">Conectado a Make para responder y capturar leads simples.</p>
+              </div>
               <div class="zco-chat-actions">
                 <span class="zco-chat-mode-pill" id="zcoChatModePill">Básico</span>
                 <button type="button" id="zcoClearChat" class="zco-clear-chat-btn" aria-label="Limpiar conversación del demo">
-                  <i class="fa-solid fa-rotate-left" aria-hidden="true"></i> Limpiar chat
+                  <i class="fa-solid fa-rotate-left" aria-hidden="true"></i>
+                  Limpiar chat
                 </button>
               </div>
             </div>
@@ -233,11 +214,11 @@
     <section class="zco-demo-section" id="calculadora">
       <div class="container">
         <div class="zco-demo-heading">
-          <span class="zco-demo-eyebrow"><i class="fa-solid fa-calculator"></i> Diagnóstico express de automatización</span>
-          <h2>Calcula tiempo, costo y prioridad de automatización de un proceso repetitivo.</h2>
-          <p>Ahora la calculadora no solo estima horas perdidas: también calcula costo mensual/anual, score de automatización y una recomendación de solución para orientar el diagnóstico.</p>
+          <span class="zco-demo-eyebrow"><i class="fa-solid fa-calculator"></i> Calculadora express</span>
+          <h2>Calcula cuánto tiempo pierde tu empresa en un proceso repetitivo.</h2>
+          <p>El objetivo es que el visitante vea el costo operativo del trabajo manual y pase naturalmente al diagnóstico.</p>
         </div>
-        <div class="zco-calc-advanced-grid">
+        <div class="zco-calculator-grid">
           <form class="zco-calc-card zco-calc-form" id="zcoCalcForm">
             <label>Área del proceso
               <select id="zcoArea"><option>Atención al cliente</option><option>Ventas</option><option>Finanzas</option><option>Operaciones</option><option>Recursos Humanos</option><option>Administración</option><option>Otra</option></select>
@@ -245,58 +226,37 @@
             <label>Proceso que quieres evaluar
               <textarea id="zcoProcess" placeholder="Ej: responder consultas por WhatsApp, copiar datos a Excel, crear reportes..."></textarea>
             </label>
-            <div class="zco-calc-row two">
-              <label>Canal principal
-                <select id="zcoChannel"><option value="whatsapp">WhatsApp / Redes sociales</option><option value="correo">Correo</option><option value="excel">Excel / Planillas</option><option value="crm">CRM / ERP</option><option value="formulario">Formulario web</option><option value="sistema">Sistema interno</option><option value="mixto">Varios canales</option></select>
-              </label>
-              <label>Urgencia del problema
-                <select id="zcoUrgency"><option value="baja">Baja</option><option value="media" selected>Media</option><option value="alta">Alta</option></select>
-              </label>
-            </div>
             <div class="zco-calc-row">
               <label>Veces por semana<input id="zcoFreq" type="number" min="1" value="10"/></label>
               <label>Minutos por vez<input id="zcoMinutes" type="number" min="1" value="25"/></label>
-              <label>Personas involucradas<input id="zcoPeople" type="number" min="1" value="2"/></label>
+              <label>Personas<input id="zcoPeople" type="number" min="1" value="2"/></label>
             </div>
-            <div class="zco-calc-row two">
-              <label>Nivel de error o retrabajo
-                <select id="zcoErrors"><option value="bajo">Bajo</option><option value="medio" selected>Medio</option><option value="alto">Alto</option></select>
-              </label>
-              <label>Costo hora promedio
-                <select id="zcoCostPreset"><option value="8000" selected>No sé / usar estimado $8.000 CLP</option><option value="5000">$5.000 CLP</option><option value="12000">$12.000 CLP</option><option value="18000">$18.000 CLP</option><option value="custom">Personalizado</option></select>
-                <span class="zco-calc-help">Se usa para estimar costo mensual/anual del trabajo manual.</span>
-              </label>
-            </div>
-            <label id="zcoCustomCostWrap" style="display:none;">Costo hora personalizado en CLP<input id="zcoCostCustom" type="number" min="1000" step="500" value="8000"/></label>
-            <div>
-              <strong>Herramientas involucradas</strong>
-              <span class="zco-calc-help">Marca las herramientas que hoy participan en el proceso.</span>
-              <div class="zco-tool-grid" id="zcoTools">
-                <label><input type="checkbox" value="excel" checked> Excel / Sheets</label>
-                <label><input type="checkbox" value="correo"> Gmail / Outlook</label>
-                <label><input type="checkbox" value="crm"> CRM / ERP</label>
-                <label><input type="checkbox" value="whatsapp"> WhatsApp</label>
-                <label><input type="checkbox" value="api"> APIs / Sistema interno</label>
-                <label><input type="checkbox" value="documentos"> Documentos / PDFs</label>
-              </div>
-            </div>
-            <div class="zco-calc-lead"><strong>Tip ZentrixCo:</strong> mientras más repetitivo, manual, costoso o dependiente de varias herramientas sea el proceso, más prioridad tiene automatizarlo.</div>
-            <button class="btn btn-primary" type="submit">Calcular diagnóstico express</button>
+            <label>Nivel de error o retrabajo
+              <select id="zcoErrors"><option value="bajo">Bajo</option><option value="medio" selected>Medio</option><option value="alto">Alto</option></select>
+            </label>
+            <button class="btn btn-primary" type="submit">Calcular tiempo perdido</button>
           </form>
-          <div class="zco-calc-result pro">
-            <h3>Resultado del diagnóstico</h3>
-            <div class="zco-result-grid">
-              <div class="zco-result-metric"><small>Horas mensuales</small><strong><span id="zcoResultNumber">0</span> h</strong></div>
-              <div class="zco-result-metric"><small>Horas anuales</small><strong><span id="zcoAnnualHours">0</span> h</strong></div>
-              <div class="zco-result-metric"><small>Costo mensual estimado</small><strong id="zcoMonthlyCost">$0</strong></div>
-              <div class="zco-result-metric"><small>Costo anual estimado</small><strong id="zcoAnnualCost">$0</strong></div>
-            </div>
-            <div class="zco-score-box"><div class="zco-score-top"><div><strong>Score de automatización</strong><p class="zco-calc-help">Puntaje basado en volumen, personas, errores, urgencia y herramientas.</p></div><div class="zco-score-number"><span id="zcoAutomationScore">0</span>/100</div></div><div class="zco-score-bar"><span id="zcoScoreFill" class="zco-score-fill"></span></div></div>
+          <div class="zco-calc-result">
+            <h3>Resultado estimado</h3>
+            <div class="zco-result-number"><span id="zcoResultNumber">0</span> h</div>
+            <div class="zco-result-label">horas mensuales aproximadas</div>
             <span class="zco-priority" id="zcoPriorityBadge">Prioridad MEDIA</span>
-            <div class="zco-recommendation-box"><span class="zco-solution-pill"><i class="fa-solid fa-lightbulb"></i> <span id="zcoSolution">Solución sugerida</span></span><h4>Recomendación ZentrixCo</h4><p id="zcoRecommendation">Completa los datos para recibir una recomendación de automatización.</p><p id="zcoResultText">La calculadora estimará el potencial del proceso según tiempo, costo y complejidad operativa.</p></div>
-            <div class="zco-calc-actions"><a href="/contacto#formulario-contacto" id="zcoCalcAgenda" class="btn btn-primary">Agendar diagnóstico</a><a href="#demo-lab" class="btn btn-outline-dark">Volver a probar demos</a></div>
+            <p id="zcoResultText">Completa los datos para calcular el potencial de automatización.</p>
+            <div class="zco-calc-actions">
+              <a href="/contacto#formulario-contacto" id="zcoCalcAgenda" class="btn btn-primary">Agendar diagnóstico</a>
+              <a href="#demo-lab" class="btn btn-outline-dark">Volver a probar demos</a>
+            </div>
           </div>
         </div>
+      </div>
+    </section>
+
+
+    <section class="zco-demo-seo-block" aria-label="Chatbot con IA para empresas">
+      <div class="container">
+        <h2 class="seo-title">Chatbot con IA para empresas que quieren automatizar atención al cliente y ventas</h2>
+        <p class="seo-text">Una demo de chatbot para empresas no debe limitarse a mostrar mensajes bonitos. Debe demostrar cómo una conversación puede transformarse en captura de leads, calificación comercial, automatización de atención al cliente y agendamiento de diagnóstico. Por eso ZentrixCo compara dos niveles: un Chatbot Básico para responder consultas y captar datos, y un Chatbot Intermedio para avanzar hacia automatización comercial con IA, Make, Google Calendar, Google Sheets e integraciones.</p>
+        <p class="seo-text">Esta página está pensada para empresas en LATAM que buscan automatizar procesos repetitivos, reducir trabajo manual, responder más rápido a clientes y convertir conversaciones en oportunidades reales de negocio usando RPA, inteligencia artificial, agentes inteligentes, n8n, Make y APIs.</p>
       </div>
     </section>
 
@@ -322,5 +282,41 @@
   <script src="/js/scripts-global.js" type="module"></script>
   <script src="/js/demo-chatbots.js"></script>
   <script src="/js/chat-widget.js"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Demo de chatbot para empresas",
+    "serviceType": "Chatbot con IA, automatización de leads y agendamiento comercial",
+    "provider": { "@type": "Organization", "name": "ZentrixCo", "url": "https://www.zentrixco.ai" },
+    "areaServed": { "@type": "Place", "name": "LATAM" },
+    "description": "Demo interactiva para comparar chatbot básico e intermedio orientado a atención al cliente, ventas, captura de leads, calificación y agendamiento automático con Make e inteligencia artificial."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Qué diferencia hay entre un chatbot básico y un chatbot intermedio?",
+        "acceptedAnswer": { "@type": "Answer", "text": "El chatbot básico responde consultas y captura datos para contacto manual. El chatbot intermedio puede calificar leads, solicitar información clave del proceso y avanzar hacia agendamiento automático." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Un chatbot puede ayudar a automatizar atención al cliente?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Sí. Un chatbot puede responder preguntas frecuentes, clasificar solicitudes, registrar datos en sistemas y derivar casos según reglas del negocio." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿ZentrixCo integra chatbots con Make, Google Sheets y Google Calendar?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Sí. ZentrixCo puede conectar chatbots con Make, Google Sheets, Google Calendar, correo, APIs y otras herramientas para automatizar captura de leads y agendamiento." }
+      }
+    ]
+  }
+  </script>
+
 </body>
 </html>
