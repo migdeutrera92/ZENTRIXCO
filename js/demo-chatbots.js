@@ -62,6 +62,30 @@
     updateInsights();
   }
 
+
+
+  function clearCurrentChat(){
+    const mode = state.mode;
+
+    if(mode === 'basico'){
+      state.basico.history = [];
+      state.basico.lead = { nombre:'', correo:'', empresa:'', proceso:'' };
+      state.basico.stage = 'informativo';
+      state.basico.connected = USE_REAL_BASIC_WEBHOOK;
+    }
+
+    if(mode === 'intermedio'){
+      state.intermedio.history = [];
+      state.intermedio.lead = { nombre:'', correo:'', empresa:'', proceso:'', canal:'', volumen:'', disponibilidad:'' };
+      state.intermedio.stage = 'diagnostico';
+    }
+
+    resetChat(mode);
+    const input = $('#zcoDemoInput');
+    if(input){ input.value = ''; input.focus(); }
+    trackEvent('demo_chat_cleared', { mode: mode, page_location: window.location.href });
+  }
+
   function setMode(mode){
     state.mode = mode;
     const cfg = DEMOS[mode];
@@ -292,8 +316,10 @@
     $all('a[href*="contacto#formulario-contacto"]').forEach(link => link.addEventListener('click', function(){ trackEvent('diagnostic_cta_click', { page_location: window.location.href, link_text: link.textContent.trim() }); }));
     const send = $('#zcoDemoSend');
     const input = $('#zcoDemoInput');
+    const clear = $('#zcoClearChat');
     if(send) send.addEventListener('click', function(){ sendDemoMessage(); });
     if(input) input.addEventListener('keydown', function(e){ if(e.key === 'Enter'){ e.preventDefault(); sendDemoMessage(); } });
+    if(clear) clear.addEventListener('click', clearCurrentChat);
     setMode('basico');
   }
 
