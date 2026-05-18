@@ -277,34 +277,30 @@
   function initCalculator(){
     const form = $('#zcoCalcForm');
     if(!form) return;
+    let lastSubmitTracked = false;
+    function getSelectedTools(){ return $all('#zcoTools input[type="checkbox"]:checked').map(el => el.value); }
+    function moneyCLP(value){ try { return new Intl.NumberFormat('es-CL', { style:'currency', currency:'CLP', maximumFractionDigits:0 }).format(Math.round(value || 0)); } catch(e) { return '$' + Math.round(value || 0).toLocaleString('es-CL'); } }
+    function getCostHour(){ const preset = $('#zcoCostPreset')?.value || '8000'; const customWrap = $('#zcoCustomCostWrap'); if(customWrap) customWrap.style.display = preset === 'custom' ? 'block' : 'none'; return preset === 'custom' ? Number($('#zcoCostCustom')?.value || 8000) : Number(preset || 8000); }
+    function scoreHours(h){ if(h >= 80) return 30; if(h >= 40) return 25; if(h >= 20) return 18; if(h >= 10) return 12; return 6; }
+    function scoreFrequency(f){ if(f >= 20) return 20; if(f >= 10) return 15; if(f >= 5) return 10; return 5; }
+    function getSolution(area, channel, tools, score){ const areaText = String(area || '').toLowerCase(); const has = t => tools.includes(t); if(score >= 85 && (tools.length >= 3 || channel === 'mixto')) return 'Hiperautomatización / Chatbot PRO'; if(channel === 'whatsapp' || has('whatsapp') || areaText.includes('atención') || areaText.includes('ventas')) return 'Chatbot Intermedio o Agente IA'; if(channel === 'excel' || has('excel')) return 'RPA, Power Automate o integración'; if(channel === 'correo' || has('correo')) return 'IA + automatización de correos'; if(channel === 'crm' || channel === 'sistema' || has('crm') || has('api')) return 'RPA + API / integración de sistemas'; if(channel === 'formulario') return 'Make/n8n + CRM o Google Sheets'; return 'Automatización a medida con IA, RPA o Make'; }
+    function buildRecommendation(priority, solution, hours, annualCost, channel, tools){ const channelLabel = { whatsapp:'WhatsApp o redes sociales', correo:'correo', excel:'Excel o planillas', crm:'CRM/ERP', formulario:'formularios web', sistema:'sistemas internos', mixto:'varios canales' }[channel] || 'tu canal actual'; const base = 'Este proceso consume cerca de ' + hours.toLocaleString('es-CL') + ' horas mensuales y puede representar hasta ' + moneyCLP(annualCost) + ' al año en trabajo manual.'; if(priority === 'alta') return base + ' Por volumen, urgencia o riesgo de error, conviene evaluarlo pronto. La ruta sugerida es ' + solution + ', especialmente porque ocurre en ' + channelLabel + ' y usa ' + (tools.length || 1) + ' herramienta(s).'; if(priority === 'media') return base + ' Tiene potencial de automatización, pero conviene revisar reglas, excepciones e integraciones antes de definir alcance. La ruta sugerida es ' + solution + '.'; return base + ' No parece ser el proceso más crítico todavía, pero puede ser buen candidato si se combina con otros flujos repetitivos. La ruta sugerida inicial es ' + solution + '.'; }
     const calculate = function(e){
       if(e) e.preventDefault();
-      const freq = Number($('#zcoFreq')?.value || 0);
-      const mins = Number($('#zcoMinutes')?.value || 0);
-      const people = Number($('#zcoPeople')?.value || 0);
-      const error = $('#zcoErrors')?.value || 'medio';
-      let hours = (freq * mins * people * 4) / 60;
-      if(!isFinite(hours)) hours = 0;
-      const rounded = Math.round(hours * 10) / 10;
-      let priority = 'baja';
-      if(rounded >= 31 || (rounded >= 20 && error === 'alto')) priority = 'alta';
-      else if(rounded >= 11 || error === 'medio') priority = 'media';
-      const num = $('#zcoResultNumber');
-      const badge = $('#zcoPriorityBadge');
-      const text = $('#zcoResultText');
-      if(num) num.textContent = String(rounded).replace('.', ',');
-      if(badge){ badge.textContent = 'Prioridad ' + priority.toUpperCase(); badge.className = 'zco-priority ' + priority; }
-      if(text){
-        const process = $('#zcoProcess')?.value || 'este proceso';
-        text.textContent = 'Tu empresa dedica aproximadamente ' + rounded.toLocaleString('es-CL') + ' horas al mes a ' + process + '. Si esta tarea se repite, consume tiempo humano o genera errores, es candidata para automatización con RPA, IA, integraciones o agentes inteligentes.';
-      }
-      const msg = encodeURIComponent('Hola, hice la calculadora de ZentrixCo y quiero revisar mi proceso. Resultado aproximado: ' + rounded + ' horas mensuales.');
-      const link = $('#zcoCalcAgenda');
-      if(link) link.href = '/contacto#formulario-contacto?mensaje=' + msg;
-      trackEvent('automation_calculator_completed', { monthly_hours: rounded, priority: priority });
+      const area = $('#zcoArea')?.value || ''; const process = $('#zcoProcess')?.value || 'este proceso'; const channel = $('#zcoChannel')?.value || 'mixto'; const urgency = $('#zcoUrgency')?.value || 'media'; const freq = Number($('#zcoFreq')?.value || 0); const mins = Number($('#zcoMinutes')?.value || 0); const people = Number($('#zcoPeople')?.value || 0); const error = $('#zcoErrors')?.value || 'medio'; const tools = getSelectedTools(); const costHour = getCostHour();
+      let hours = (freq * mins * people * 4) / 60; if(!isFinite(hours)) hours = 0; const rounded = Math.round(hours * 10) / 10; const annualHours = Math.round(rounded * 12 * 10) / 10; const monthlyCost = rounded * costHour; const annualCost = monthlyCost * 12;
+      let score = scoreHours(rounded) + scoreFrequency(freq) + (people >= 4 ? 15 : people >= 2 ? 10 : 5) + (error === 'alto' ? 15 : error === 'medio' ? 9 : 3) + (urgency === 'alta' ? 10 : urgency === 'media' ? 6 : 2) + (tools.length >= 4 ? 10 : tools.length >= 2 ? 7 : tools.length >= 1 ? 4 : 1); score = Math.max(0, Math.min(100, Math.round(score)));
+      let priority = 'baja'; if(score >= 70) priority = 'alta'; else if(score >= 40) priority = 'media'; const solution = getSolution(area, channel, tools, score); const recommendation = buildRecommendation(priority, solution, rounded, annualCost, channel, tools);
+      const setText = (sel, value) => { const el = $(sel); if(el) el.textContent = value; };
+      setText('#zcoResultNumber', String(rounded).replace('.', ',')); setText('#zcoAnnualHours', String(annualHours).replace('.', ',')); setText('#zcoMonthlyCost', moneyCLP(monthlyCost)); setText('#zcoAnnualCost', moneyCLP(annualCost)); setText('#zcoAutomationScore', String(score)); setText('#zcoSolution', solution); setText('#zcoRecommendation', recommendation); setText('#zcoResultText', 'Proceso evaluado: ' + process + '. Esta estimación considera frecuencia, duración, personas involucradas, errores, urgencia y herramientas actuales.');
+      const scoreFill = $('#zcoScoreFill'); if(scoreFill) scoreFill.style.width = score + '%'; const badge = $('#zcoPriorityBadge'); if(badge){ badge.textContent = 'Prioridad ' + priority.toUpperCase(); badge.className = 'zco-priority ' + priority; }
+      const msg = encodeURIComponent('Hola, hice el diagnóstico express de automatización en ZentrixCo. Proceso: ' + process + '. Resultado: ' + rounded + ' horas mensuales, score ' + score + '/100, prioridad ' + priority + ', solución sugerida: ' + solution + '. Quiero revisar este caso.'); const link = $('#zcoCalcAgenda'); if(link){ link.href = '/contacto?mensaje=' + msg + '#formulario-contacto'; link.textContent = priority === 'alta' ? 'Agendar diagnóstico prioritario' : priority === 'media' ? 'Revisar este proceso' : 'Detectar mejor proceso'; }
+      if(e && !lastSubmitTracked){ trackEvent('automation_calculator_completed', { monthly_hours: rounded, annual_hours: annualHours, monthly_cost: Math.round(monthlyCost), priority: priority, score: score, solution: solution }); lastSubmitTracked = true; }
+      if(!e) lastSubmitTracked = false;
     };
     form.addEventListener('submit', calculate);
-    ['#zcoFreq','#zcoMinutes','#zcoPeople','#zcoErrors','#zcoProcess'].forEach(sel => { const el = $(sel); if(el) el.addEventListener('input', calculate); });
+    ['#zcoArea','#zcoProcess','#zcoChannel','#zcoUrgency','#zcoFreq','#zcoMinutes','#zcoPeople','#zcoErrors','#zcoCostPreset','#zcoCostCustom'].forEach(sel => { const el = $(sel); if(el) el.addEventListener('input', function(){ lastSubmitTracked = false; calculate(); }); });
+    $all('#zcoTools input[type="checkbox"]').forEach(el => el.addEventListener('change', function(){ lastSubmitTracked = false; calculate(); }));
     calculate();
   }
 
