@@ -32,47 +32,114 @@
     },
     {
       "source": "/contacto",
-      "destination": "/contacto.html#formulario"
+      "destination": "/contacto.html"
     },
     {
       "source": "/blog-automatizacion-ia",
       "destination": "/blog-automatizacion-ia.html"
     },
     {
+      "source": "/chatbot-basico-vs-intermedio-leads-diagnosticos",
+      "destination": "/chatbot-basico-vs-intermedio-leads-diagnosticos.html"
+    },
+    {
       "source": "/casos-de-exito-automatizacion",
       "destination": "/casos-de-exito-automatizacion.html"
     },
     {
+      "source": "/caso-automatizacion-tickets-servicenow-n8n-llms",
+      "destination": "/caso-automatizacion-tickets-servicenow-n8n-llms.html"
+    },
+    {
+      "source": "/automatizacion-agentica-operaciones-latam",
+      "destination": "/automatizacion-agentica-operaciones-latam.html"
+    },
+    {
+      "source": "/torre-control-operacional-ia-automatizacion",
+      "destination": "/torre-control-operacional-ia-automatizacion.html"
+    },
+    {
+      "source": "/automatizacion-procesos-chile",
+      "destination": "/automatizacion-procesos-chile.html"
+    },
+    {
+      "source": "/checklist-procesos-automatizar",
+      "destination": "/checklist-procesos-automatizar.html"
+    },
+    {
+      "source": "/que-es-rpa-y-como-automatizar-procesos",
+      "destination": "/que-es-rpa-y-como-automatizar-procesos.html"
+    },
+    {
+      "source": "/guia-n8n-automatizacion-empresarial",
+      "destination": "/guia-n8n-automatizacion-empresarial.html"
+    },
+    {
+      "source": "/agentes-ia-automatizacion-inteligente",
+      "destination": "/agentes-ia-automatizacion-inteligente.html"
+    },
+    {
+      "source": "/hiperautomatizacion-mas-alla-del-rpa",
+      "destination": "/hiperautomatizacion-mas-alla-del-rpa.html"
+    },
+    {
+      "source": "/como-calcular-roi-automatizacion",
+      "destination": "/como-calcular-roi-automatizacion.html"
+    },
+    {
+      "source": "/make-vs-n8n-cual-elegir",
+      "destination": "/make-vs-n8n-cual-elegir.html"
+    },
+    {
+      "source": "/landing-rpa",
+      "destination": "/landing-rpa.html"
+    },
+    {
       "source": "/automatizacion-rpa-empresas",
-      "destination": "/blog/automatizacion-rpa.html"
+      "destination": "/que-es-rpa-y-como-automatizar-procesos.html"
     },
     {
       "source": "/caso-servicenow-n8n-ia",
-      "destination": "/blog/caso-servicenow.html"
+      "destination": "/caso-automatizacion-tickets-servicenow-n8n-llms.html"
     },
     {
       "source": "/automatizacion-finanzas",
-      "destination": "/blog/automatizacion-finanzas.html"
+      "destination": "/soluciones.html"
     },
     {
       "source": "/automatizacion-retail",
-      "destination": "/blog/automatizacion-retail.html"
+      "destination": "/soluciones.html"
     },
     {
       "source": "/automatizacion-logistica",
-      "destination": "/blog/automatizacion-logistica.html"
+      "destination": "/soluciones.html"
     },
     {
       "source": "/automatizacion-rpa-latam",
-      "destination": "/servicios.html#rpa"
+      "destination": "/servicios.html"
     },
     {
       "source": "/agentes-ia-empresas",
-      "destination": "/servicios.html#ia"
+      "destination": "/servicios.html"
     },
     {
       "source": "/integracion-sistemas",
-      "destination": "/servicios.html#integraciones"
+      "destination": "/servicios.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        }
+      ]
     }
   ]
 }
