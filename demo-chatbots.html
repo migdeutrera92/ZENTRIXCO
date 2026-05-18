@@ -19,6 +19,83 @@
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
+
+  <style id="zco-demo-no-image-and-calc-pro-style">
+    /* Banner sin imagen externa: no depende de /imagenes ni CDN */
+    .zco-demo-hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(232,106,51,.20), transparent 30%),
+        radial-gradient(circle at 82% 22%, rgba(23,63,122,.20), transparent 34%),
+        radial-gradient(circle at 78% 82%, rgba(45,118,191,.14), transparent 30%),
+        linear-gradient(135deg, #f8fbff 0%, #eef5ff 50%, #fff7f1 100%);
+    }
+    .zco-demo-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(23,63,122,.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(23,63,122,.055) 1px, transparent 1px);
+      background-size: 42px 42px;
+      opacity: .8;
+    }
+    .zco-demo-hero::after {
+      content: "";
+      position: absolute;
+      right: min(7vw, 90px);
+      top: 18%;
+      width: min(40vw, 520px);
+      height: 58%;
+      border-radius: 32px;
+      border: 1px solid rgba(23,63,122,.12);
+      background: linear-gradient(135deg, rgba(255,255,255,.72), rgba(255,255,255,.34));
+      box-shadow: 0 24px 80px rgba(15,47,93,.10);
+      z-index: 0;
+    }
+    .zco-demo-hero-grid { position: relative; z-index: 1; }
+
+    /* Botón limpiar chat */
+    .zco-chat-actions { display:flex; align-items:center; justify-content:flex-end; gap:10px; flex-wrap:wrap; }
+    .zco-clear-chat-btn { border:1px solid rgba(23,63,122,.18); background:#fff; color:#173f7a; border-radius:999px; padding:8px 12px; font-size:.82rem; font-weight:700; cursor:pointer; display:inline-flex; align-items:center; gap:7px; transition:all .2s ease; box-shadow:0 6px 16px rgba(15,47,93,.06); }
+    .zco-clear-chat-btn:hover { background:#f2f6fb; transform:translateY(-1px); }
+
+    /* Calculadora PRO */
+    .zco-calc-advanced-grid { display:grid; grid-template-columns:1.04fr .96fr; gap:28px; align-items:start; }
+    .zco-calc-row.two { grid-template-columns:1fr 1fr; }
+    .zco-calc-help { display:block; color:#64748b; font-size:.84rem; line-height:1.45; margin-top:6px; }
+    .zco-tool-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin-top:12px; }
+    .zco-tool-grid label { display:flex; gap:8px; align-items:center; padding:10px 12px; border:1px solid #e4ebf5; border-radius:12px; background:#fff; color:#334155; font-size:.92rem; }
+    .zco-tool-grid input { accent-color:#e8652e; }
+    .zco-calc-lead { padding:13px 14px; border-radius:14px; background:#fff7ed; border:1px solid rgba(232,106,51,.18); color:#7c2d12; line-height:1.55; }
+    .zco-calc-result.pro { position:sticky; top:96px; }
+    .zco-result-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin:18px 0; }
+    .zco-result-metric { padding:15px; border-radius:16px; background:#f8fafc; border:1px solid #e4ebf5; }
+    .zco-result-metric small { display:block; color:#64748b; font-size:.78rem; margin-bottom:6px; }
+    .zco-result-metric strong { color:#173f7a; font-size:1.15rem; font-family:'Poppins',sans-serif; }
+    .zco-score-box { margin:18px 0; padding:16px; border-radius:18px; background:linear-gradient(135deg,#f8fbff,#fff7f1); border:1px solid #e4ebf5; }
+    .zco-score-top { display:flex; justify-content:space-between; gap:16px; align-items:flex-start; }
+    .zco-score-number { color:#e8652e; font-family:'Poppins',sans-serif; font-weight:800; font-size:1.35rem; white-space:nowrap; }
+    .zco-score-bar { height:10px; background:#dbe6f3; border-radius:999px; overflow:hidden; margin-top:14px; }
+    .zco-score-fill { display:block; height:100%; width:0%; border-radius:999px; background:linear-gradient(90deg,#173f7a,#e8652e); transition:width .25s ease; }
+    .zco-recommendation-box { margin-top:16px; padding:18px; border-radius:18px; background:#fff; border:1px solid #e4ebf5; box-shadow:0 16px 36px rgba(15,47,93,.06); }
+    .zco-recommendation-box h4 { margin:12px 0 8px; color:#173f7a; font-family:'Poppins',sans-serif; }
+    .zco-solution-pill { display:inline-flex; align-items:center; gap:8px; border-radius:999px; padding:8px 12px; background:#eef5ff; color:#173f7a; font-weight:700; font-size:.86rem; }
+
+    @media (max-width: 900px) {
+      .zco-calc-advanced-grid { grid-template-columns:1fr; }
+      .zco-calc-result.pro { position:static; }
+      .zco-demo-hero::after { opacity:.28; right:-18%; width:82vw; }
+    }
+    @media (max-width: 640px) {
+      .zco-result-grid, .zco-tool-grid, .zco-calc-row.two { grid-template-columns:1fr; }
+      .zco-score-top { flex-direction:column; }
+      .zco-chat-top { align-items:flex-start; gap:12px; }
+      .zco-chat-actions { width:100%; justify-content:flex-start; }
+      .zco-clear-chat-btn { width:100%; justify-content:center; }
+    }
+  </style>
 </head>
 <body class="zco-demo-page">
   <header class="header">
@@ -126,7 +203,12 @@
           <section class="zco-chat-simulator" aria-label="Simulador de chatbot ZentrixCo">
             <div class="zco-chat-top">
               <div><h3 id="zcoChatTitle">Chatbot Básico</h3><p id="zcoChatSubtitle">Responde dudas y captura datos mínimos.</p></div>
-              <span class="zco-chat-mode-pill" id="zcoChatModePill">Básico</span>
+              <div class="zco-chat-actions">
+                <span class="zco-chat-mode-pill" id="zcoChatModePill">Básico</span>
+                <button type="button" id="zcoClearChat" class="zco-clear-chat-btn" aria-label="Limpiar conversación del demo">
+                  <i class="fa-solid fa-rotate-left" aria-hidden="true"></i> Limpiar chat
+                </button>
+              </div>
             </div>
             <div class="zco-chat-messages" id="zcoDemoMessages"></div>
             <div class="zco-chat-input">
