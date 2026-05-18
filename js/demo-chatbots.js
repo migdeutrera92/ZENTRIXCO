@@ -1,25 +1,28 @@
-
 (function(){
   'use strict';
 
+  const BASIC_WEBHOOK_URL = 'https://hook.us2.make.com/r67ib0xml2ud8fecd8fjxd35w46gkazx';
+  const USE_REAL_BASIC_WEBHOOK = true;
+  const WEBHOOK_TIMEOUT_MS = 18000;
+
   const state = {
     mode: 'basico',
-    basico: { history: [], lead: { nombre:'', correo:'', empresa:'', proceso:'' }, stage: 'informativo' },
+    basico: { history: [], lead: { nombre:'', correo:'', empresa:'', proceso:'' }, stage: 'informativo', connected: USE_REAL_BASIC_WEBHOOK },
     intermedio: { history: [], lead: { nombre:'', correo:'', empresa:'', proceso:'', canal:'', volumen:'', disponibilidad:'' }, stage: 'diagnostico' }
   };
 
   const DEMOS = {
     basico: {
       title: 'Chatbot Básico',
-      subtitle: 'Responde dudas y captura datos mínimos para contacto manual.',
-      welcome: 'Hola 🙌 Soy el demo del Chatbot Básico de ZentrixCo. Puedo responder dudas generales, explicar servicios y tomar tus datos para que el equipo te contacte.\n\nPrueba escribir: “quiero automatizar atención al cliente” o “quiero que me contacten”.',
-      pill: 'Básico · informa y capta'
+      subtitle: 'Conectado a Make para responder, orientar y capturar leads simples.',
+      welcome: 'Hola 🙌 Soy el demo del Chatbot Básico de ZentrixCo. Puedo responder dudas generales, explicar servicios de automatización y tomar tus datos para contacto manual.\n\nPrueba escribir: “quiero automatizar atención al cliente”, “cuánto cuesta un chatbot” o “quiero que me contacten”.',
+      pill: 'Básico · conectado a Make'
     },
     intermedio: {
       title: 'Chatbot Intermedio',
-      subtitle: 'Califica, pide datos clave y guía hacia el agendamiento.',
+      subtitle: 'Demo segura para visualizar calificación, captura avanzada y ruta hacia agenda.',
       welcome: 'Hola 🙌 Soy el demo del Chatbot Intermedio de ZentrixCo. Además de responder, puedo calificar el proceso, pedir datos clave y llevarte al diagnóstico.\n\nPrueba escribir: “quiero automatizar WhatsApp” o “quiero agendar diagnóstico”.',
-      pill: 'Intermedio · califica y agenda'
+      pill: 'Intermedio · demo segura'
     }
   };
 
@@ -27,16 +30,28 @@
   function $all(sel){ return Array.prototype.slice.call(document.querySelectorAll(sel)); }
   function escapeHtml(str){ return String(str || '').replace(/[&<>'"]/g, function(c){ return ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'})[c]; }); }
 
-  function addBubble(role, text){
+  function trackEvent(eventName, params = {}){
+    try {
+      if (typeof window.gtag === 'function') window.gtag('event', eventName, params);
+      if (window.dataLayer && Array.isArray(window.dataLayer)) window.dataLayer.push({ event: eventName, ...params });
+    } catch(err) { /* tracking should never break the demo */ }
+  }
+
+  function addBubble(role, text, options){
     const wrap = $('#zcoDemoMessages');
-    if(!wrap) return;
+    if(!wrap) return null;
     const div = document.createElement('div');
-    div.className = 'zco-chat-bubble ' + role;
+    div.className = 'zco-chat-bubble ' + role + (options && options.loading ? ' loading' : '');
     div.innerHTML = escapeHtml(text).replace(/\n/g, '<br>');
     wrap.appendChild(div);
     wrap.scrollTop = wrap.scrollHeight;
-    state[state.mode].history.push({ role, text });
+    if(!options || !options.skipHistory){
+      state[state.mode].history.push({ role, text });
+    }
+    return div;
   }
+
+  function removeBubble(el){ if(el && el.parentNode) el.parentNode.removeChild(el); }
 
   function resetChat(mode){
     const wrap = $('#zcoDemoMessages');
@@ -54,12 +69,74 @@
     $('#zcoChatSubtitle').textContent = cfg.subtitle;
     $('#zcoChatModePill').textContent = cfg.pill;
     $all('.zco-demo-mode-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.mode === mode));
+    trackEvent('demo_mode_selected', { mode: mode, page_location: window.location.href });
     resetChat(mode);
   }
 
   function includesAny(text, words){ return words.some(w => text.includes(w)); }
 
-  function basicReply(message){
+  function normalizeWebhookReply(data){
+    if(!data) return '';
+    if(typeof data === 'string') {
+      try { data = JSON.parse(data); } catch(e) { return data; }
+    }
+    return data.reply || data.message || data.response || data.text || '';
+  }
+
+  function buildBasicPayload(message){
+    const history = state.basico.history
+      .filter(item => item && item.text)
+      .slice(-12)
+      .map(item => ({ role: item.role === 'bot' ? 'assistant' : 'user', content: item.text }));
+
+    return {
+      message: message,
+      history: JSON.stringify(history),
+      pageUrl: window.location.href,
+      demoType: 'basico',
+      source: 'demo-chatbots-web',
+      lead: state.basico.lead
+    };
+  }
+
+  async function postWithTimeout(url, payload){
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), WEBHOOK_TIMEOUT_MS);
+    try {
+      const res = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+        signal: controller.signal
+      });
+      const raw = await res.text();
+      let data = raw;
+      try { data = raw ? JSON.parse(raw) : {}; } catch(e) { /* keep raw text */ }
+      if(!res.ok){
+        throw new Error('Webhook BASIC respondió con estado ' + res.status);
+      }
+      return data;
+    } finally {
+      clearTimeout(timeout);
+    }
+  }
+
+  async function basicReplyFromWebhook(message){
+    const payload = buildBasicPayload(message);
+    trackEvent('demo_basic_webhook_request', { page_location: window.location.href });
+    const data = await postWithTimeout(BASIC_WEBHOOK_URL, payload);
+    const reply = normalizeWebhookReply(data);
+    if(data && typeof data === 'object'){
+      if(data.lead && typeof data.lead === 'object') state.basico.lead = { ...state.basico.lead, ...data.lead };
+      if(data.lead_saved === true) state.basico.stage = 'capturado';
+      else if(data.intent === 'captura_lead') state.basico.stage = 'captura';
+      else if(data.intent === 'servicio_especifico' || data.intent === 'consulta_servicio') state.basico.stage = 'informativo';
+    }
+    trackEvent('demo_basic_webhook_response', { intent: data && data.intent ? data.intent : 'sin_intent' });
+    return reply || 'Puedo ayudarte a revisar automatización de procesos, RPA, IA, Make, n8n o chatbots. ¿Qué proceso quieres mejorar?';
+  }
+
+  function basicReplyFallback(message){
     const s = message.toLowerCase();
     const lead = state.basico.lead;
     if (includesAny(s, ['hola','buenas','hey'])) {
@@ -120,17 +197,34 @@
     return 'Para darte una respuesta útil necesito entender el proceso. Dime qué tarea se repite, por qué canal ocurre y cuántas veces pasa por semana.';
   }
 
-  function sendDemoMessage(text){
+  async function sendDemoMessage(text){
     const input = $('#zcoDemoInput');
     const message = (text || (input && input.value) || '').trim();
     if(!message) return;
     if(input) input.value = '';
     addBubble('user', message);
-    setTimeout(function(){
-      const reply = state.mode === 'basico' ? basicReply(message) : intermediateReply(message);
+    trackEvent('demo_message_sent', { mode: state.mode, page_location: window.location.href });
+
+    const loading = addBubble('bot', state.mode === 'basico' && USE_REAL_BASIC_WEBHOOK ? 'Conectando con el chatbot básico...' : 'Procesando...', { loading: true, skipHistory: true });
+
+    try {
+      let reply;
+      if(state.mode === 'basico' && USE_REAL_BASIC_WEBHOOK){
+        reply = await basicReplyFromWebhook(message);
+      } else {
+        await new Promise(resolve => setTimeout(resolve, 320));
+        reply = intermediateReply(message);
+      }
+      removeBubble(loading);
       addBubble('bot', reply);
-      updateInsights();
-    }, 320);
+    } catch(err) {
+      console.warn('[ZentrixCo demo] Error usando webhook básico:', err);
+      removeBubble(loading);
+      const fallback = state.mode === 'basico' ? basicReplyFallback(message) : intermediateReply(message);
+      addBubble('bot', fallback + '\n\nNota interna: si ves esta respuesta, el webhook no respondió y se activó respaldo local para no romper la demo.');
+      trackEvent('demo_basic_webhook_error', { error: String(err && err.message ? err.message : err) });
+    }
+    updateInsights();
   }
 
   function updateInsights(){
@@ -139,14 +233,14 @@
     const status = $('#zcoStepStatus');
     if(!current || !status) return;
     if(mode === 'basico'){
-      current.innerHTML = '<strong>Estás probando: Chatbot Básico</strong><span>Se enfoca en informar, resolver dudas frecuentes y capturar datos mínimos. No agenda automáticamente.</span>';
+      current.innerHTML = '<strong>Estás probando: Chatbot Básico conectado a Make</strong><span>Se enfoca en informar, resolver dudas frecuentes y capturar datos mínimos para contacto manual. No agenda automáticamente.</span>';
       const stage = state.basico.stage;
       status.innerHTML = ['Informa','Captura datos','Deriva manualmente','Sin agenda automática'].map(function(x,i){
         const done = (stage === 'captura' && i<2) || (stage === 'capturado' && i<3) || i===0;
         return '<span class="'+(done?'done':'')+'"><em>'+x+'</em><b>'+(done?'✓':'•')+'</b></span>';
       }).join('');
     } else {
-      current.innerHTML = '<strong>Estás probando: Chatbot Intermedio</strong><span>Además de responder, califica el lead, solicita datos del proceso y guía hacia el agendamiento.</span>';
+      current.innerHTML = '<strong>Estás probando: Chatbot Intermedio en modo seguro</strong><span>Además de responder, califica el lead, solicita datos del proceso y guía hacia el agendamiento. La conexión real se activa después para evitar agendamientos de prueba.</span>';
       const order = ['diagnostico','calificacion','agenda','validacion'];
       const stageIndex = order.indexOf(state.intermedio.stage);
       status.innerHTML = ['Detecta necesidad','Califica lead','Solicita datos','Valida agenda'].map(function(x,i){
@@ -183,6 +277,7 @@
       const msg = encodeURIComponent('Hola, hice la calculadora de ZentrixCo y quiero revisar mi proceso. Resultado aproximado: ' + rounded + ' horas mensuales.');
       const link = $('#zcoCalcAgenda');
       if(link) link.href = '/contacto#formulario-contacto?mensaje=' + msg;
+      trackEvent('automation_calculator_completed', { monthly_hours: rounded, priority: priority });
     };
     form.addEventListener('submit', calculate);
     ['#zcoFreq','#zcoMinutes','#zcoPeople','#zcoErrors','#zcoProcess'].forEach(sel => { const el = $(sel); if(el) el.addEventListener('input', calculate); });
@@ -191,8 +286,10 @@
 
   function initDemo(){
     if(!$('#zcoDemoMessages')) return;
+    trackEvent('demo_chatbot_view', { page_location: window.location.href });
     $all('.zco-demo-mode-btn').forEach(btn => btn.addEventListener('click', function(){ setMode(btn.dataset.mode || 'basico'); }));
     $all('[data-demo-prompt]').forEach(btn => btn.addEventListener('click', function(){ sendDemoMessage(btn.dataset.demoPrompt); }));
+    $all('a[href*="contacto#formulario-contacto"]').forEach(link => link.addEventListener('click', function(){ trackEvent('diagnostic_cta_click', { page_location: window.location.href, link_text: link.textContent.trim() }); }));
     const send = $('#zcoDemoSend');
     const input = $('#zcoDemoInput');
     if(send) send.addEventListener('click', function(){ sendDemoMessage(); });
