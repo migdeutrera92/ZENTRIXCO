@@ -58,36 +58,105 @@ var WEBHOOK_URL = "https://hook.us2.make.com/7ulf3o76oir87dk6cpshg4mcqurwpch2"; 
       .trim();
   }
 
-  function extractReplyFromResponseText(responseText) {
+  function extractBotPayloadFromResponseText(responseText) {
     var fallback = 'Estoy revisando tu solicitud, pero no recibí una respuesta clara del asistente. ¿Puedes intentar nuevamente en unos segundos?';
 
-    if (!responseText) return fallback;
+    if (!responseText) return { reply: fallback, cta: null };
 
     var raw = cleanMarkdownJson(responseText);
 
     if (raw.trim().toLowerCase() === 'accepted') {
-      return 'Recibí tu mensaje, pero no logré obtener la respuesta final del asistente. Por favor intenta nuevamente en unos segundos.';
+      return {
+        reply: 'Recibí tu mensaje, pero no logré obtener la respuesta final del asistente. Por favor intenta nuevamente en unos segundos.',
+        cta: null
+      };
     }
 
     try {
       var data = JSON.parse(raw);
+      var reply = fallback;
+      var cta = null;
 
       if (data && typeof data.reply === 'string' && data.reply.trim()) {
-        return data.reply.trim();
+        reply = data.reply.trim();
+      } else if (data && typeof data.message === 'string' && data.message.trim()) {
+        reply = data.message.trim();
+      } else if (data && typeof data.text === 'string' && data.text.trim()) {
+        reply = data.text.trim();
       }
 
-      if (data && typeof data.message === 'string' && data.message.trim()) {
-        return data.message.trim();
+      if (data && data.cta && typeof data.cta.url === 'string' && data.cta.url.trim()) {
+        cta = {
+          url: data.cta.url.trim(),
+          label: String(data.cta.label || data.button_label || 'Abrir enlace').trim(),
+          type: data.cta.type || 'link'
+        };
+      } else if (data && typeof data.whatsapp_url === 'string' && data.whatsapp_url.trim()) {
+        cta = {
+          url: data.whatsapp_url.trim(),
+          label: String(data.button_label || 'Abrir WhatsApp').trim(),
+          type: 'whatsapp'
+        };
       }
 
-      if (data && typeof data.text === 'string' && data.text.trim()) {
-        return data.text.trim();
-      }
-
-      return fallback;
+      return { reply: reply, cta: cta };
     } catch (e) {
-      return raw || fallback;
+      return { reply: raw || fallback, cta: null };
     }
+  }
+
+  function extractReplyFromResponseText(responseText) {
+    return extractBotPayloadFromResponseText(responseText).reply;
+  }
+
+  function appendTextWithLinks(container, text) {
+    var value = String(text || '');
+    var urlRegex = /(https?:\/\/[^\s]+)/g;
+    var lastIndex = 0;
+    var match;
+
+    while ((match = urlRegex.exec(value)) !== null) {
+      if (match.index > lastIndex) {
+        container.appendChild(document.createTextNode(value.slice(lastIndex, match.index)));
+      }
+
+      var url = match[0].replace(/[).,;!?]+$/, '');
+      var trailing = match[0].slice(url.length);
+      var link = document.createElement('a');
+      link.href = url;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      link.className = 'chat-link';
+      link.textContent = url;
+      container.appendChild(link);
+
+      if (trailing) {
+        container.appendChild(document.createTextNode(trailing));
+      }
+
+      lastIndex = match.index + match[0].length;
+    }
+
+    if (lastIndex < value.length) {
+      container.appendChild(document.createTextNode(value.slice(lastIndex)));
+    }
+  }
+
+  function appendCtaButton(container, cta) {
+    if (!cta || !cta.url) return;
+
+    var wrapper = document.createElement('div');
+    wrapper.className = 'chat-cta-wrapper';
+
+    var button = document.createElement('a');
+    button.href = cta.url;
+    button.target = '_blank';
+    button.rel = 'noopener noreferrer';
+    button.className = 'chat-cta-button' + (cta.type === 'whatsapp' ? ' whatsapp' : '');
+    button.textContent = cta.label || 'Abrir enlace';
+
+    wrapper.appendChild(button);
+    container.appendChild(wrapper);
   }
 
   function isSuccessfulBookingReply(reply) {
@@ -388,6 +457,37 @@ function getChatHistory() {
   30% { transform: translateY(-6px); opacity: 1; }
 }
 
+
+.chat-link {
+  color: #1a3a6b;
+  font-weight: 700;
+  text-decoration: underline;
+  word-break: break-word;
+}
+.chat-cta-wrapper {
+  margin-top: 10px;
+}
+.chat-cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 14px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #1a3a6b, #e8652e);
+  color: #fff !important;
+  text-decoration: none !important;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(26, 58, 107, 0.2);
+}
+.chat-cta-button.whatsapp {
+  background: linear-gradient(135deg, #25D366, #128C7E);
+}
+.chat-cta-button:hover {
+  transform: translateY(-1px);
+}
+
 /* Mobile */
 @media (max-width: 480px) {
   .chat-panel { right: 10px; bottom: 90px; width: calc(100vw - 20px); border-radius: 16px; }
@@ -450,7 +550,10 @@ function getChatHistory() {
     history.forEach(function (item) {
       var bubble = document.createElement('div');
       bubble.className = 'chat-msg ' + item.role;
-      bubble.textContent = item.text;
+      appendTextWithLinks(bubble, item.text);
+      if (item.role === 'bot' && item.cta) {
+        appendCtaButton(bubble, item.cta);
+      }
       messagesEl.appendChild(bubble);
     });
   } else {
@@ -529,15 +632,22 @@ fab.addEventListener('click', function (e) {
   });
 
   /* ── Messaging Logic ──────────────────────────────────────────────────── */
-  function addMessage(text, role) {
+  function addMessage(text, role, cta) {
     var bubble = document.createElement('div');
     bubble.className = 'chat-msg ' + role;
-    bubble.textContent = text;
+    appendTextWithLinks(bubble, text);
+    if (role === 'bot' && cta) {
+      appendCtaButton(bubble, cta);
+    }
     messagesEl.appendChild(bubble);
     messagesEl.scrollTop = messagesEl.scrollHeight;
 
     var chatHistory = getChatHistory();
-    chatHistory.push({ role: role, text: text, time: new Date().toISOString() });
+    var item = { role: role, text: text, time: new Date().toISOString() };
+    if (role === 'bot' && cta) {
+      item.cta = cta;
+    }
+    chatHistory.push(item);
     saveChatHistory(chatHistory);
   }
 
@@ -640,10 +750,12 @@ setInterval(checkChatExpiration, 60 * 1000);
           throw new Error('HTTP ' + response.status + ': ' + response.text);
         }
 
-        var reply = extractReplyFromResponseText(response.text);
+        var botPayload = extractBotPayloadFromResponseText(response.text);
+        var reply = botPayload.reply;
+        var cta = botPayload.cta;
 
         if (reply && reply.trim()) {
-          addMessage(reply, 'bot');
+          addMessage(reply, 'bot', cta);
         } else {
           addMessage('Recibí tu mensaje, pero no llegó una respuesta visible del asistente. Por favor intenta nuevamente.', 'bot');
         }
