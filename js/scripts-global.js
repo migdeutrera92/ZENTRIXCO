@@ -1,82 +1,102 @@
-// ===== Mobile Navigation Toggle - FIX DEFINITIVO =====
+// ===== ZentrixCo Global Scripts - FIX FINAL MENÚ MÓVIL =====
 (function () {
-  const mobileToggle = document.getElementById('mobileToggle');
-  const nav = document.getElementById('nav');
+  function initMobileMenu() {
+    const mobileToggle = document.getElementById('mobileToggle');
+    const nav = document.getElementById('nav');
 
-  if (!mobileToggle || !nav) return;
+    if (!mobileToggle || !nav) return;
+    if (mobileToggle.dataset.zcoMenuReady === 'true') return;
+    mobileToggle.dataset.zcoMenuReady = 'true';
 
-  mobileToggle.setAttribute('aria-label', 'Abrir menú');
-  mobileToggle.setAttribute('aria-expanded', 'false');
-
-  function openMenu() {
-    nav.classList.add('open');
-    nav.classList.add('active'); // compatibilidad con páginas que usan .active
-    mobileToggle.classList.add('active');
-    document.body.classList.add('menu-open');
-    mobileToggle.setAttribute('aria-expanded', 'true');
-  }
-
-  function closeMenu() {
-    nav.classList.remove('open');
-    nav.classList.remove('active');
-    mobileToggle.classList.remove('active');
-    document.body.classList.remove('menu-open');
+    mobileToggle.setAttribute('aria-label', 'Abrir menú');
     mobileToggle.setAttribute('aria-expanded', 'false');
+
+    function isOpen() {
+      return nav.classList.contains('open') || nav.classList.contains('active');
+    }
+
+    function openMenu() {
+      nav.classList.add('open', 'active');
+      mobileToggle.classList.add('active');
+      document.body.classList.add('menu-open');
+      mobileToggle.setAttribute('aria-expanded', 'true');
+      mobileToggle.setAttribute('aria-label', 'Cerrar menú');
+    }
+
+    function closeMenu() {
+      nav.classList.remove('open', 'active');
+      mobileToggle.classList.remove('active');
+      document.body.classList.remove('menu-open');
+      mobileToggle.setAttribute('aria-expanded', 'false');
+      mobileToggle.setAttribute('aria-label', 'Abrir menú');
+    }
+
+    mobileToggle.addEventListener('click', function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      isOpen() ? closeMenu() : openMenu();
+    });
+
+    nav.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', closeMenu);
+    });
+
+    document.addEventListener('click', function (event) {
+      if (window.innerWidth > 1200) return;
+      if (!nav.contains(event.target) && !mobileToggle.contains(event.target)) {
+        closeMenu();
+      }
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') closeMenu();
+    });
+
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 1200) closeMenu();
+    });
   }
 
-  mobileToggle.addEventListener('click', (event) => {
-    event.preventDefault();
-
-    const isOpen = nav.classList.contains('open') || nav.classList.contains('active');
-
-    if (isOpen) {
-      closeMenu();
-    } else {
-      openMenu();
-    }
-  });
-
-  document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', closeMenu);
-  });
-
-  window.addEventListener('resize', () => {
-    if (window.innerWidth > 1200) {
-      closeMenu();
-    }
-  });
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMobileMenu);
+  } else {
+    initMobileMenu();
+  }
 })();
 
 // ===== Header Shadow on Scroll =====
-const header = document.getElementById('header');
-
-function updateHeader() {
+(function () {
+  const header = document.getElementById('header');
   if (!header) return;
-  if (window.scrollY > 50) {
-    header.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.12)';
-  } else {
-    header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.08)';
-  }
-}
 
-window.addEventListener('scroll', updateHeader);
+  function updateHeader() {
+    if (window.scrollY > 50) {
+      header.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.12)';
+    } else {
+      header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.08)';
+    }
+  }
+
+  window.addEventListener('scroll', updateHeader, { passive: true });
+  updateHeader();
+})();
 
 // ===== Scroll Reveal Animation =====
-function revealOnScroll() {
-  const elements = document.querySelectorAll('.reveal');
-  elements.forEach(el => {
-    const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight - 80) {
-      el.classList.add('revealed');
-    }
-  });
-}
+(function () {
+  function revealOnScroll() {
+    const elements = document.querySelectorAll('.reveal');
+    elements.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 80) {
+        el.classList.add('revealed');
+      }
+    });
+  }
 
-window.addEventListener('scroll', revealOnScroll);
-window.addEventListener('load', revealOnScroll);
-
-// ===== Number Counter Animation =====
-// Counter animation is handled by counter-animation.js (loaded as non-module script for reliability)
+  window.addEventListener('scroll', revealOnScroll, { passive: true });
+  window.addEventListener('load', revealOnScroll);
+  if (document.readyState !== 'loading') revealOnScroll();
+})();
 
 // ===== Servicios Page - Scroll Animations =====
 (function () {
@@ -123,9 +143,7 @@ window.addEventListener('load', revealOnScroll);
       }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
 
       allElements.forEach(function (el) {
-        if (el.classList.contains('will-animate')) {
-          svcObserver.observe(el);
-        }
+        if (el.classList.contains('will-animate')) svcObserver.observe(el);
       });
     }
   }
@@ -138,13 +156,16 @@ window.addEventListener('load', revealOnScroll);
   window.addEventListener('load', initSvcAnimations);
 })();
 
-// ===== Contact Form Handling =====
-const contactForm = document.getElementById('contactForm');
+// ===== Contact Form Handling Legacy =====
+(function () {
+  const contactForm = document.getElementById('contactForm');
+  if (!contactForm) return;
 
-if (contactForm) {
   contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const submitBtn = contactForm.querySelector('button[type="submit"]');
+    if (!submitBtn) return;
+
     const originalText = submitBtn.textContent;
     submitBtn.textContent = 'Enviando...';
     submitBtn.disabled = true;
@@ -156,7 +177,7 @@ if (contactForm) {
       submitBtn.disabled = false;
     }, 1500);
   });
-}
+})();
 
 // ===== Notification System =====
 function showNotification(message, type) {
@@ -200,19 +221,21 @@ function showNotification(message, type) {
 }
 
 // ===== Industry Tabs =====
-document.querySelectorAll('.industry-tab').forEach(tab => {
-  tab.addEventListener('click', () => {
-    document.querySelectorAll('.industry-tab').forEach(t => t.classList.remove('active'));
-    tab.classList.add('active');
+(function () {
+  document.querySelectorAll('.industry-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.industry-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
 
-    const target = tab.dataset.target;
-    document.querySelectorAll('.industry-panel').forEach(panel => {
-      panel.style.display = 'none';
+      const target = tab.dataset.target;
+      document.querySelectorAll('.industry-panel').forEach(panel => {
+        panel.style.display = 'none';
+      });
+      const targetPanel = document.getElementById(target);
+      if (targetPanel) targetPanel.style.display = 'block';
     });
-    const targetPanel = document.getElementById(target);
-    if (targetPanel) targetPanel.style.display = 'block';
   });
-});
+})();
 
 // ===== ROI Calculator =====
 function updateCalculator() {
@@ -226,9 +249,13 @@ function updateCalculator() {
   const hoursVal = parseInt(hours.value) || 0;
   const costVal = parseInt(cost.value) || 0;
 
-  document.getElementById('empValue').textContent = empVal;
-  document.getElementById('hoursValue').textContent = hoursVal + 'h';
-  document.getElementById('costValue').textContent = '$' + costVal;
+  const empValue = document.getElementById('empValue');
+  const hoursValue = document.getElementById('hoursValue');
+  const costValue = document.getElementById('costValue');
+
+  if (empValue) empValue.textContent = empVal;
+  if (hoursValue) hoursValue.textContent = hoursVal + 'h';
+  if (costValue) costValue.textContent = '$' + costVal;
 
   const monthlySaving = empVal * hoursVal * (costVal / 160) * 0.7;
   const annualSaving = monthlySaving * 12;
@@ -240,30 +267,32 @@ function updateCalculator() {
 }
 
 window.addEventListener('load', () => {
-  if (document.getElementById('calcEmployees')) {
-    updateCalculator();
-  }
+  if (document.getElementById('calcEmployees')) updateCalculator();
 });
 
-// ===== Smooth Scroll for all anchor links =====
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    const targetId = this.getAttribute('href');
-    if (targetId === '#') return;
-    const target = document.querySelector(targetId);
-    if (target) {
+// ===== Smooth Scroll for same-page anchors =====
+(function () {
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const targetId = this.getAttribute('href');
+      if (!targetId || targetId === '#') return;
+
+      const target = document.querySelector(targetId);
+      if (!target) return;
+
+      e.preventDefault();
       const headerHeight = document.getElementById('header') ? document.getElementById('header').offsetHeight : 0;
       const targetPosition = target.offsetTop - headerHeight;
       window.scrollTo({ top: targetPosition, behavior: 'smooth' });
-    }
+    });
   });
-});
+})();
 
 // ===== Floating Atom Particles for Page Hero =====
 (function () {
   var hero = document.querySelector('.page-hero');
-  if (!hero) return;
+  if (!hero || hero.dataset.particlesReady === 'true') return;
+  hero.dataset.particlesReady = 'true';
 
   var particleContainer = document.createElement('div');
   particleContainer.className = 'hero-particles';
