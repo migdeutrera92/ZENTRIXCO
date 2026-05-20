@@ -172,6 +172,253 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </style>
 
 <link href="/css/demo-chatbots.css" rel="stylesheet"/>
+<style id="zco-menu-fix-final-2026">
+/* ZentrixCo - fix único y consistente para header/menú móvil */
+html, body {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+.header {
+  width: 100% !important;
+  max-width: 100vw !important;
+  overflow: visible !important;
+}
+
+.header .logo-img,
+.footer-logo .logo-img {
+  height: 38px !important;
+  width: auto !important;
+  max-width: none !important;
+  max-height: 38px !important;
+  object-fit: contain !important;
+}
+
+@media (min-width: 1201px) {
+  body {
+    padding-top: 0 !important;
+  }
+
+  .header {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 9999 !important;
+    background: #ffffff !important;
+  }
+
+  .header-inner {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+  }
+
+  #nav.nav {
+    display: flex !important;
+    position: static !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: auto !important;
+    max-width: none !important;
+    height: auto !important;
+    max-height: none !important;
+    padding: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    overflow: visible !important;
+  }
+
+  .mobile-toggle {
+    display: none !important;
+  }
+
+  .header-cta {
+    display: inline-flex !important;
+  }
+}
+
+@media (max-width: 1200px) {
+  body {
+    padding-top: 70px !important;
+  }
+
+  body.menu-open {
+    overflow: hidden !important;
+  }
+
+  .header {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 99999 !important;
+    background: #ffffff !important;
+    box-shadow: 0 8px 28px rgba(15,47,93,.10) !important;
+  }
+
+  .header-inner {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 70px !important;
+    min-height: 70px !important;
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    overflow: visible !important;
+  }
+
+  .logo {
+    min-width: 0 !important;
+    max-width: calc(100vw - 92px) !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+  }
+
+  .logo .logo-img {
+    width: auto !important;
+    max-width: 44px !important;
+    max-height: 44px !important;
+    flex: 0 0 auto !important;
+  }
+
+  .logo-text {
+    font-size: clamp(1.25rem, 6vw, 1.8rem) !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  .header-cta {
+    display: none !important;
+  }
+
+  .mobile-toggle {
+    display: flex !important;
+    flex: 0 0 44px !important;
+    width: 44px !important;
+    height: 44px !important;
+    border: 0 !important;
+    background: #ffffff !important;
+    border-radius: 14px !important;
+    box-shadow: 0 8px 24px rgba(15,47,93,.12) !important;
+    padding: 6px !important;
+    cursor: pointer !important;
+    z-index: 100001 !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 5px !important;
+  }
+
+  .mobile-toggle span {
+    display: block !important;
+    width: 27px !important;
+    height: 3px !important;
+    background: #173f7a !important;
+    border-radius: 999px !important;
+    transition: transform .25s ease, opacity .2s ease !important;
+  }
+
+  .mobile-toggle.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg) !important;
+  }
+
+  .mobile-toggle.active span:nth-child(2) {
+    opacity: 0 !important;
+  }
+
+  .mobile-toggle.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg) !important;
+  }
+
+  #nav.nav {
+    position: fixed !important;
+    top: 70px !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    max-height: calc(100vh - 70px) !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    background: #ffffff !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+    gap: 0 !important;
+    padding: 12px 22px 22px !important;
+    box-shadow: 0 20px 45px rgba(15,47,93,.16) !important;
+    z-index: 100000 !important;
+    transform: translateY(-130%) !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transition: transform .28s ease, opacity .2s ease, visibility .2s ease !important;
+  }
+
+  #nav.nav.open,
+  #nav.nav.active,
+  body.menu-open #nav.nav {
+    transform: translateY(0) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+  }
+
+  #nav.nav .nav-link {
+    display: block !important;
+    width: 100% !important;
+    padding: 15px 8px !important;
+    border-bottom: 1px solid #edf1f7 !important;
+    color: #173f7a !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+    text-align: left !important;
+    line-height: 1.4 !important;
+    white-space: normal !important;
+  }
+
+  #nav.nav .nav-link:last-child {
+    border-bottom: 0 !important;
+  }
+
+  .page-hero {
+    width: 100% !important;
+    max-width: 100vw !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    overflow: hidden !important;
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+
+  .grid-2,
+  .grid-3,
+  .grid-4,
+  .historia-grid,
+  .case-flow,
+  .timeline-mini-wrapper,
+  .stats-row,
+  .fd-grid {
+    max-width: 100% !important;
+  }
+}
+</style>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -181,24 +428,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- Header -->
 <header class="header" id="header">
-<div class="container header-inner">
-<a class="logo" href="/">
-<img alt="ZentrixCo Logo" class="logo-img" src="https://mgx-backend-cdn.metadl.com/generate/images/1102970/2026-04-15/mvbqgriaafaa/logo-zentrixco-transparent.png"/>
-<span class="logo-text">Zentrix<span class="logo-highlight">Co</span></span>
-</a>
-<nav class="nav" id="nav">
-<a class="nav-link" href="/">Inicio</a>
-<a class="nav-link" href="/servicios">Servicios</a>
-<a class="nav-link" href="/soluciones">Soluciones</a>
-<a class="nav-link" href="/casos-de-exito-automatizacion">Casos de Éxito</a>
-<a class="nav-link" href="/sobre-nosotros">Nosotros</a>
-<a class="nav-link" href="/blog-automatizacion-ia">Blog</a>
-<a class="nav-link" href="/demo-chatbots">Demo</a>
-<a class="nav-link active" href="/contacto#formulario-contacto">Contacto</a>
-</nav>
-<a class="btn btn-primary btn-sm header-cta" href="/contacto#formulario-contacto">Consulta Gratis</a>
-<button aria-label="Toggle menu" class="mobile-toggle" id="mobileToggle"><span></span><span></span><span></span></button>
-</div>
+  <div class="container header-inner">
+    <a class="logo" href="/">
+      <img alt="ZentrixCo Logo" class="logo-img" src="https://mgx-backend-cdn.metadl.com/generate/images/1102970/2026-04-15/mvbqgriaafaa/logo-zentrixco-transparent.png"/>
+      <span class="logo-text">Zentrix<span class="logo-highlight">Co</span></span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Menú principal">
+      <a class="nav-link" href="/">Inicio</a>
+      <a class="nav-link" href="/servicios">Servicios</a>
+      <a class="nav-link" href="/soluciones">Soluciones</a>
+      <a class="nav-link" href="/casos-de-exito-automatizacion">Casos de Éxito</a>
+      <a class="nav-link" href="/sobre-nosotros">Nosotros</a>
+      <a class="nav-link" href="/blog-automatizacion-ia">Blog</a>
+      <a class="nav-link" href="/demo-chatbots">Demo</a>
+      <a class="nav-link active" href="/contacto#formulario-contacto">Contacto</a>
+    </nav>
+    <a class="btn btn-primary btn-sm header-cta" href="/contacto#formulario-contacto">Consulta Gratis</a>
+    <button aria-label="Abrir menú" aria-expanded="false" aria-controls="nav" class="mobile-toggle" id="mobileToggle" type="button"><span></span><span></span><span></span></button>
+  </div>
 </header>
 <section class="page-hero page-hero--contacto">
 <h1>Contacto y consultoría en automatización con RPA, IA y agentes inteligentes</h1>
@@ -574,19 +821,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script src="/js/chat-widget.js"></script>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  const toggle = document.getElementById("mobileToggle");
-  const nav = document.getElementById("nav");
-
-  if (toggle && nav) {
-    toggle.addEventListener("click", function () {
-      nav.classList.toggle("active");
-      toggle.classList.toggle("active");
-    });
-  }
-});
-</script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("formulario-contacto");
   const status = document.getElementById("formStatus");
   const submitBtn = document.getElementById("submitBtn");
@@ -637,6 +871,67 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+</script>
+<script id="zco-menu-fix-final-js">
+(function () {
+  function initZcoMenu() {
+    var toggle = document.getElementById("mobileToggle");
+    var nav = document.getElementById("nav");
+
+    if (!toggle || !nav) return;
+    if (toggle.dataset.zcoFinalReady === "true") return;
+    toggle.dataset.zcoFinalReady = "true";
+
+    function isOpen() {
+      return nav.classList.contains("open") || nav.classList.contains("active");
+    }
+
+    function closeMenu() {
+      nav.classList.remove("open", "active");
+      toggle.classList.remove("active");
+      document.body.classList.remove("menu-open");
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.setAttribute("aria-label", "Abrir menú");
+    }
+
+    function openMenu() {
+      nav.classList.add("open", "active");
+      toggle.classList.add("active");
+      document.body.classList.add("menu-open");
+      toggle.setAttribute("aria-expanded", "true");
+      toggle.setAttribute("aria-label", "Cerrar menú");
+    }
+
+    toggle.addEventListener("click", function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      isOpen() ? closeMenu() : openMenu();
+    });
+
+    nav.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", closeMenu);
+    });
+
+    document.addEventListener("click", function (event) {
+      if (window.innerWidth > 1200) return;
+      if (!nav.contains(event.target) && !toggle.contains(event.target)) {
+        closeMenu();
+      }
+    });
+
+    window.addEventListener("resize", function () {
+      if (window.innerWidth > 1200) closeMenu();
+    });
+
+    window.zcoCloseMenu = closeMenu;
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initZcoMenu);
+  } else {
+    initZcoMenu();
+  }
+})();
 </script>
 </body>
 </html>
