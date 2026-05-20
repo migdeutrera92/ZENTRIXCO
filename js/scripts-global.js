@@ -1,8 +1,8 @@
-// ===== ZentrixCo Global Scripts - Menú móvil y utilidades globales =====
+// ===== ZentrixCo Global Scripts - FIX FINAL MENÚ MÓVIL =====
 (function () {
   function initMobileMenu() {
-    var mobileToggle = document.getElementById('mobileToggle');
-    var nav = document.getElementById('nav');
+    const mobileToggle = document.getElementById('mobileToggle');
+    const nav = document.getElementById('nav');
 
     if (!mobileToggle || !nav) return;
     if (mobileToggle.dataset.zcoMenuReady === 'true') return;
@@ -10,8 +10,6 @@
 
     mobileToggle.setAttribute('aria-label', 'Abrir menú');
     mobileToggle.setAttribute('aria-expanded', 'false');
-    mobileToggle.setAttribute('aria-controls', 'nav');
-    mobileToggle.setAttribute('type', 'button');
 
     function isOpen() {
       return nav.classList.contains('open') || nav.classList.contains('active');
@@ -68,7 +66,7 @@
 
 // ===== Header Shadow on Scroll =====
 (function () {
-  var header = document.getElementById('header');
+  const header = document.getElementById('header');
   if (!header) return;
 
   function updateHeader() {
@@ -86,8 +84,9 @@
 // ===== Scroll Reveal Animation =====
 (function () {
   function revealOnScroll() {
-    document.querySelectorAll('.reveal').forEach(function (el) {
-      var rect = el.getBoundingClientRect();
+    const elements = document.querySelectorAll('.reveal');
+    elements.forEach(el => {
+      const rect = el.getBoundingClientRect();
       if (rect.top < window.innerHeight - 80) {
         el.classList.add('revealed');
       }
@@ -96,17 +95,22 @@
 
   window.addEventListener('scroll', revealOnScroll, { passive: true });
   window.addEventListener('load', revealOnScroll);
+  if (document.readyState !== 'loading') revealOnScroll();
 })();
 
 // ===== Servicios Page - Scroll Animations =====
 (function () {
   function initSvcAnimations() {
-    var allElements = [];
-    document.querySelectorAll('.svc-card, .svc-section, .process-step').forEach(function (el) {
-      allElements.push(el);
-    });
+    var svcCards = document.querySelectorAll('.svc-card');
+    var svcSections = document.querySelectorAll('.svc-section');
+    var processSteps = document.querySelectorAll('.process-step');
 
-    if (!allElements.length) return;
+    if (svcCards.length === 0 && svcSections.length === 0 && processSteps.length === 0) return;
+
+    var allElements = [];
+    svcCards.forEach(function (el) { allElements.push(el); });
+    svcSections.forEach(function (el) { allElements.push(el); });
+    processSteps.forEach(function (el) { allElements.push(el); });
 
     allElements.forEach(function (el) {
       el.style.opacity = '1';
@@ -152,20 +156,21 @@
   window.addEventListener('load', initSvcAnimations);
 })();
 
-// ===== Contact Form Handling (legacy fallback para formularios antiguos) =====
+// ===== Contact Form Handling Legacy =====
 (function () {
-  var contactForm = document.getElementById('contactForm');
+  const contactForm = document.getElementById('contactForm');
   if (!contactForm) return;
 
-  contactForm.addEventListener('submit', function (e) {
+  contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    var submitBtn = contactForm.querySelector('button[type="submit"]');
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
     if (!submitBtn) return;
-    var originalText = submitBtn.textContent;
+
+    const originalText = submitBtn.textContent;
     submitBtn.textContent = 'Enviando...';
     submitBtn.disabled = true;
 
-    setTimeout(function () {
+    setTimeout(() => {
       showNotification('¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.', 'success');
       contactForm.reset();
       submitBtn.textContent = originalText;
@@ -176,10 +181,10 @@
 
 // ===== Notification System =====
 function showNotification(message, type) {
-  var existing = document.querySelector('.notification');
+  const existing = document.querySelector('.notification');
   if (existing) existing.remove();
 
-  var notification = document.createElement('div');
+  const notification = document.createElement('div');
   notification.className = 'notification notification-' + type;
   notification.innerHTML =
     '<span>' + message + '</span>' +
@@ -201,34 +206,32 @@ function showNotification(message, type) {
     boxShadow: '0 10px 30px rgba(0,0,0,0.2)',
     background: type === 'success'
       ? 'linear-gradient(135deg, #28a745, #20c997)'
-      : 'linear-gradient(135deg, #dc3545, #e8652e)'
+      : 'linear-gradient(135deg, #dc3545, #e8652e)',
   });
 
   document.body.appendChild(notification);
 
-  setTimeout(function () {
+  setTimeout(() => {
     if (notification.parentNode) {
       notification.style.opacity = '0';
       notification.style.transition = 'opacity 0.3s ease';
-      setTimeout(function () {
-        if (notification.parentNode) notification.remove();
-      }, 300);
+      setTimeout(() => { if (notification.parentNode) notification.remove(); }, 300);
     }
   }, 4000);
 }
 
 // ===== Industry Tabs =====
 (function () {
-  document.querySelectorAll('.industry-tab').forEach(function (tab) {
-    tab.addEventListener('click', function () {
-      document.querySelectorAll('.industry-tab').forEach(function (t) { t.classList.remove('active'); });
+  document.querySelectorAll('.industry-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.industry-tab').forEach(t => t.classList.remove('active'));
       tab.classList.add('active');
 
-      var target = tab.dataset.target;
-      document.querySelectorAll('.industry-panel').forEach(function (panel) {
+      const target = tab.dataset.target;
+      document.querySelectorAll('.industry-panel').forEach(panel => {
         panel.style.display = 'none';
       });
-      var targetPanel = document.getElementById(target);
+      const targetPanel = document.getElementById(target);
       if (targetPanel) targetPanel.style.display = 'block';
     });
   });
@@ -236,49 +239,50 @@ function showNotification(message, type) {
 
 // ===== ROI Calculator =====
 function updateCalculator() {
-  var employees = document.getElementById('calcEmployees');
-  var hours = document.getElementById('calcHours');
-  var cost = document.getElementById('calcCost');
+  const employees = document.getElementById('calcEmployees');
+  const hours = document.getElementById('calcHours');
+  const cost = document.getElementById('calcCost');
 
   if (!employees || !hours || !cost) return;
 
-  var empVal = parseInt(employees.value, 10) || 0;
-  var hoursVal = parseInt(hours.value, 10) || 0;
-  var costVal = parseInt(cost.value, 10) || 0;
+  const empVal = parseInt(employees.value) || 0;
+  const hoursVal = parseInt(hours.value) || 0;
+  const costVal = parseInt(cost.value) || 0;
 
-  var empValue = document.getElementById('empValue');
-  var hoursValue = document.getElementById('hoursValue');
-  var costValue = document.getElementById('costValue');
+  const empValue = document.getElementById('empValue');
+  const hoursValue = document.getElementById('hoursValue');
+  const costValue = document.getElementById('costValue');
 
   if (empValue) empValue.textContent = empVal;
   if (hoursValue) hoursValue.textContent = hoursVal + 'h';
   if (costValue) costValue.textContent = '$' + costVal;
 
-  var monthlySaving = empVal * hoursVal * (costVal / 160) * 0.7;
-  var annualSaving = monthlySaving * 12;
+  const monthlySaving = empVal * hoursVal * (costVal / 160) * 0.7;
+  const annualSaving = monthlySaving * 12;
 
-  var resultEl = document.getElementById('calcResultValue');
+  const resultEl = document.getElementById('calcResultValue');
   if (resultEl) {
     resultEl.textContent = '$' + Math.round(annualSaving).toLocaleString() + ' USD/año';
   }
 }
 
-window.addEventListener('load', function () {
+window.addEventListener('load', () => {
   if (document.getElementById('calcEmployees')) updateCalculator();
 });
 
-// ===== Smooth Scroll for internal anchor links =====
+// ===== Smooth Scroll for same-page anchors =====
 (function () {
-  document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-      var targetId = anchor.getAttribute('href');
-      if (targetId === '#') return;
-      var target = document.querySelector(targetId);
+      const targetId = this.getAttribute('href');
+      if (!targetId || targetId === '#') return;
+
+      const target = document.querySelector(targetId);
       if (!target) return;
 
       e.preventDefault();
-      var headerHeight = document.getElementById('header') ? document.getElementById('header').offsetHeight : 0;
-      var targetPosition = target.offsetTop - headerHeight;
+      const headerHeight = document.getElementById('header') ? document.getElementById('header').offsetHeight : 0;
+      const targetPosition = target.offsetTop - headerHeight;
       window.scrollTo({ top: targetPosition, behavior: 'smooth' });
     });
   });
@@ -287,8 +291,8 @@ window.addEventListener('load', function () {
 // ===== Floating Atom Particles for Page Hero =====
 (function () {
   var hero = document.querySelector('.page-hero');
-  if (!hero) return;
-  if (hero.querySelector('.hero-particles')) return;
+  if (!hero || hero.dataset.particlesReady === 'true') return;
+  hero.dataset.particlesReady = 'true';
 
   var particleContainer = document.createElement('div');
   particleContainer.className = 'hero-particles';
