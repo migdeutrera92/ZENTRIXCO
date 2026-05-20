@@ -166,8 +166,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="footer-bottom"><p class="footer-copy">&copy; 2026 ZentrixCo.</p><p class="footer-copy">Operación remota para LATAM</p></div>
   </div>
 </footer>
-
-
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const toggle = document.getElementById("mobileToggle");
+  const nav = document.getElementById("nav");
+  if (toggle && nav) {
+    toggle.addEventListener("click", function () {
+      nav.classList.toggle("active");
+      toggle.classList.toggle("active");
+    });
+  }
+});
+</script>
 <!-- SEO INTERNAL LINKS -->
 <div class="related-box">
   <a href="/automatizacion-procesos-chile">Automatización de procesos en empresas</a>
@@ -175,6 +185,5 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <a href="/torre-control-operacional-ia-automatizacion">Torre de control con IA</a>
 </div>
 
-<script src="/js/scripts-global.js?v=20260519-menu-fix" defer></script>
 </body>
 </html>
