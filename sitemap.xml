@@ -38,9 +38,15 @@
   </url>
   <url>
     <loc>https://www.zentrixco.ai/blog-automatizacion-ia</loc>
-    <lastmod>2026-05-18</lastmod>
+    <lastmod>2026-05-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.zentrixco.ai/que-procesos-puede-automatizar-una-pyme</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.zentrixco.ai/chatbot-basico-vs-intermedio-leads-diagnosticos</loc>
