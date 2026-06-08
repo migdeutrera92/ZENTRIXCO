@@ -552,7 +552,10 @@ Las empresas que automatizan hoy… son las que lideran mañana.
 <span class="newsletter-kicker">Newsletter ZentrixCo</span>
 <h3 id="newsletterTitle">Recibe contenido útil de automatización</h3>
 <p>Déjanos tus datos y te enviaremos contenido práctico sobre RPA, IA, n8n, Make y mejora de procesos.</p>
-<form action="https://hook.us2.make.com/140akm4nh9cxe276m744u933jzyaz5we" class="newsletter-form" id="newsletterForm" method="POST">
+<iframe name="newsletterFrame" style="display:none;"></iframe>
+<form action="https://hook.us2.make.com/140akm4nh9cxe276m744u933jzyaz5we" class="newsletter-form" id="newsletterForm" method="POST" target="newsletterFrame">
+<input type="hidden" name="origen" value="blog-automatizacion-ia"/>
+<input type="hidden" name="formulario" value="newsletter_blog"/>
 <div class="form-row">
 <div class="form-group">
 <label for="newsletterName">Nombre</label>
@@ -629,11 +632,10 @@ document.addEventListener('DOMContentLoaded', function () {
     if(scrolled > 0.42){ shown = true; openModal(); }
   }, {passive:true});
   if(form){
-    form.addEventListener('submit', function(e){
-      e.preventDefault();
-      status.textContent = '✅ Formulario listo para integrarse con tu endpoint de newsletter.';
+    form.addEventListener('submit', function(){
+      status.textContent = '✅ Gracias. Tus datos fueron enviados correctamente.';
       status.style.color = 'green';
-      form.reset();
+      setTimeout(function(){ form.reset(); }, 600);
     });
   }
 });
