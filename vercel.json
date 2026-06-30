@@ -103,6 +103,30 @@
       "destination": "/landing-rpa.html"
     },
     {
+      "source": "/automatizacion-IA-acto-eu-que-significa-para-pymes-latam",
+      "destination": "/automatizacion-IA-acto-eu-que-significa-para-pymes-latam.html"
+    },
+    {
+      "source": "/process-mining-que-es-y-como-usarlo-en-pymes",
+      "destination": "/process-mining-que-es-y-como-usarlo-en-pymes.html"
+    },
+    {
+      "source": "/agentes-ia-autonomos-diferencias-automatizacion-tradicional",
+      "destination": "/agentes-ia-autonomos-diferencias-automatizacion-tradicional.html"
+    },
+    {
+      "source": "/automatizacion-sin-codigo-low-code-pymes-latam",
+      "destination": "/automatizacion-sin-codigo-low-code-pymes-latam.html"
+    },
+    {
+      "source": "/automatizacion-whatsapp-business-pymes-guia-completa",
+      "destination": "/automatizacion-whatsapp-business-pymes-guia-completa.html"
+    },
+    {
+      "source": "/ia-generativa-operaciones-pymes-casos-reales",
+      "destination": "/ia-generativa-operaciones-pymes-casos-reales.html"
+    },
+    {
       "source": "/automatizacion-rpa-empresas",
       "destination": "/que-es-rpa-y-como-automatizar-procesos.html"
     },
