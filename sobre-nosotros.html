@@ -102,14 +102,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .step p{color:#445;line-height:1.6;margin:0}
 .historia-highlight{font-weight:700;color:#173f7a;font-size:1.05rem;margin-bottom:20px;line-height:1.5}
 .historia-desc{color:#667085;line-height:1.7;margin-bottom:28px}
-.historia-card{background:linear-gradient(135deg,#173f7a 0%,#0f2f5d 100%);border-radius:24px;padding:40px;text-align:center;color:#fff}
-.historia-card-logo{height:48px;width:auto;margin-bottom:18px;opacity:0.9}
-.historia-card h3{font-size:1.8rem !important;font-weight:800 !important;color:#fff !important;opacity:1 !important;margin-bottom:6px}
+.historia-card{background:linear-gradient(135deg,#173f7a 0%,#0f2f5d 100%);border-radius:24px;padding:44px 40px 40px;text-align:center;color:#fff;position:relative;overflow:hidden}
+.historia-card::before{content:'';position:absolute;top:-60px;right:-60px;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,rgba(235,100,40,.18) 0%,transparent 70%)}
+.historia-card-brand{display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:6px;position:relative;z-index:1}
+.historia-card-logo{height:52px;width:auto;filter:drop-shadow(0 4px 10px rgba(0,0,0,.25))}
+.historia-card h3{font-size:1.9rem !important;font-weight:800 !important;color:#fff !important;opacity:1 !important;margin:0;letter-spacing:-0.5px}
 .historia-card h3 span{color:#eb6428 !important;opacity:1 !important}
-.historia-card p{color:rgba(255,255,255,.85) !important;opacity:1 !important;margin-bottom:24px;font-size:1.05rem;font-weight:500}
+.historia-card p{color:rgba(255,255,255,.78) !important;opacity:1 !important;margin-bottom:28px;font-size:1rem;font-weight:500;position:relative;z-index:1}
 .historia-badge{display:inline-block;background:rgba(235,100,40,.2);color:#eb6428;font-size:.8rem;font-weight:700;padding:6px 16px;border-radius:40px;margin-bottom:16px;border:1px solid rgba(235,100,40,.3)}
-.historia-stats{display:flex;flex-direction:column;gap:8px}
-.historia-stats div{background:rgba(255,255,255,.1);border-radius:10px;padding:10px 16px;font-size:.85rem;color:rgba(255,255,255,.85);font-weight:500}
+.historia-stats{display:flex;flex-direction:column;gap:8px;position:relative;z-index:1}
+.historia-stats div{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:11px 16px;font-size:.85rem;color:rgba(255,255,255,.9);font-weight:500}
 
 /* Timeline */
 .timeline-mini{padding:64px 0;background:var(--bg-soft) !important}
@@ -303,8 +305,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </div>
 <div class="historia-card">
 <div class="historia-badge">Chile & LATAM</div>
+<div class="historia-card-brand">
 <img alt="ZentrixCo" class="historia-card-logo" src="/imagenes/logo_zentrixco_transparente%20(1).png"/>
 <h3>Zentrix<span>Co</span></h3>
+</div>
 <p>Automatización Inteligente para pymes</p>
 <div class="historia-stats">
 <div>+6 años en automatización de procesos</div>
