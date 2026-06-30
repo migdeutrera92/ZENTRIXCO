@@ -175,6 +175,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 /* CTA banner */
 .cta-banner{padding:72px 0;background:linear-gradient(135deg,#f5f7fb,#edf1f9)}
+.cta-banner h2{color:#173f7a !important;opacity:1 !important;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;margin-bottom:16px;max-width:760px;margin-left:auto;margin-right:auto}
+.cta-banner p{color:#445166 !important;opacity:1 !important;font-size:1.05rem;line-height:1.7;max-width:640px;margin:0 auto 28px}
+
+/* Blindaje: cualquier h2 sin clase específica en fondo claro debe verse oscuro */
+.founder-content h2,
+.why-section h2,
+.stats-enhanced h2,
+.pain-section h2,
+.historia-pro h2:not(.historia-title),
+.fd-section h2:not(.fd-title){color:#173f7a !important;opacity:1 !important;font-weight:800 !important}
+.why-section p.section-subtitle,
+.stats-enhanced p.section-subtitle{color:#667085 !important;opacity:1 !important}
+
 
 /* Responsive */
 @media(max-width:900px){
@@ -196,7 +209,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <header class="header" id="header">
 <div class="container header-inner">
 <a class="logo" href="/">
-<img alt="ZentrixCo Logo" class="logo-img" src="https://mgx-backend-cdn.metadl.com/generate/images/1102970/2026-04-15/mvbqgriaafaa/logo-zentrixco-transparent.png"/>
+<img alt="ZentrixCo Logo" class="logo-img" src="/imagenes/logo_zentrixco_transparente%20(1).png"/>
 <span class="logo-text">Zentrix<span class="logo-highlight">Co</span></span>
 </a>
 <nav class="nav" id="nav" aria-label="Menú principal">
@@ -290,7 +303,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </div>
 <div class="historia-card">
 <div class="historia-badge">Chile & LATAM</div>
-<img alt="ZentrixCo Logo" src="https://mgx-backend-cdn.metadl.com/generate/images/1102970/2026-04-15/mvbqgriaafaa/logo-zentrixco-transparent.png"/>
+<img alt="ZentrixCo Logo" src="/imagenes/logo_zentrixco_transparente%20(1).png"/>
 <h3>Zentrix<span>Co</span></h3>
 <p>Automatización Inteligente para pymes</p>
 <div class="historia-stats">
@@ -474,7 +487,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <div class="footer-grid">
 <div class="footer-about">
 <div class="footer-logo">
-<img alt="ZentrixCo Logo" class="logo-img" loading="lazy" src="https://mgx-backend-cdn.metadl.com/generate/images/1102970/2026-04-15/mvbqgriaafaa/logo-zentrixco-transparent.png"/>
+<img alt="ZentrixCo Logo" class="logo-img" loading="lazy" src="/imagenes/logo_zentrixco_transparente%20(1).png"/>
 <span class="logo-text">Zentrix<span class="logo-highlight">Co</span></span>
 </div>
 <p>Automatizamos procesos con IA y RPA para que las pymes de Chile y LATAM operen con menos carga manual y más control.</p>
