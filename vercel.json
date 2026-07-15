@@ -1,162 +1,53 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "outputDirectory": ".",
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
     {
-      "source": "/(.*)\\.html",
-      "destination": "/$1",
+      "source": "/index",
+      "destination": "/",
       "permanent": true
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/demo-chatbots",
-      "destination": "/demo-chatbots.html"
-    },
-    {
-      "source": "/servicios",
-      "destination": "/servicios.html"
-    },
-    {
-      "source": "/soluciones",
-      "destination": "/soluciones.html"
-    },
-    {
-      "source": "/sobre-nosotros",
-      "destination": "/sobre-nosotros.html"
-    },
-    {
-      "source": "/contacto",
-      "destination": "/contacto.html"
-    },
-    {
-      "source": "/blog-automatizacion-ia",
-      "destination": "/blog-automatizacion-ia.html"
-    },
-    {
-      "source": "/como-saber-si-tu-pyme-necesita-automatizar-procesos",
-      "destination": "/como-saber-si-tu-pyme-necesita-automatizar-procesos.html"
-    },
-    {
-      "source": "/que-procesos-puede-automatizar-una-pyme",
-      "destination": "/que-procesos-puede-automatizar-una-pyme.html"
-    },
-    {
-      "source": "/chatbot-basico-vs-intermedio-leads-diagnosticos",
-      "destination": "/chatbot-basico-vs-intermedio-leads-diagnosticos.html"
-    },
-    {
-      "source": "/casos-de-exito-automatizacion",
-      "destination": "/casos-de-exito-automatizacion.html"
-    },
-    {
-      "source": "/caso-automatizacion-tickets-servicenow-n8n-llms",
-      "destination": "/caso-automatizacion-tickets-servicenow-n8n-llms.html"
-    },
-    {
-      "source": "/automatizacion-agentica-operaciones-latam",
-      "destination": "/automatizacion-agentica-operaciones-latam.html"
-    },
-    {
-      "source": "/torre-control-operacional-ia-automatizacion",
-      "destination": "/torre-control-operacional-ia-automatizacion.html"
-    },
-    {
-      "source": "/automatizacion-procesos-chile",
-      "destination": "/automatizacion-procesos-chile.html"
-    },
-    {
-      "source": "/checklist-procesos-automatizar",
-      "destination": "/checklist-procesos-automatizar.html"
-    },
-    {
-      "source": "/que-es-rpa-y-como-automatizar-procesos",
-      "destination": "/que-es-rpa-y-como-automatizar-procesos.html"
-    },
-    {
-      "source": "/guia-n8n-automatizacion-empresarial",
-      "destination": "/guia-n8n-automatizacion-empresarial.html"
-    },
-    {
-      "source": "/agentes-ia-automatizacion-inteligente",
-      "destination": "/agentes-ia-automatizacion-inteligente.html"
-    },
-    {
-      "source": "/hiperautomatizacion-mas-alla-del-rpa",
-      "destination": "/hiperautomatizacion-mas-alla-del-rpa.html"
-    },
-    {
-      "source": "/como-calcular-roi-automatizacion",
-      "destination": "/como-calcular-roi-automatizacion.html"
-    },
-    {
-      "source": "/make-vs-n8n-cual-elegir",
-      "destination": "/make-vs-n8n-cual-elegir.html"
-    },
-    {
-      "source": "/landing-rpa",
-      "destination": "/landing-rpa.html"
-    },
-    {
-      "source": "/automatizacion-IA-acto-eu-que-significa-para-pymes-latam",
-      "destination": "/automatizacion-IA-acto-eu-que-significa-para-pymes-latam.html"
-    },
-    {
-      "source": "/process-mining-que-es-y-como-usarlo-en-pymes",
-      "destination": "/process-mining-que-es-y-como-usarlo-en-pymes.html"
-    },
-    {
-      "source": "/agentes-ia-autonomos-diferencias-automatizacion-tradicional",
-      "destination": "/agentes-ia-autonomos-diferencias-automatizacion-tradicional.html"
-    },
-    {
-      "source": "/automatizacion-sin-codigo-low-code-pymes-latam",
-      "destination": "/automatizacion-sin-codigo-low-code-pymes-latam.html"
-    },
-    {
-      "source": "/automatizacion-whatsapp-business-pymes-guia-completa",
-      "destination": "/automatizacion-whatsapp-business-pymes-guia-completa.html"
-    },
-    {
-      "source": "/ia-generativa-operaciones-pymes-casos-reales",
-      "destination": "/ia-generativa-operaciones-pymes-casos-reales.html"
     },
     {
       "source": "/automatizacion-rpa-empresas",
-      "destination": "/que-es-rpa-y-como-automatizar-procesos.html"
+      "destination": "/que-es-rpa-y-como-automatizar-procesos",
+      "permanent": true
     },
     {
       "source": "/caso-servicenow-n8n-ia",
-      "destination": "/caso-automatizacion-tickets-servicenow-n8n-llms.html"
+      "destination": "/caso-automatizacion-tickets-servicenow-n8n-llms",
+      "permanent": true
     },
     {
       "source": "/automatizacion-finanzas",
-      "destination": "/soluciones.html"
+      "destination": "/soluciones",
+      "permanent": true
     },
     {
       "source": "/automatizacion-retail",
-      "destination": "/soluciones.html"
+      "destination": "/soluciones",
+      "permanent": true
     },
     {
       "source": "/automatizacion-logistica",
-      "destination": "/soluciones.html"
+      "destination": "/soluciones",
+      "permanent": true
     },
     {
       "source": "/automatizacion-rpa-latam",
-      "destination": "/servicios.html"
+      "destination": "/servicios",
+      "permanent": true
     },
     {
       "source": "/agentes-ia-empresas",
-      "destination": "/servicios.html"
+      "destination": "/servicios",
+      "permanent": true
     },
     {
       "source": "/integracion-sistemas",
-      "destination": "/servicios.html"
+      "destination": "/servicios",
+      "permanent": true
     }
   ],
   "headers": [
@@ -170,6 +61,23 @@
         {
           "key": "X-Frame-Options",
           "value": "SAMEORIGIN"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=()"
+        }
+      ]
+    },
+    {
+      "source": "/(css|js|imagenes)/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400, s-maxage=604800, stale-while-revalidate=86400"
         }
       ]
     }
