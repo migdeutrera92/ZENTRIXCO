@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="t d">
+<title id="t">Deuda de automatización</title><desc id="d">Inventario de bots, flujos y agentes con alertas de mantenimiento.</desc>
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f7f9fc"/><stop offset="1" stop-color="#e4edf8"/></linearGradient><filter id="s"><feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#173f7a" flood-opacity=".16"/></filter></defs>
+<rect width="1200" height="630" fill="url(#g)"/><path d="M0 500C250 420 420 610 690 500s350-40 510-130v260H0z" fill="#173f7a" opacity=".06"/>
+<g filter="url(#s)"><rect x="80" y="75" width="1040" height="480" rx="34" fill="#fff"/></g>
+<text x="130" y="165" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#eb6428">GOBIERNO Y ESCALABILIDAD</text>
+<text x="130" y="237" font-family="Arial, sans-serif" font-size="52" font-weight="700" fill="#173f7a">Deuda de automatización</text>
+<text x="130" y="289" font-family="Arial, sans-serif" font-size="25" fill="#435066">Cuando los bots, flujos y agentes cuestan más de lo que ahorran</text>
+<g transform="translate(135 345)" font-family="Arial, sans-serif">
+<rect x="0" y="0" width="610" height="135" rx="18" fill="#f7f9fc" stroke="#d8e3f0" stroke-width="2"/>
+<text x="28" y="38" font-size="18" font-weight="700" fill="#173f7a">Inventario de automatizaciones</text>
+<g font-size="17" fill="#435066"><text x="28" y="77">Flujo de ventas</text><text x="250" y="77">Owner: Comercial</text><text x="455" y="77" fill="#198754">Estable</text><text x="28" y="111">Bot de reportes</text><text x="250" y="111">Owner: —</text><text x="455" y="111" fill="#eb6428">Riesgo alto</text></g>
+<circle cx="820" cy="68" r="68" fill="#eb6428" opacity=".14"/><path d="M820 25v58" stroke="#eb6428" stroke-width="13" stroke-linecap="round"/><circle cx="820" cy="108" r="8" fill="#eb6428"/><text x="820" y="165" text-anchor="middle" font-size="17" font-weight="700" fill="#173f7a">Sin owner + sin logs</text>
+</g><text x="130" y="520" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#173f7a">ZentrixCo · Diagnóstico de automatización</text></svg>

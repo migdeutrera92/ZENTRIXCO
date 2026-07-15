@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="t d">
+<title id="t">Automatización resiliente</title><desc id="d">Flujo automatizado con rutas de recuperación y monitoreo.</desc>
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#eff5fb"/><stop offset="1" stop-color="#dce8f6"/></linearGradient><filter id="s"><feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#173f7a" flood-opacity=".18"/></filter></defs>
+<rect width="1200" height="630" fill="url(#g)"/><circle cx="1030" cy="100" r="180" fill="#eb6428" opacity=".09"/><circle cx="140" cy="560" r="220" fill="#173f7a" opacity=".08"/>
+<g filter="url(#s)"><rect x="80" y="80" width="1040" height="470" rx="34" fill="#fff"/></g>
+<text x="130" y="170" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#eb6428">OPERACIÓN CONFIABLE</text>
+<text x="130" y="240" font-family="Arial, sans-serif" font-size="52" font-weight="700" fill="#173f7a">Automatización resiliente</text>
+<text x="130" y="292" font-family="Arial, sans-serif" font-size="25" fill="#435066">Flujos que detectan, registran y recuperan fallos</text>
+<g transform="translate(130 355)" font-family="Arial, sans-serif" font-weight="700">
+<rect x="0" y="0" width="180" height="72" rx="16" fill="#173f7a"/><text x="90" y="44" text-anchor="middle" font-size="19" fill="#fff">Entrada</text>
+<path d="M180 36H245" stroke="#173f7a" stroke-width="8" stroke-linecap="round"/><path d="M232 23l20 13-20 13" fill="none" stroke="#173f7a" stroke-width="8"/>
+<rect x="255" y="0" width="200" height="72" rx="16" fill="#eef4fb" stroke="#173f7a" stroke-width="3"/><text x="355" y="44" text-anchor="middle" font-size="19" fill="#173f7a">Validación</text>
+<path d="M455 36H520" stroke="#173f7a" stroke-width="8" stroke-linecap="round"/><path d="M507 23l20 13-20 13" fill="none" stroke="#173f7a" stroke-width="8"/>
+<rect x="530" y="0" width="190" height="72" rx="16" fill="#eb6428"/><text x="625" y="44" text-anchor="middle" font-size="19" fill="#fff">Ejecución</text>
+<path d="M720 36H785" stroke="#173f7a" stroke-width="8" stroke-linecap="round"/><path d="M772 23l20 13-20 13" fill="none" stroke="#173f7a" stroke-width="8"/>
+<rect x="795" y="0" width="180" height="72" rx="16" fill="#eef4fb" stroke="#173f7a" stroke-width="3"/><text x="885" y="44" text-anchor="middle" font-size="19" fill="#173f7a">Confirmación</text>
+<path d="M625 72v66H355v-58" fill="none" stroke="#eb6428" stroke-width="6" stroke-dasharray="12 10"/><text x="490" y="132" text-anchor="middle" font-size="17" fill="#eb6428">Ruta de recuperación</text>
+</g><text x="130" y="510" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#173f7a">ZentrixCo · RPA · IA · Integraciones</text></svg>
