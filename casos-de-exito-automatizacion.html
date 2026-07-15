@@ -78,7 +78,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   ]
 }
 </script>
-<link href="/css/styles-global.css?v=20260715-2" rel="stylesheet"/>
+<link href="/css/styles-global.css?v=20260715-3" rel="stylesheet"/>
 
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -96,7 +96,82 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .caso-flow li{margin-bottom:8px;font-size:.9rem;line-height:1.5}
 .caso-nota{font-size:.82rem;color:#667085;margin-top:12px;font-style:italic}
 </style>
-<link href="/imagenes/logo-zentrixco.jpg" rel="icon" type="image/jpeg"/></head>
+<link href="/imagenes/logo-zentrixco.jpg" rel="icon" type="image/jpeg"/>
+<!-- FIX DEFINITIVO CASOS Y DEMOS: estilos embebidos para evitar caché o CSS antiguo -->
+<style id="zentrixco-cases-results-fix-v3">
+.page-casos-exito .case-result {
+  display: flex !important;
+  flex-direction: column !important;
+  grid-template-columns: none !important;
+  width: 100% !important;
+  max-width: none !important;
+  gap: 9px !important;
+  margin: auto 0 20px !important;
+  padding: 14px !important;
+  overflow: hidden !important;
+  background: linear-gradient(180deg, #f9fbff 0%, #f4f7fc 100%) !important;
+  border: 1px solid #e3eaf5 !important;
+  border-radius: 18px !important;
+  box-shadow: none !important;
+}
+.page-casos-exito .case-result::before {
+  width: 42% !important;
+}
+.page-casos-exito .case-result-item {
+  display: grid !important;
+  grid-template-columns: minmax(94px, 0.9fr) minmax(0, 1.1fr) !important;
+  align-items: center !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  gap: 11px !important;
+  padding: 11px 12px !important;
+  margin: 0 !important;
+  text-align: left !important;
+  background: #ffffff !important;
+  border: 1px solid #e3eaf5 !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+}
+.page-casos-exito .case-result-item .number {
+  display: block !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  color: #e8652e !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 0.94rem !important;
+  font-weight: 700 !important;
+  line-height: 1.22 !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+  word-break: normal !important;
+}
+.page-casos-exito .case-result-item .label {
+  display: block !important;
+  min-width: 0 !important;
+  padding-left: 11px !important;
+  border-left: 1px solid #e3eaf5 !important;
+  color: #5b6472 !important;
+  font-size: 0.76rem !important;
+  line-height: 1.35 !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+  word-break: normal !important;
+}
+@media (max-width: 420px) {
+  .page-casos-exito .case-result-item {
+    grid-template-columns: 1fr !important;
+    gap: 5px !important;
+  }
+  .page-casos-exito .case-result-item .label {
+    padding-left: 0 !important;
+    padding-top: 6px !important;
+    border-left: 0 !important;
+    border-top: 1px solid #e3eaf5 !important;
+  }
+}
+</style>
+
+</head>
 <body class="page-casos-exito">
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-NGB6BGZB" style="display:none;visibility:hidden" width="0"></iframe></noscript>
